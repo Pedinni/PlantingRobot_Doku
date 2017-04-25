@@ -1,0 +1,18 @@
+\newpage
+\section*{Management Summary}
+Die vorliegende Arbeit dokumentiert die Umsetzung eines autonomen Entsorgungsfahrzeuges. Das Konzept dazu wurde im Rahmen des Projektmoduls PREN 1 während des Herbstsemesters 2015 am Departement Technik und Architektur der Hochschule Luzern vom PREN-Team 38 erarbeitet.
+
+Das Ziel im Frühlingssemester 2016 war es, das konzipierte Fahrzeug im PREN 2 herzustellen. Es soll in der Lage sein, autonom einer Strasse zu folgen und die richtigen Abfallcontainer (grün und blau) zu erkennen. Diese sind zu entleeren und das gesamte Entsorgungsgut in einem Behälter am Zielfeld zu entsorgen.
+
+Das funktionsfähige Entsorgungsfahrzeug soll zuletzt am Schlusswettbewerb aller PREN-Teams teilnehmen.\\
+
+Durch das vorhandene Konzept wurden die Fertigungsaufgaben auf die verschiedenen Disziplinen Maschinentechnik, Elektrotechnik und Informatik verteilt. Innerhalb des Frühlingssemesters sollte das Fahrzeug mechanisch aufgebaut, elektronisch verkabelt und durch die Informatik programmiert werden.\\
+
+Der Ablauf der Funktionen sollte anhand des Konzepts folgendermassen aussehen:
+
+Nachdem das Entsorgungsfahrzeug eingeschaltet und der Initialisierungsvorgang abgeschlossen ist, wird die Fahrt durch einen der Startbuttons, blau oder grün, gestartet. Während der Fahrt wird mithilfe einer Kamera sichergestellt, dass das Fahrzeug der Spur folgt. Sobald die zweite Kamera einen Abfallcontainer der entsprechenden Farbe erfasst, erkennt die Software diesen und lässt das Fahrzeug nach einer Prüfung mit dem Distanzsensor an der richtigen Stelle halten. Der seitlich fixierte Greifarm wird horizontal ausgefahren und greift nach dem Abfallcontainer, wonach er über eine Rotationsbewegung in den Laderaum entleert wird. Sobald der Abfallcontainer geleert und zurückgestellt ist, fährt das Fahrzeug weiter.\\
+Wenn die Software mithilfe der Fahrtkamera eine Kreuzung erkennt, lässt sie mittels Ultraschallsensor den Rechtsvortritt überprüfen und unterbricht im Falle eines anderen Fahrzeuges die Fahrt.
+
+Gelangt das Fahrzeug zur Ziellinie, leitet die Software den Endvorgang ein. Dabei hält das Fahrzeug im Zielfeld neben dem Entsorgungsbecken, in welches der Greifarm den Laderaum kippt.\\
+
+Anhand eines ersten Prototyps konnten das Zusammenspiel der Komponenten sowie die Programme fortlaufend getestet und perfektioniert werden. Die vorliegende Arbeit dokumentiert die gesamte Umsetzung des Fahrzeugs und die Änderungen des Konzepts welche im Laufe des Semesters durchgeführt wurden.

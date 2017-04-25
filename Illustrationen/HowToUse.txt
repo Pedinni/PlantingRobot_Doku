@@ -1,0 +1,8 @@
+
+- Nur Bilder (.jpg / .png ) oder PDFs
+- Keine Leerzeichen und Punkte (.) im Namen
+
+- Einzufügender Inhalt in entsprechenden Kapitel-Ordner abspeichern
+- Bsp für Benennung: 				5_1-Organigram.png
+  Falls nötig mit Versionierung:	5_1-Organigramm-v2_0.png
+

@@ -1,0 +1,56 @@
+\documentclass[oneside,a4paper,12pt]{extarticle}
+
+%\newcommand{\managementComputerName}{Raspberry Pi 2 Model B}
+
+\usepackage{mathtools}
+\usepackage{Format}
+\usepackage{listings}
+\usepackage{wrapfig}
+\usepackage[table]{xcolor}
+
+\definecolor{Gray}{gray}{0.85}
+
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+	{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+	{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\usepackage{listings}
+\lstset{
+	frame = none, 
+	language=, 
+	basicstyle=\small,
+	aboveskip=0.2cm,
+	belowskip=-0.5cm
+	%xleftmargin=\parindent,
+	}
+
+\usepackage{textcomp}
+\usepackage{apacite}
+\bibliographystyle{apacite}
+
+
+\begin{document}
+\pagenumbering{Roman}
+
+\includepdf{Illustrationen/0-Vorspann/Titelblatt.pdf}
+\input{Kapitel/0_Vorspann/0.1_Redlichkeitserklärung}
+\input{Kapitel/0_Vorspann/0.2_Inhaltsverzeichnis}
+\input{Kapitel/0_Vorspann/0.3_Abbildungsverzeichnis}
+\input{Kapitel/0_Vorspann/0.4_Tabellenverzeichnis}
+\input{Kapitel/0_Vorspann/0.5_Glossar}
+\newpage
+\pagenumbering{arabic}
+
+\input{Kapitel/1_Management_Summary/1_Management_Summary}
+\input{Kapitel/2_Funktionsanalyse/2_Funktionsanalyse}
+\input{Kapitel/1_Einleitung/1_Einleitung}
+\input{Kapitel/6_Schlussdiskussion/6_Schlussdiskussion}
+
+\newpage
+
+\bibliography{Quellen/literatur}
+\input{Kapitel/7_Anhang/7_Anhang}
+\end{document}
