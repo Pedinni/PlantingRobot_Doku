@@ -1,1 +1,47 @@
 \subsection{Evaluation der Komponenten}
+\subsubsection{Translation}
+ 	\label{subsec:Translation}
+
+Für die Realisierung der translatorischen Bewegung der Setzeinheit bieten sich verschiedene Technologien an. In der Automatisation werden verbreitet eingesetzt:
+	\begin{itemize}
+	\item \textbf{Spindelantriebe:}
+	Ein Motor treibt eine gelagerte Spindel an. Durch eine Bewegungsschraube wird die Rotation in eine Translation gewandelt. Spindeln sind preiswert und bieten eine hohe Gestaltungsfreiheit sowie vielfältige Einsetzbarkeit. Für Anwendungen mit hohen Geschwindigkeiten kommen Steilgewindespindeln zum Einsatz. Nachteilig ist der höhere Entwicklungsaufwand.
+	\item \textbf{Elektrozylinder:}
+	Elektrozylinder werden als fertige Komponenten eingekauft. In der Funktionsweise sind Elektrozylinder identisch zu Spindeln. Im Innern befindet sich auch eine Spindel, welche über einen Riemenantrieb oder Getriebe vom Motor angetrieben wird. Diese Fertigteile erreichen Geschwindigkeiten bis 600 mm/s und 15kN Axialkraft. Im Vergleich mit Spindeln sind diese wesentlich teuerer.
+	\item \textbf{Pneumatik:}
+	Auch die Pneumatik bietet Lösungen für die Anwendung. Dabei wird Druckenergie in kinetische Energie gewandelt. Ein Pneumatikzylinder kann die geforderte Geschwindigkeit und Kraft für diese Anwendung aufbringen. Die einfache Implementation und Ansteuerung sind klare Vorteil. Jedoch sind Pneumatikkomponenten teuer und benötigen ein Druckluftkompressor.
+	\end{itemize}
+
+Durch den Setzprozess und die Geometrie der Töpfe sind folgende Anforderungen gegeben:
+\newline
+Einschaltdauer: 50 Prozent
+\newline
+Durchschnittliche axiale Kraftaufnahme: 20N
+\newline
+Durchschnittliche Geschwindigkeit (überschlägig):
+\begin{equation}
+v_{avg}=\frac{2*s_{max}}{T_{min}-T_{t}}=\frac{2*100mm}{0.5s-0.1s}=500mm/s
+\end{equation}
+
+Für die Evaluation der Translation wurden alle drei Technologien unter Berücksichtigung der genannten Anforderungen in Betracht gezogen. Obwohl die Pneumatik die einfachste Umsetzung bietet, kommt diese nicht in Frage. Begründet wird dies mit dem Fehlen von Pneumatikanschlüssen in der Grundausstattung der Topfmaschine sowie den hohen Kosten.
+\newline
+Da zwischen Spindelantriebe und Elektrozylinder keinen funktionellen Unterschied feststellbar ist, wurde die Wahl nach Verfügbarkeit und Preis beurteilt. Im Gespräch (29.3.17) mit dem betreuenden Dozenten wurde Igus als kompetenter Hersteller von Spindeln genannt. Für Elektrozylinder wurden verschiedene Distributoren (Tecalto AG, Bachofen AG, Parkem AG, Phoenix Mecano Komponenten AG) angefragt. Nur Parkem AG konnte ein Produkt zur Offerte anbieten. Somit ergibt sich folgende Gegenüberstellung:
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+	\hline 
+	Produkt & Igus Ds14x30 & Parkem ETH032  \\ 
+	\hline 
+	Typ & Spindel & Elektrozylinder \\ 
+	\hline 
+	Preis [CHF] & <100  & 1700    \\ 
+	\hline 
+	Lieferfrist [Wochen] &1 - 2  &6 \\ 
+	\hline 
+	Kommentar & gemäss Telefonat 5.4.17 & gemäss Mail 4.4.17 \\ 
+	\hline 
+\end{tabular}
+	\vspace{0.2cm}
+\end{table}[H]	 
+Unschwer erkennt man, dass der Preis eines Elektrozylinders um ein Vielfaches höher ist als eine Spindel. Relativieren kann man dieses Argument, wenn man bedenkt, dass für die Spindel ein Motor und die Lagerung beschafft werden muss. Entscheidend ist jedoch das zeitliche Argument. Unter Berücksichtigung des Projektplans wird rasch ersichtlich, dass eine Lieferfrist von 6 Wochen nicht mit der Umsetzung vereinbar ist. Somit wird die Translation mit einer Igus Dryspin Steilgewindespindel realisiert.
+
+
