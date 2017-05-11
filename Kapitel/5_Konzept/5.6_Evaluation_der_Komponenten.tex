@@ -7,16 +7,16 @@ Für die Realisierung der translatorischen Bewegung der Setzeinheit bieten sich 
 	\item \textbf{Spindelantriebe:}
 	Ein Motor treibt eine gelagerte Spindel an. Durch eine Bewegungsschraube wird die Rotation in eine Translation gewandelt. Spindeln sind preiswert und bieten eine hohe Gestaltungsfreiheit sowie vielfältige Einsetzbarkeit. Für Anwendungen mit hohen Geschwindigkeiten kommen Steilgewindespindeln zum Einsatz. Nachteilig ist der höhere Entwicklungsaufwand.
 	\item \textbf{Elektrozylinder:}
-	Elektrozylinder werden als fertige Komponenten eingekauft. In der Funktionsweise sind Elektrozylinder identisch zu Spindeln. Im Innern befindet sich auch eine Spindel, welche über einen Riemenantrieb oder Getriebe vom Motor angetrieben wird. Diese Fertigteile erreichen Geschwindigkeiten bis 600 mm/s und 15kN Axialkraft. Im Vergleich mit Spindeln sind diese wesentlich teuerer.
+	Elektrozylinder werden als fertige Komponenten eingekauft. In der Funktionsweise sind Elektrozylinder identisch zu Spindeln. Im Innern befindet sich auch eine Spindel, welche über einen Riemenantrieb oder Getriebe vom Motor angetrieben wird. Diese Fertigteile erreichen Geschwindigkeiten bis 600 mm/s und 15kN Axialkraft. Vrglichen mit Spindeln sind Elektrozylinder wesentlich teuerer.
 	\item \textbf{Pneumatik:}
-	Auch die Pneumatik bietet Lösungen für die Anwendung. Dabei wird Druckenergie in kinetische Energie gewandelt. Ein Pneumatikzylinder kann die geforderte Geschwindigkeit und Kraft für diese Anwendung aufbringen. Die einfache Implementation und Ansteuerung sind klare Vorteil. Jedoch sind Pneumatikkomponenten teuer und benötigen ein Druckluftkompressor.
+	Auch die Pneumatik bietet Lösungen für die Anwendung. Dabei wird Druckenergie in kinetische Energie gewandelt. Ein Pneumatikzylinder kann die geforderte Geschwindigkeit und Kraft für diese Anwendung aufbringen. Die einfache Implementation und Ansteuerung sind klare Vorteile. Jedoch sind Pneumatikkomponenten teuer und benötigen einen Druckluftkompressor.
 	\end{itemize}
 
 Durch den Setzprozess und die Geometrie der Töpfe sind folgende Anforderungen gegeben:
 \newline
-Einschaltdauer: 50 Prozent
+Einschaltdauer: 50 Prozent (gegeben durch Topfmaschine)
 \newline
-Durchschnittliche axiale Kraftaufnahme: 20N
+Durchschnittliche axiale Kraftaufnahme: 20N (Aus Funktionsnachweis)
 \newline
 Durchschnittliche Geschwindigkeit (überschlägig):
 \begin{equation}
@@ -41,7 +41,7 @@ Da zwischen Spindelantriebe und Elektrozylinder keinen funktionellen Unterschied
 	\hline 
 \end{tabular}
 	\vspace{0.2cm}
-\end{table}[H]	 
+\end{table}	 
 Unschwer erkennt man, dass der Preis eines Elektrozylinders um ein Vielfaches höher ist als eine Spindel. Relativieren kann man dieses Argument, wenn man bedenkt, dass für die Spindel ein Motor und die Lagerung beschafft werden muss. Entscheidend ist jedoch das zeitliche Argument. Unter Berücksichtigung des Projektplans wird rasch ersichtlich, dass eine Lieferfrist von 6 Wochen nicht mit der Umsetzung vereinbar ist. Somit wird die Translation mit einer Igus Dryspin Steilgewindespindel realisiert.
 
 

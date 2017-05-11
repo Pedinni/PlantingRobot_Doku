@@ -1,5 +1,5 @@
 \subsection{Funktionsnachweis kritischer Funktionen}
-Dieses Unterkapitel befasst sich mit dem praktischen Nachweis von kritischen Teilfunktionen. Kritische Teilfunktionen sind Funktionen, welche bei einem Ausfall dieser Teilfunktion, einen Ausfall des Gesamtsystems zur Folge hat. Dabei soll die Umsetzung einfacher Funktionsmuster einen praktischen Nachweis bringen, ob die Umsetzung von dieser Teillösung realistisch ist. Diese Beurteilung wird für Bewertung der ausgearbeiteten Lösungskonzepte miteinbegezogen.
+Dieses Unterkapitel befasst sich mit dem praktischen Nachweis von kritischen Teilfunktionen. Kritische Teilfunktionen sind Funktionen, welche bei einem Ausfall, einen Ausfall des Gesamtsystems zur Folge hat. Dabei soll die Umsetzung einfacher Funktionsmuster einen praktischen Nachweis bringen, ob die Umsetzung von dieser Teillösung realistisch ist. Diese Beurteilung wird für Bewertung der ausgearbeiteten Lösungskonzepte miteinbegezogen.
 \newline
 Bei Betrachtung der Funktionsanalysen (Abbildungen \ref{fig:FunktPflicht} und \ref{fig:FunktWunsch}) ist erkennbar, dass beide Varianten (Pflicht sowie Wunsch) eine Serieschaltung darstellen. Bei einer Umsetzung einer Maschine mit einfacher Redundanz ergibt dies implizit, dass jede Funktion als kritisch eingestuft werden kann. Aus zeitlichen Gründen kann ein umfassenden Nachweis von allen Teillösungskonzepten nicht abschliessend durchgeführt werden. Eine pragmatische Auswahl von Funktionen mit erhöhtem Ausfallrisiko und einer vielversprechenden Funktionserfüllung wird daher angestrebt.
 
@@ -40,7 +40,7 @@ Folgende Erkenntnisse lieferten die Versuche:
 Ein weiteres Konzept ist die Vereinzelung durch eine rotierende Lochmaske. Dabei werden die NemaCaps in einen Behälter gefüllt (Punkt 2 in Abbildung \ref{fig:schema_vereinzelung}). Im Behälter befindet sich eine rotierend gelagerte Scheibe mit Löchern (Lochmaske, 1). Die Löcher sind so gross, dass gerade ein NemaCap darin Platz hat. Durch die Rotation der Lochmaske fallen nun NemaCaps in die Maske (Detail A) und werden zu Detail B transportiert. Ein Abstreifer (hier in Form einer Bürste) sorgt dafür, dass überschüssige NemaCaps zurückgehalten werden. In der Grundplatte (4) sind Löcher vorgesehen, sodass bei Detail C die NemaCaps in Schläuche fallen. Idealerweise wird dieser Aufbau schief gelagert. 
 \newline
 \newline
-Dieses Konzept wird von der Firma Kofatec GmbH für die Vereinzelung von Pfefferkörner eingesetzt. Dabei ist das Design des Funktionsnachweises stark am Funktionsmuster der Firma Kofatec GmbH angelehnt. Das Funktionsmuster wird mittels Lasermaschine aus MDF hergestellt. Auch wird die Lochmaske für den Funktionsnachweis von Hand betrieben.
+Dieses Konzept wird von der Firma Kofatec GmbH für die Vereinzelung von Pfefferkörner eingesetzt. Dabei ist das Design des Funktionsnachweises stark am Funktionsmuster der Firma Kofatec GmbH angelehnt. Das Funktionsmuster wird mittels Lasermaschine aus MDF hergestellt. Zudem wird die Lochmaske für einen ersten Funktionsnachweis von Hand betrieben.
 \newline
 Am 21.3.2017 wurde am umgesetzten Funktionsmuster der Funktionsnachweis erbracht. Durch zielgerichtetes Ausprobieren von verschiedenen Durchmesser der Löcher wurde die Lochmaske für die NemaCaps ausgelegt. Dann wurde mittels manuellem Rotieren die Vereinzelung überprüft.
 \newline
@@ -51,7 +51,7 @@ Folgende Erkenntnisse lieferten die Versuche:
 	
 	\item Die Abstreifung von NemaCaps funktioniert. Kritisch ist dabei die Wahl des Abstreifers. Verwendet man zu scharfkantige Gegenstände kann es passieren, dass ein NemaCap verschnitten wird. Weiter wurde erkannt, dass NemaCaps heikel auf Scherbeanspruchungen reagieren. Dies Eigenschaft ist nicht zu unterschätzen.
 		
-	\item Die Zuverlässigkeit der Auslösung am Punkt C ist durchschnittlich. Dies wird damit erklärt, dass nicht frische NemaCaps verwendet wurden. Dadurch hat sich das hygroskope Pulver in Wasser gewandelt und so die Adhäsion der NemaCaps erhöht. Dadurch blieben geschätzte 50 Prozent der NemaCaps an der Lochmaske hängen. Auch ist ein holzfaserbasiertes Material für die Lochmaske ungeeignet. Die rauhe Oberfläche der Bohrung bietet so mehr Haftung.
+	\item Die Zuverlässigkeit der Auslösung am Punkt C ist durchschnittlich. Dies wird damit erklärt, dass nicht frische NemaCaps verwendet wurden. Dadurch hat sich das hygroskope Pulver in Wasser gewandelt und so die Adhäsion der NemaCaps erhöht. Dadurch blieben geschätzte 50 Prozent der NemaCaps an der Lochmaske hängen. Auch ist ein holzfaserbasiertes Material (wie MDF) für die Lochmaske ungeeignet. Die rauhe Oberfläche der Bohrung bietet so mehr Haftung.
 	
 	\item Durch leichtes Antippen der Grundplatte oder einem Luftstoss konnten alle NemaCaps ausgelöst werden. Dies zeigt, dass durch Abhilfemassnahmen durchaus eine höhere Zuverlässigkeit erreicht wird.
 	
@@ -60,7 +60,7 @@ Folgende Erkenntnisse lieferten die Versuche:
 \textbf{Bild des Funktionstests?}
 
 \subsubsection{NemaCaps setzen}
-Ein Lösungsansatz der Teilfunktion "NemaCaps setzen" basiert auf der Idee zuerst ein Loch auszuheben oder zu verdrängen und dann ein NemaCap ins Loch fallen zu lassen. Ähnlich ist eine andere Idee, welche mit einer spitzen Zange das Loch verdrängt wird, sich die Zange in der Erde öffnet und so ein NemaCap platziert.
+Ein Lösungsansatz der Teilfunktion "NemaCaps setzen" basiert auf der Idee zuerst ein Loch auszuheben oder zu verdrängen und anschliessend ein NemaCap ins Loch fallen zu lassen. Ähnlich ist eine weitere Idee, welche mit einer spitzen Zange das Loch verdrängt wird, sich die Zange in der Erde öffnet und so ein NemaCap platziert. Schemaisch dargestellt sind beide Ansätze in Abbildung \ref{fig:skizze_setzversuch}.
 \newline
 Um die Umsetzbarkeit dieser Ideen zu überprüfen, werden zwei Versuche durchgeführt:
 \begin{itemize}
@@ -98,13 +98,13 @@ Folgende Erkenntnisse lieferten die Versuche:
 \end{itemize} 
 
 \subsubsection{Setzmechanismus konfigurieren}
-Die automatische Konfuguration des Setzmechanismus ist als Wunschanforderung im Pflichtenheft formuliert. Gemeint ist dabei die automatische Verstellung der Radien der Einsatzlokalität. Ein ausgearbeiteter Lösungsansatz basiert auf zwei Kulissen, welche drei dorne halten. Über die Rotation der einen Kulisse kann so der Dorn radial verstellt werden. Umgesetzt werden die Kulissen anhand ausgelaserten Scheiben (siehe Abbildung \textbf{XY}). Dabei wird dieses Funktionsmuster manuell von Hand betrieben.
+Die automatische Konfuguration des Setzmechanismus ist als Wunschanforderung im Pflichtenheft formuliert. Gemeint ist dabei die automatische Verstellung der Radien der Einsatzlokalität. Ein ausgearbeiteter Lösungsansatz basiert auf zwei Kulissen, welche ingsesamt drei Dorne halten. Über die Rotation der einen Kulisse kann so der Dorn radial verstellt werden. Umgesetzt werden die Kulissen anhand ausgelaserten Scheiben (siehe Abbildung \textbf{XY}) aus MDF. Dabei wird dieses Funktionsmuster manuell von Hand betrieben.
 \newline
 \textbf{Bild des umgesetzten Funktionsmusters}
 \newline
 Folgende Erkenntnisse lieferten das Funktionsmuster:
 \begin{itemize}
-	\item Die manuelle Verstellung des Radius mittels kulisse ist möglich. Durch eine Drehbewegung werden die Dorne synchron verstellt.
+	\item Die manuelle Verstellung des Radius mittels Kulisse ist möglich. Durch eine Drehbewegung werden die Dorne synchron verstellt.
 	
 	\item Aus der Geometrie der Kulissen wird erkennbar, dass die maximale Rotation 45° beträgt. Dies muss bei einer allfälligen Evaluation des Antriebes berücksichtigt werden.
 	
