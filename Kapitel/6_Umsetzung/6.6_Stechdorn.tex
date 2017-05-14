@@ -1,9 +1,10 @@
 \subsection{Stechdorn}
-
-\textbf{Aufbau}
 Der Stechdorn hat die Aufgabe, ein Setzloch durch Verdrängung der Topferde auszuheben und anschliessend die fallenden NemaCaps ins Setzloch zu leiten. Dafür wurde auf einen gelochten Stechdorn bewusst verzichtet, da man das Risiko von Verstopfungen nicht eingehen möchte. Mit der realisierten Konstruktion wird dieses Risiko eliminiert. 
 \newline
-Der Stechdorn besteht aus mehreren Teilen, wobei diese über eine lineare Führung (Punkt 5 in Abbildung \ref{fig:details_stechdorn}) verbunden sind. Dabei wird das Haupt (1) an der Verstellmechanik montiert und macht so die Translation der Setzeinheit mit. Sobald der untere Teil (2, 3) in die Topferde einsticht, fährt die Spitze an den oberen Anschlag der Führung (Detail A). Sobald die Setzeinheit nach oben fährt, öffnet sich die Spitze wieder und das NemaCaps kann durch den Kanal (8) ins ausgehobene Setzloch fallen (Detail B). Dabei soll die Bewegung nur durch die Gewichts- sowie Trägheitskraft der Spitze ausgelöst werden. Falls die Spitze zu leicht ist um sich durch die Bewegung zo öffnen, ist in der Spitze ein Hohlraum vorgesehen, welcher mit Bleikugeln gefüllt wird. Dafür ist ein Füllloch (4) vorgesehen, dass mit einer Madenschraube M6 verschlossen wird.
+\textbf{Aufbau}
+\newline
+
+Der Stechdorn besteht aus mehreren Teilen, wobei diese über eine lineare Führung (Punkt 5 in Abbildung \ref{fig:details_stechdorn}) verbunden sind. Dabei wird das Haupt (1) an der Verstellmechanik montiert und macht so die Translation der Setzeinheit mit. Sobald der untere Teil (2, 3) in die Topferde einsticht, fährt die Spitze an den oberen Anschlag der Führung (Detail A). Bei der Bewegung zurück nach oben öffnet sich die Spitze wieder und das NemaCaps kann durch den Kanal (8) ins ausgehobene Setzloch fallen (Detail B). Dabei soll die Bewegung nur durch die Gewichts- sowie Trägheitskraft der Spitze ausgelöst werden. Falls die Spitze zu leicht ist, um sich durch die Bewegung zu öffnen, kann in der Spitze Blei im vorgesehenen Hohlraum eingefüllt werden. Dafür ist ein Füllloch (4) vorgesehen, welches mit einer Madenschraube M6 verschlossen wird.
 \newline
 Folgende Überlegungen geben die Lage der linearen Führung vor:
 \begin{itemize}
@@ -11,7 +12,7 @@ Folgende Überlegungen geben die Lage der linearen Führung vor:
 	
 	\item Wiederum muss eine seitliche Öffnung der Spitze soweit geschehen, dass die Öffnung (9) frei über dem Setzloch steht (Detail B) und ein freier Fall des NemaCaps möglich ist.
 	
-	\item Die Verschliessung der Spitze ist in vertikaler Richtung beschränkt durch die Auslegung Spindel. Dabei ist der Abstand A in den Berechnungen (Siehe Anhang \textbf{XY}) mit 15mm angenommen. Die Umsetzung überschreitet diese Annahme um 1mm, ist jedoch im angenommenen Rahmen.
+	\item Die Verschliessung der Spitze ist in vertikaler Richtung beschränkt durch die Auslegung Spindel. Dabei ist der Abstand A in den Berechnungen (Siehe Anhang \textbf{XY}) mit 15mm angenommen. Die Umsetzung überschreitet diese Annahme um 1mm, bewegt jedoch im angenommenen Rahmen.
 \end{itemize}
 
 	\begin{figure}[H]
@@ -60,8 +61,40 @@ An der Spitze oben sind folgende konstruktive Überlegungen hervor zu heben:
 	\label{fig:details_spitze_oben}
 	\end{figure}
 
-\textbf{Schlauch}
-\newline
 \textbf{Materialwahl und Fertigungsverfahren}
 \newline
-Die komplexe Geometrie dieser Teile sind ausschlaggebend, dass Rapid Prototyping als Fertigungsverfahren gewählt wird. Durch erhöhten Anforderungen an das Gewicht wird ein Kunststoff (ABS) als Material verwendet. Dabei ist es möglich, dass ein Teil mehrmals gedruckt wird, da das optimale Spielmass iterativ durch zielgerichtetes Ausprobieren gefunden werden muss. 
+Die komplexe Geometrie dieser Teile sind ausschlaggebend, dass Rapid Prototyping als Fertigungsverfahren gewählt wird. Bewusst wird die Interalbauweise für den Stechdorn genutzt, um viele Funktionen in einem Teil zu vereinen. Durch erhöhten Anforderungen an das Gewicht wird ein Kunststoff (ABS) als Material verwendet. Dabei ist es möglich, dass ein Teil mehrmals gedruckt wird, da das optimale Spielmass der linearen Führung iterativ durch zielgerichtetes Ausprobieren gefunden werden muss. 
+\newline
+\textbf{Schlauch}
+\newline
+Für den Transport der NemaCaps zwischen Vereinzelung und Stechdorn wird die Gravitation verwendet. Dabei werden die fallenden NemaCaps durch einen Pneumatikschlauch geleitet. Auch stellt der Schlauch sicher, dass eine flexible Verbindung zum bewegten Stechdorn existiert. In der Pneumatik sind folgende Schlauchdimensionen gängig:
+\newline
+\begin{table}[H]
+\begin{tabular}{|c|c|}
+	\hline 
+	Aussendurchmesser D [mm] & Innendurchmesser d [mm] \\ 
+	\hline 
+	5 & 3 \\ 
+	\hline 
+	6 & 4  \\ 
+	\hline 
+	8 & 6 \\ 
+	\hline 
+	10 & 8  \\ 
+	\hline 
+\end{tabular}
+	\caption{gängige Schlauchdimensioen}
+	\label{tab:Schlauchdimensioen}
+\end{table}
+
+Für die Wahl der Schlauchdimensionen sind folgende Überlegungen entscheidend:
+\begin{itemize}
+	\item NemaCaps haben einen Durchmesser bis zu 3.6mm. Für einen freien Fall soll ein möglichst grosser Freiraum zur Schlauchinnenwand herrschen.
+	
+	\item Ein grosser Aussendurchmesser des Schlauches hat direkten Einfluss auf die Schlauchkupplungen sowie die Verstellmechanik. Dadurch werden diese Komponenten grösser. Der Lochabstand der Lochmaske steigt an sowie die Verstellmechanik muss grösser dimensioniert werden. Dies bedeutet mehr translatorisch beschleunigte Masse durch die Spindel. Somit ist hierfür die Wahl eines kleinen Schlauchdurchmessers vorteilhaft.
+\end{itemize}
+Dieser Zielkonflikt beider Überlegungen bedeutet, dass die optimale Wahl des Schlauches ein Kompromiss sein muss. Daher wird ein Schlauch mit den Dimensionen 8/6 (D/d) verwendet.
+\newline
+Die Flexibilität wird durch das Material massgebend beeinflusst. Da keine Herstellerangaben dafür verfügbar sind, werden die Materialien Polyurethan sowie Polyamid (Nylon) für die Inbetriebnahme bestellt und dort miteinander verglichen.
+
+\textbf{Elektrostatische Aufladung behandeln?}

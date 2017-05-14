@@ -6,7 +6,7 @@ Die Hauptaufgabe der Verstellmechanik ist, die automatisierte Einstellung aller 
 \newline
 Die Konstruktion der Verstellmechanik basiert auf dem erstellten Funktionsmuster. die Grundidee ist, dass über zwei Kulissen (eine radiale und eine lineare) der Topfradius zentral an einer Welle verstellt werden kann. Ein klarer Vorteil ist, dass dadurch nur ein Aktor für die Verstellung aller Stechdorne benötigt wird. Die Konstruktion kann in zwei Teile unterteilt werden:
 \begin{itemize}
-	\item \textbf{Bewegter Teil}: Dieser Teil wird durch die Translation bewegt. Die drei Stechdorne (Punkt 4 in Abb. \ref{fig:details_vm}) sind durch zwei Kulissen (2, 3) verstellbar gelagert. Durch die Verbindung Keilnabe (5) - Keilwelle (1) sind diese mit dem unbewegten Teil gekoppelt. Eine geringe Gewicht des bewegten Teils ist für die Beschleunigung dieser Masse essentiell.
+	\item \textbf{Bewegter Teil}: Dieser Teil wird durch die Spindel bewegt. Die drei Stechdorne (Punkt 4 in Abb. \ref{fig:details_vm}) sind durch zwei Kulissen (2, 3) verstellbar gelagert. Durch die Verbindung Keilnabe (5) - Keilwelle (1) sind diese mit dem unbewegten Teil gekoppelt. Eine geringes Gewicht des bewegten Teils ist für die Beschleunigung dieser Masse essentiell.
 	
 	\item \textbf{Unbewegter Teil:} Der unbewegte Teil dieser Einheit führt die Verstellung der Topfradien aus. Ein Getriebemotor (8), welcher durch eine Kupplung (9) mit der Keilwelle verbunden ist, führt die Verstellung der Topfradien aus. Diese Umsetzung besticht dadurch, dass anhand der Verbindung Keilnabe (5) - Keilwelle (1) bedeutend weniger Masse an der transaltorischen Bewegung teilnimmt. Dies bringt wertvolle Gewichteinsparnisse.
 \end{itemize}
@@ -15,10 +15,10 @@ Die Konstruktion der Verstellmechanik basiert auf dem erstellten Funktionsmuster
 	\caption{Detaillierte Übersicht der Verstellmechanik}
 	\label{fig:details_vm}
 	\end{figure}
-Die Lagerung der Keilwelle wird nur wenig beansprucht, da durch die translatorische Freiheit der Keilnabe (entlang der Achse) keine Axialkräfte auftretten. Da die Verstellung des Topfradius nur wenige Male pro Tag vorgenommen wird, kann \textbf{nach Roloff Matekk (2013, S.XY)} von einer statischen Belastung (n<10U/min) ausgegangen werden. Daher wird für die Lagerung am unteren Ende (10) ein Gleitlager idlidur J3 von Igus verwendet. Am oberen Ende ist die Keilwelle (1) über die Kupplung (9) durch den Getriebemotor (8) gelagert.
+Die Lagerung der Keilwelle wird nur wenig beansprucht, da durch die translatorische Freiheit der Keilnabe (entlang der Achse) keine Axialkräfte auftretten. Da die Verstellung des Topfradius nur wenige Male pro Tag vorgenommen wird, kann \textbf{nach Roloff Matekk (2013, S.XY)} von einer statischen Belastung (n<10U/min) ausgegangen werden. Daher ist die Verwendung eines Gleitlagers am unteren Ende (10) ausreichend. Verwendet wird das Gleitlager idlidur J3 von Igus. Am oberen Ende ist die Keilwelle (1) über die Kupplung (9) durch den Getriebemotor (8) gelagert.
 \newline
-\newline
-Der Stechdorn wird durch zwei lineare Kulissen (Punkt 3 in Abb \ref{fig:schnitt_vm})) und eine radiale Kulisse (2) geführt. dabei sind die linearen Kulissen (3) mit der Keilnabe verbunden, die Radiale über die Führungen mit der Spindel. Um die Reibung zwischen Stechdorn und Kulissen zu vermindern werden auch hier Gleitlager (7) von igus eingesetzt. Die ganze Mechanik wird dabei durch die Auflage des Stechdorns (4) und einem Klemmring (6) gehalten.
+
+Der Stechdorn wird durch zwei lineare Kulissen (Punkt 3 in Abb \ref{fig:schnitt_vm}) und eine radiale Kulisse (2) geführt. dabei sind die linearen Kulissen (3) mit der Keilnabe verbunden, die Radiale über die Führungen mit der Spindel. Um die Reibung zwischen Stechdorn und Kulissen zu vermindern werden auch hier Gleitlager (7) von igus eingesetzt. Die ganze Mechanik wird dabei durch die Auflage des Stechdorns (4) und einem Klemmring (6) gehalten.
 	\begin{figure}[H]
 	\includegraphics[scale=0.63]{Illustrationen/6-Umsetzung/schnitt_vm.jpg}
 	\caption{Geschnittene Seitenansicht der Verstellmechanik}
@@ -27,7 +27,7 @@ Der Stechdorn wird durch zwei lineare Kulissen (Punkt 3 in Abb \ref{fig:schnitt_
 
 \textbf{Funktion}
 \newline
-Die Bewegung der Verstellmechanik ist in Abbildung \ref{fig:motion_vm} dargestellt. Punkt B bildet ein beliebiger Punkt ab. So ist am Anschlag (Punkt A aus Abb. \ref{fig:motion_vm}) die Einsetzlokalität des grössten Topfes (Dmax = 140mm) und bei halbem Weg der Kulisse die Einsetzlokalität des kleinsten Topfes (Dmin = 90mm) erreicht. Dabei fällt auf, dass das Doppelte des nötigen Weges implementiert wurde. Begründet wird dies damit, dass dadurch der hochübersetzte Getriebemotor mehr Umdrehungen absolviert bis der gewünschte Radius erreicht wird. Dies steigert die Auflösung des Motors und verbessert die Regelbarkeit massiv.
+Die Bewegung der Verstellmechanik ist in Abbildung \ref{fig:motion_vm} dargestellt. Punkt B bildet ein beliebiger Punkt ab. So wird am Anschlag (Punkt A aus Abb. \ref{fig:motion_vm}) die Einsetzlokalität des grössten Topfes (Dmax = 140mm) und bei halbem Weg der Kulisse die Einsetzlokalität des kleinsten Topfes (Dmin = 90mm) erreicht. Dabei fällt auf, dass das Doppelte des nötigen Weges implementiert wurde. Begründet wird dies damit, dass dadurch der hochübersetzte Getriebemotor mehr Umdrehungen absolviert bis der gewünschte Radius erreicht wird. Dies steigert die Auflösung des Motors und verbessert die Regelbarkeit massiv.
 	\begin{figure}[H]
 	\includegraphics[scale=0.53]{Illustrationen/6-Umsetzung/motion_vm.jpg}
 	\caption{Verstellung des Topfradius}
@@ -35,4 +35,4 @@ Die Bewegung der Verstellmechanik ist in Abbildung \ref{fig:motion_vm} dargestel
 	\end{figure}
 \textbf{Material und Fertigungsverfahren der Kulissen}
 \newline
-Wie schon erläutert, ist ein geringes Gewicht der beschleunigten Masse anzustreben. Gemäss Berechnungen soll die beschleunigte Masse maximal 1kg betragen. Um diese Anforderung zu erfüllen werden die Kulissen (Punkte 2 und 3 aus Abb. \ref{fig:motion_vm}) aus 6mm dickem Aluminiumblech gefertigt. So werden diese Teile auch mittels Laserschneidmaschine gefertigt. Weiter erspart diese Wahl das Umrüsten der Maschine und haltet die kosten auf einem Minimum.
+Wie schon erläutert, ist ein geringes Gewicht der beschleunigten Masse anzustreben. Gemäss Berechnungen soll die beschleunigte Masse maximal 1kg betragen. Um diese Anforderung zu erfüllen werden die Kulissen (Punkte 2 und 3 aus Abb. \ref{fig:motion_vm}) aus 6mm dickem Aluminiumblech gefertigt. So werden diese Teile auch mittels Laserschneidmaschine gefertigt. Weiter erspart diese Wahl das Umrüsten der Maschine und hält die Kosten auf einem Minimum (nochmals nötig?).

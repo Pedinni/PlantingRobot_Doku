@@ -22,9 +22,9 @@ Die Setzeinheit macht folgenden Bewegungsablauf, um drei NemaCaps in einen Topf 
 	\item \textbf{B - NemaCap setzen:} Nachdem die Erde verdrängt und das Setzloch ausgehoben ist, bewegt sich die Setzeinheit wieder nach oben. Nun öffnet sich der Stechdorn (10) indem sich der untere Teil durch die Schwerkraft auf die Seite bewegt. So können die NemaCaps in das ausgehobene Setzloch fallen.
 \end{itemize}
 
-Konstruktiv sind drei Masse relevant:
+Konstruktiv sind drei Masse hervor zu heben:
 \begin{itemize}
-	\item \textbf{L - Maximaler Hubweg:} Der maximale Hub L beträgt 111mm. Gemäss Berechnungen (\textbf{Siehe Anhang XY}) muss dieser mindestens 86mm betragen. Dadurch beträgt die Reserve 25mm. 
+	\item \textbf{L - Maximaler Hubweg:} Der maximale Hub L beträgt 111mm. Gemäss Berechnungen (\textbf{Siehe Anhang XY}) muss dieser mindestens 86mm betragen. Somit beträgt die Reserve 25mm. 
 	
 	\item \textbf{C - Länge der Führungen:} Die Länge der Führungen ist gegeben durch den Hubweg L, die Höhe des Motors für die Verstellmechanik dessen Kupplung. Dies bedingt eine Länge von 270mm.
 	
@@ -53,6 +53,26 @@ Gegeben durch den Setzprozess und die Geometrie sind folgende Daten:
 	\caption{Geometrie der Töpfe und des Setzprozess}
 	\label{fig:topfgeometrie}
 	\end{figure}
+\begin{table}[H]
+\begin{tabular}{|l|c|c|l|}
+	\hline 
+	& Grösster Topf (max) & Kleinster Topf (min) & Kommentar \\ 
+	\hline 
+	Durchmesser D [mm] & 140 & 90 & Aus Datenblatt \\ 
+	\hline 
+	Höhe h [mm] & 106 & 67 & Aus Datenblatt \\ 
+	\hline 
+	max. Einsetztiefe S [mm] & 63.6 & 40.2 & 0.6 x Höhe \\ 
+	\hline 
+	Sicherheitsabstand X [mm] & 15 & 15 & Annahme \\ 
+	\hline 
+	Ausfahrlänge A Dorn [mm] & 15 & 15 & Annahme \\ 
+	\hline 
+\end{tabular} 
+	\caption{Randbedingungen für Spindelauslegung}
+	\label{tab:Randbedingungen}
+\end{table}
+
 Anhand dieser Randbedingungen und den getroffenen Annahmen ergibt sich eine Beschleunigungs- und Bremszeit tb=0.1125s. Bei einem maximalen Hubweg Umax = 72.4mm beträgt die grösste durschnittliche Geschwindigkeit vavmax:
 
 \begin{equation}
@@ -65,7 +85,7 @@ Die Geschwindigkeit des Dornes kann streng idealisiert gemäss Abbildung XY darg
 	\caption{Geschwindigkeitsprofil des Dorns}
 	\label{fig:vprofil_dorn}
 \end{figure}
-Orientiert an den Anforderungen aus Kapitel \ref{subsec:Translation} und der berrechneten Geschwindigkeit sind vier Steilgewindespindeln von Igus ausgewählt worden. In Rücksprache mit Mark Chalençon, Produktmanager bei igus Schweiz GmbH, wurde die Auswahl der Produkte zusätzlich verifiziert (Mail vom 18.4.17).
+Orientiert an den Anforderungen aus Kapitel \ref{subsec:Translation} und der berechneten Geschwindigkeit sind vier Steilgewindespindeln von Igus ausgewählt worden. In Rücksprache mit Mark Chalençon, Produktmanager bei igus Schweiz GmbH, wurde die Auswahl der Produkte zusätzlich verifiziert (Mail vom 18.4.17).
 \begin{table}[H]
 \begin{tabular}{|c|c|}
 	\hline 
@@ -109,7 +129,7 @@ Die Spindel wird durch ein Fest- sowie ein Loslager eindeutig gelagert. Das Fest
 \newline
 Zur mechanischen Verbindung zwischen Spindelantrieb und Spindel wird eine drehstarre Kupplung verwendet. Dadurch kann eine winkelgetreue Drehmomentenübertragung gewährleistet werden, was für diese Anwendung essentiell ist. Hierfür wird die Kupplung HELICAL WA 20-8-6 aus Aluminium von Ringspann AG verwendet. Die Wahl eines kleinen Aussendurchmessers (20mm) und eine leichter Werkstoff sind für ein möglichst geringes zusätzliches Trägheitsmoment entscheidend und wurde hier berücksichtigt.
 \subsubsection{Montage}
-Wie schon mehrfach erwähnt werden mehrere verschiedenste Komponenten an Montageplatten montiert. Wie aus Abbildung \ref{fig:setzeinheit} ersichtlich, werden die Montageplatten vertikal angeordnet. Diese Anordnung bildet so das Gerüst für eine funktionierende Setzeinheit. Wie in Kapitel XY erwähnt, bietet sich die konsequente Fertigung mittels Lasermaschine an. Mechanisch fixiert werden die Montageplatten durch Aluminium Profile der Firma Kanya AG (weitere Informationen in \textbf{Kap XY}), wobei eine Blechdicke von 6mm vorgegeben ist. Diese Konstruktion bringt folgende Vorteile:
+Wie schon mehrfach erwähnt werden mehrere verschiedenste Komponenten an Montageplatten montiert. Wie aus Abbildung \ref{fig:setzeinheit} ersichtlich, werden die Montageplatten vertikal angeordnet. Diese Anordnung bildet so das Gerüst für eine funktionierende Setzeinheit. Wie in Kapitel XY erwähnt, bietet sich die konsequente Fertigung mittels Lasermaschine an. Mechanisch fixiert werden die Montageplatten durch Aluminium Profile der Firma Kanya AG (weitere Informationen in \textbf{Kap XY}), wobei durch die Nut der Profile eine Blechdicke von 6mm vorgegeben ist. Diese Konstruktion bringt folgende Vorteile:
 	\begin{itemize}
 	\item Auf unterschiedlichen Ebenen können so Komponenten angeordnet werden. Das Hinzufügen von weiteren Komponenten ist auf einfachste Art realisierbar. Kommt eine Komponente hinzu, wird die benötigte Kontur (z.B. ein Langloch oder Bohrung) vorgesehen und die Komponente ist montierbar.
 	\item Die Fixierung der Montageplatten durch Aluminium-Profile bringt weitere Flexibilität bei der Montage. Dadurch bleibt die Höhe der einzelnen Platten verstellbar. Auch seitlich können die Platten in eine Richtung verstellt werden.
