@@ -1,6 +1,7 @@
 \subsection{Elektronik}
 
-Zur Übersicht der verwendeten Elektronik Hardware dient das Blockschaltbild Abb. \ref{fig:Blockschaltbild_Komponenten}. Es bildet eine detaillierte Auflistung sämtlicher Elektronik Komponenten. Wie im Blockschaltbild dargestellt werden sämtliche Elektronikkomponenten über das selbst entwickelte Mainboard PCB miteinander verknüpft. Auf dem Mainboard PCB befindet sich das Mikrocontroller Board FRDM-KL25Z, auf welchem ein RTOS mit entsprechender Software gemäss Kap. \ref{kap:Software} implementiert ist.
+Zur Übersicht der verwendeten Elektronik Hardware dient das Blockschaltbild Abb. \ref{fig:Blockschaltbild_Komponenten}. Es bildet eine Auflistung sämtlicher Elektronik Komponenten, welche in Blöcke zusammengefasst sind. Detaillierte Angaben zu den jeweiligen Komponenten, sowie Schaltungen finden sich in den Kapiteln \ref{kap:Evaluation_der_Komponenten} und \ref{kap:Umsetzung}.
+
 
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/5-Konzept/Blockschaltbild_Komponenten.png}
@@ -14,11 +15,17 @@ Im folgenden Abschnitt wird das Blockschaltbild ausführlich erklärt:
 
 	\item \textbf{36V Netzteil:} Um die hohe Leistungsanforderung an den Spindelantrieb bei moderatem Stromfluss erfüllen zu können, wird dessen Motor mit einem 36V Netzteil gespeist. Das FRDM-Board kann über das enable Signal des Netzteils die 36V Ausgangsspannung ein- und ausschalten.
 	
-	\item \textbf{BLDC-Controller:} Der BLDC-Controller wird über einen UART Port des FRDM-Boards angesteuert. Mit Hilfe der Encoder Auswertung des BLDC-Controllers kann der BLDC-Motor als Servomotor mit Positionsregelung betrieben werden. Damit kann ein Maximum an Präzision und Geschwindigkeit bei der Ansteuerung des Spindelantriebs garantiert werden.
+	\item \textbf{BLDC-Controller:} Der BLDC-Controller wird über einen UART Port des FRDM-Boards angesteuert. Mit Hilfe der Hall-Sensor Auswertung des BLDC-Controllers kann der BLDC-Motor als Servomotor mit Positionsregelung betrieben werden. Damit kann ein Maximum an Präzision und Geschwindigkeit bei der Ansteuerung des Spindelantriebs garantiert werden.
+	
+	\item \textbf{Spindelantrieb:} Der Motor für den Spindelantrieb muss fähig sein die Hubspindel in sehr kurzer Zeit auf Nenndrehzahl zu beschleunigen und wieder bis zum Stillstand zu verzögern. Benötigt wird deshalb ein Motor welcher ein hohes Anlaufdrehmoment zur Verfügung stellt und häufigen Lastwechseln dauerhaft standhält. Dafür geeignet ist ein BLDC Motor mit Hall-Sensoren.
 	
 	\item \textbf{Baseboard PCB:} Als Schnittstelle zwischen Mainboard PCB und BLDC-Controller dient das Baseboard PCB. Es vereinfacht die Verkabelung mit dem BLDC-Controller Board und verfügt über Drehpotentiometer zur schnellen Inbetriebnahme des BLDC-Motors.
-	
-	\item \textbf{Spindelantrieb:} Für eine maximale Lebensdauer bei häufigen Lastwechseln und ein hohes Anzugdrehmoment wird ein BLDC-Motor mit Hall Sensoren verwendet.
 			
 	\item \textbf{12V Netzteil:} Um einen sicheren Betrieb der Elektronik während hohen Leistungsspitzen des Spindelantriebs zu garantieren, wird diese über ein separates Netzteil versorgt. Des weiteren werden auch die kleineren DC Getriebemotoren über dieses Netzteil gespeist. Das 12V Netzteil wird über das Zuschalten der Netzspannung gesteuert und kann nicht über den Mikrocontroller geschaltet werden.
+	
+	\item \textbf{DC-Motor-Controller:} Um die beiden DC-Getriebemotoren anzusteuern wird ein 2 Kanal Motorentreiber verwendet. Dieser ist, wie der BLDC-Controller, in der Lage mit Hilfe der Quadratur Encoder Signale der Motoren, eine Positionsregelung auszuführen. Der Treiber wird über UART angesteuert. Des weiteren befindet sich auf dem Motorcontroller eine 5V Speisung welche auf das Mainboard geführt ist.
+	
+	\item \textbf{Verstellmechanik:} Die Verstellmechanik kann den Radius der Stechdornen und somit der Setzlöcher verändern. Für den Antrieb dieser Einheit kommt ein DC-Getriebemotor mit Encoder zum Einsatz. Dieser Motor wird über die Positionsregelung des DC-Motor-Controllers angesteuert. Zur absoluten Positionsbestimmung während der Initialisierung fährt der Motor an den Anschlag der Verstellmechanik bis ein definierter Laststrom erreicht wird.
+	
+	\item \textbf{Mainboard PCB:} Wie im Blockschaltbild dargestellt werden sämtliche Elektronikkomponenten über das selbst entwickelte Mainboard PCB miteinander verknüpft. Auf dem Mainboard PCB befindet sich das Mikrocontroller Board FRDM-KL25Z, auf welchem ein RTOS mit entsprechender Software gemäss Kap. \ref{kap:Software} implementiert ist.
 \end{itemize}
