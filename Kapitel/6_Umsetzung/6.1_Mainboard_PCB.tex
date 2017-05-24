@@ -6,7 +6,7 @@ Das Mainboard PCB verbindet sämtliche Elektronik Komponenten miteinander. Das H
 \begin{table}[H]
 	\scriptsize
 	\centering
-	\caption{FRDM-KL25z Port Mapping}
+	\caption{FRDM-KL25Z Port Mapping}
 	\begin{tabular}{|r|r|r|r|l|l|r|l|}
 		\hline
 		\multicolumn{1}{|l|}{\textbf{CON}} & \multicolumn{1}{l|}{\textbf{Port}} & \multicolumn{1}{l|}{\textbf{Mapping}} & \multicolumn{1}{l|}{\textbf{Funktion}} & \textbf{CON} & \textbf{Port} & \multicolumn{1}{l|}{\textbf{Mapping}} & \textbf{Funktion} \\
@@ -70,7 +70,7 @@ Das Mainboard PCB verbindet sämtliche Elektronik Komponenten miteinander. Das H
 		&       &       &       & J9 16 & P5-9V\_VIN &       & 5VCC \\
 		\hline
 	\end{tabular}%
-	\label{tab:addlabel}%
+	\label{tab:FRDM_Port_Mapping}%
 \end{table}%
 
 Beim Design des Mainboard PCBs wurde darauf geachtet, dass möglichst viele GPIO Pins des FRDM-Boards genutzt werden. Deshalb wurde zusätzlich zu den in Abbildung \ref{fig:Blockschaltbild_Komponenten} aufgeführten Peripherien, ein Servo Interface mit drei Servo Anschlüssen und eine Buchsenleiste mit Reserve GPIOs vorgesehen.
@@ -116,6 +116,40 @@ Bei einem getakteten Spannungswandler sollte das Layout gemäss den Design Richt
 	\caption{Layout LT3971: Richtlinien Datenblatt, Mainboard PCB}
 	\label{fig:LT2971_Layout}
 \end{figure}
+
+\subsubsection{HMI Interface}
+Das HMI bildet die Schnittstelle zwischen Operator und Planting Robot. Der Planting Robot soll so einfach wie möglich zu bedienen sein. Auf ein Touchscreen Interface oder Displays mit Menüführung durch Taster wird daher bewusst verzichtet. Stattdessen werden Taster mit LED-Ring Beleuchtung verwendet. Die Funktionen des Planting Robots werden dabei durch korrespondierende Taster realisiert. Die Funktionen des HMI werden in Kapitel \ref{sec:HMI} erklärt.
+\newline
+In Summe werden somit für das HMI 11 Taster und 14 LEDs angesteuert. Gemäss Tabelle \ref{tab:FRDM_Port_Mapping} zu wenig freie GPIO Ports Verfügbar um das HMI vollständig an Digital I/O Pins anzuschliessen. Um die Anzahl benötigter GPIOs zu reduzieren könnten folgende Beschaltungen verwendet werden:
+\begin{itemize}
+	\item Spannungsteiler mit ADC
+	\item Keyboard Matrix
+\end{itemize}
+
+\textbf{Spannungsteiler mit ADC:} Für diese Implementierungsvariante wird lediglich 1 Analog Input Pin benötigt. Dieser muss allerdings kontinuierlich ausgewertet werden und kann nicht über einen Interrupt gesteuert werden wie ein Digital Input.
+
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Spannungsteiler_ADC.png}
+	\caption{Spannungsteiler mit ADC}
+	\label{fig:Spannungsteiler_ADC}
+\end{figure}
+
+Wenn davon ausgegangen werden kann, dass jeweils nur ein Taster zur gleichen Zeit gedrückt wird entstehen so 11 mögliche Spannungszustände am ADC Pin. Ein grosser Nachteil dieser Schaltung ist die grosse Komplexität der Spannungsauswertung wenn mehrere Taster gleichzeitig gedrückt werden. Beim Aufbau in Abb. \ref{fig:Spannungsteiler_ADC} mit 11 Tastern sind somit
+
+\begin{equation}\label{nZustaende}
+n_{Zustaende} = 2^{n_{Taster}} = 2^{11} = 2048
+\end{equation}
+
+Zustände auszuwerten. Bei einer linearen Skalierung dieser Zustände auf den ADC Spannungsbereich von 3.3V müsste folgende Spannungsdifferenz detektiert werden:
+
+\begin{equation}\label{deltaU}
+\bigtriangleup U = \frac{U_{in}}{n_{Zustaende}} = \frac{3.3V}{2048} = 1.61mV
+\end{equation}
+
+Solche geringen Spannungsdifferenzen zuverlässig auszuwerten ist nicht sinnvoll, zumal eine lineare Aufteilung der Spannungspegel über den 3.3V Bereich mit Widerständen aus der Standard E12-Reihe nicht möglich ist. Die Anzahl Taster könnte auch auf mehrere ADC Eingänge des uC aufgeteilt werden, wodurch deutlich weniger Spannungspegel möglich wären und diese sich im Pegel stärker unterscheiden würden.\newline
+
+\textbf{Keyboard Matrix:}
+
 
 
 \begin{figure}[H]
