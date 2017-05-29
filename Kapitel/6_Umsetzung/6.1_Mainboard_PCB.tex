@@ -190,7 +190,7 @@ Für die Auswertung von 11 Tastern müsste so eine 3x4 Matrize gebildet werden, 
 	\label{fig:Mainboard_LED_Driver_LP3943}
 \end{figure}
 
-Links ist der LED Treiber LP3943 zu sehen. Alle LEDs für das HMI sind daran angeschlossen. Auf der rechten Seite der Abbildung ist der Stecker J6 für einen Taster mit LED-Ring abgebildet. Alle HMI Taster mit LED-Ring werden jeweils über einen eigenen 4Pin Molex MicroFit Stecker verdrahtet (siehe Abb. \ref{fig:Mainboard_HMI_Layout}). Dabei wird der LED-Ring des Taster an Pin 1 und 2, der NO Kontakt an Pin 3 und der GND Kontakt an Pin 4 des Steckers angeschlossen.
+Links ist der LED Treiber LP3943 zu sehen. Alle LEDs für das HMI sind daran angeschlossen. Über die Adressleitungen A0... A2 können die letzten 3 Bit der I$^{2}$C Adresse des Treibers bestimmt werden. In dieser Anwendung sind diese Digital Eingänge alle mit GND potential verbunden und somit auf logisch "0" konfiguriert. Auf der rechten Seite der Abbildung ist der Stecker J6 für einen Taster mit LED-Ring abgebildet. Alle HMI Taster mit LED-Ring werden jeweils über einen eigenen 4Pin Molex MicroFit Stecker verdrahtet (siehe Abb. \ref{fig:Mainboard_HMI_Layout}). Dabei wird der LED-Ring des Taster an Pin 1 und 2, der NO Kontakt an Pin 3 und der GND Kontakt an Pin 4 des Steckers angeschlossen.
 
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/HMI_Layout.png}

@@ -1,5 +1,5 @@
 \subsection{Software} \label{sec:Software}
-\textit{(pro)} Die Software des Planting Robots ist in der Programmiersprache C geschrieben und läuft auf dem ARM Cortex M0+ Mikrocontroller von NXP welcher auf dem FRDM-Board KL25Z bestückt ist. Als Betriebssystem dient das Real Time OS FreeRTOS. Vorteile von FreeRTOS gegenüber anderen C Betriebssystemen sind:
+\textit{(pro)} Die Software des Planting Robots ist in der Programmiersprache C geschrieben und läuft auf dem ARM Cortex M0+ Mikrocontroller von NXP welcher auf dem FRDM-Board KL25Z bestückt ist. Für low Level Driver werden diverse Processor Expert Komponenten verwendet. Als Betriebssystem dient das Real Time OS FreeRTOS. Vorteile von FreeRTOS gegenüber anderen C Betriebssystemen sind:
 
 \begin{itemize}
 	\item Seine geringen Ressourcenanforderungen an RAM, ROM und CPU Leistung. 
@@ -10,7 +10,7 @@
 
 In den folgenden Unterkapiteln werden die wichtigsten Softwarekomponenten des Planting Robots beschrieben und erklärt. Die Titel der Unterkapitel korrespondieren dabei mit den Namen der .c Files des Codes im Anhang.
 
-\subsubsection{FSM}
+\subsubsection{FSM} \label{sec:FSM}
 Der Planting Robot wird durch einen endlichen Zustandsautomaten FSM gesteuert. Die Zustände oder States die FSM sind in Abb. \ref{fig:FSM} illustriert. Ein State Wechsel wird entweder durch eine User Eingabe übe das HMI, eine Topferkennung durch den IR-Sensor oder durch fertigstellen eines States ausgeführt. Im folgenden Abschnitt werden die verschiedenen States sowie State-Wechsel erklärt:
 
 \begin{figure}[H]
@@ -32,8 +32,103 @@ Der Planting Robot wird durch einen endlichen Zustandsautomaten FSM gesteuert. D
 \textbf{Setzprozess:} Sobald der Stechprozess beendet ist wird der Setzprozess ausgeführt. Dabei wird die Vereinzlung angetrieben, sodass NemaCaps vom Schüttgutlager in die Topferde befördert wird. Nach beenden des Setzprozesses geht die FSM wieder in den $"$Ready$"$ State.
 
 \subsubsection{HMI Driver}
+Im HMI\_Driver.c File wird der HMI\_Task erzeugt. Alle 10ms führt dieser den Debounce Prozess aus. Dabei wird die Funktion FunktionKEYDBNC\_Process() aufgerufen, welche den Status aller Taster des HMIs ausliest und über eine State Machine entprellt. Der Debounce Prozess generiert dann ein Event für jeden Tastendruck, langen Tastendruck und loslassen eines Tasters. Events werden vom Event.c File in einem Event Array abgespeichert. Es wird somit ein Polling der HMI Taster mit einer Frequenz von 100Hz durchgeführt. Diese Programmsequenz ist in Abb. \ref{fig:Taster_Polling} oben grafisch dargestellt.
+
+
+\begin{figure}[H]
+	\includegraphics[width=0.9\textwidth]{Illustrationen/6-Umsetzung/Taster_Polling.png}
+	\caption{Software, Taster Polling / Auswertung}
+	\label{fig:Taster_Polling}
+\end{figure}
+
+Der untere Teil der Grafik in Abb. \ref{fig:Taster_Polling} beschreibt die Auswertung eines Tastendrucks. Dazu werden die vom Debounce Prozess erzeugte Events in einem der drei Eventhandler (FSM\_Startup\_EventHandler, FSM\_UserInput\_EventHandler oder FSM\_Ready\_EventHandler) des FSM.c Files ausgewertet. Eine solche Taster Event Auswertung ist am Beispiel des FSM\_Startup\_EventHandler im folgenden Code dargestellt:
+
+\begin{lstlisting}
+void FSM_Startup_EventHandler(EVNT_Handle event) {
+	switch(event) {
+		case EVNT_BTN_9cm_LPRESSED:				// Any Button Long Press
+		case EVNT_BTN_11cm_LPRESSED:
+		case EVNT_BTN_12cm_LPRESSED:
+		case EVNT_BTN_13cm_LPRESSED:
+		case EVNT_BTN_14cm_LPRESSED:
+		case EVNT_BTN_AUTO_LPRESSED:
+		case EVNT_BTN_Setzeinheit_runter_LPRESSED:
+		case EVNT_BTN_Setzeinheit_hoch_LPRESSED:
+		case EVNT_BTN_Vereinzelung_LPRESSED:
+		case EVNT_BTN_hoeher_LPRESSED:
+		case EVNT_BTN_tiefer_LPRESSED:
+			LED_Driver_pulseAll(FALSE);
+			LED_Driver_clear_all();
+			fsmData.fsmState = Init;
+			break;
+		default:
+			break;
+	} /* switch */
+}
+\end{lstlisting}
+
+Der Code beschreibt das Verhalten des Planting Robots auf einen Tastendruck während des Startup States wie in Kapitel \ref{sec:FSM} beschrieben. \\
+\newline
+Die .c Files Debounce, Event, KeyDebounce und Trigger beruhen Grundlegend auf den Gleichnamigen Files aus dem Modulunterricht INTRO, betreut durch Erich Styger. Der Code wurde jedoch für die Verwendung mit dem Planting Robot angepasst und erweitert.
 
 \subsubsection{LED Driver}
+Wie in Kapitel \ref{sec:Mainboard_HMI_Interface} erklärt, wird für die Ansteuerung der HMI LEDs der LED Treiber Baustein LP3943, mit I$^{2}$C Schnittstelle verwendet. Die I$^{2}$C Schnittstellenparameter wurden gemäss Tabelle \ref{tab:I2C_Parameter} in Processor Expert konfiguriert:
+
+\begin{table}[H]
+	\centering
+	\caption{Software, I$^{2}$C Parameter LED Treiber}
+	\begin{tabular}{|l|c|r|}
+		\hline
+		\textbf{Parameter} & \textbf{Wert} & \textbf{Einheit} \\
+		\hline
+		SCL frequency & 109.227 & kHz \\
+		\hline
+		SDA Hold & 0.811 & us \\
+		\hline
+		SCL start Hold & 4.482 & us \\
+		\hline
+		SCL stop Hold & 4.625 & us \\
+		\hline
+		Adress mode & 7     & bit \\
+		\hline
+	\end{tabular}%
+	\label{tab:I2C_Parameter}%
+\end{table}%
+
+In Tabelle \ref{tab:LP3943_Register} sind sämtliche Funktions Register des LP3943 aufgelistet. Die LEDs des HMI können durch schreiben der Register LS0... LS3 konfiguriert werden. Dabei kann jeder LED Port einen der folgenden vier Konfigurationen annehmen: LED aus, LED ein, LED dimmen mit Dimmrate DIM0, LED dimmen mit Dimmrate DIM1. Die Dimmraten DIM0 und DIM1 sind durch Timer Bausteine definiert. Demnach kann für jeden der beiden Timer über die Register Prescaler und PWM eine Frequenz und ein Tastgrad konfiguriert werden. Da über das Prescaler Register eine Periodenzeit von 6.25ms... 1.6s eingestellt werden kann, können die LEDs gut sichtbar zum blinken gebracht werden.
+
+\begin{table}[H]
+	\centering
+	\caption{LP3943 Register Tabelle \protect\cite{LP3943}}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\textbf{Adress (Hex)} & \textbf{Register Name} & \textbf{Read/Write} & \textbf{Register Function} \\
+		\hline
+		0x00  & Input 1 & Read only & LED0–7 Input Register \\
+		\hline
+		0x01  & Input 2 & Read only & LED8–15 Input Register \\
+		\hline
+		0x02  & PSC0  & R/W   & Frequency Prescaler 0 \\
+		\hline
+		0x03  & PWM0  & R/W   & PWM Register 0 \\
+		\hline
+		0x04  & PSC1  & R/W   & Frequency Prescaler 1 \\
+		\hline
+		0x05  & PWM1  & R/W   & PWM Register 1 \\
+		\hline
+		0x06  & LS0   & R/W   & LED0–3 Selector \\
+		\hline
+		0x07  & LS1   & R/W   & LED4–7 Selector \\
+		\hline
+		0x08  & LS2   & R/W   & LED8–11 Selector \\
+		\hline
+		0x09  & LS3   & R/W   & LED12–15 Selector \\
+		\hline
+	\end{tabular}%
+	\label{tab:LP3943_Register}%
+\end{table}%
+
+Durch Verwendung der Register Input 1 sowie Input 2 können die Pins des LP3943 auch als Digital Inputs verwendet werden. In diesem Projekt wird der LP3943 allerdings nur zum treiben von LEDs verwendet.
 
 \subsubsection{ION Motion Driver}
 
