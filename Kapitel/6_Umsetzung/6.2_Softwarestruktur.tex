@@ -172,17 +172,20 @@ Aufgrund der unterschiedlichen Menge an Datenbytes ist es schwierig eine generis
 	\label{fig:ION_Methoden}
 \end{figure}
 
-Auf Basis dieser vier Methoden wurde die Ansteuerung der Motoren für die Vereinzelung und die Verstellmechanik implementiert.
-
+Auf Basis dieser vier Methoden wurde die Ansteuerung der Motoren für die Vereinzelung und die Verstellmechanik implementiert. Die beiden Prozesse sind in den Kapiteln Vereinzelung (\ref{sec:Vereinzelung}) und Verstellmechanik (\ref{verstellmechanik}) systematisch beschrieben. Die genaue Implementierung der vier Methoden kann im ION\_Motion\_Driver.c File im Anhang nachgeschlagen werden. Im folgenden Absatz wird noch kurz auf die Auswertung der mit dem Motorcontroller gemessen Motorstromwerte eingegangen.\newline
+Für die Initialisierung der Verstellmechanik wird der Motor langsam in eine Richtung gedreht bis die Welle an den mechanischen Anschlag läuft. In diesem Moment steigt der Strom durch den Motor aufgrund der erhöhten Last stark an. Dieser Anstieg wird über die Auswertung der Stromwerte detektiert. Im konkreten Fall wird in der Software ein Schwellwert für die Stromstärke definiert, bei welchem der Motor angehalten soll. Um die Fluktuationen der gemessenen Stromwerte zu glätten wird ein Mittelwert über die letzten X Werte gebildet.
 
 
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/ION_Motion_Strommessung.png}
-	\caption{Software, ION Motion Driver Motorstrom}
+	\caption{Software, Glättung des Motorstroms}
 	\label{fig:ION_Motion_Strommessung}
 \end{figure}
 
-Die Stromkurve ist als qualitative Angabe zu verstehen, der Fokus liegt auf der Glättung der Messwerte.
+In Abbildung \ref{fig:ION_Motion_Strommessung} ist der Stromverlauf des Pololu Getriebemotors mit Übersetzung 378:1 abgebildet. Der Motor wurde im Leerlauf ohne Last betrieben, mit einer konstanten Last gebremst und anschliessend wieder entlastet. Dabei wurde der Motor mit einem geringen PWM Tastgrad betrieben um keinen zu grossen Laststrom zu generieren.\\
+Auf den beiden Graphen ist ein deutlicher Stromanstieg zu erkennen. Der linke Graph zeigt dabei die gemessenen Stromwerte, der rechte die Mittelwerte der letzten 5 Messwerte. Der Vorteil der Mittelwertbildung kommt vor allem bei einer konstanten Belastung des Motors zum Vorschein, da hier die gemessenen Stromwerte stark fluktuieren und keine akkurate Messung zulassen. Die Stromkurven sind als qualitative Angaben zu verstehen, der Fokus liegt auf der Glättung der Messwerte.
+
+
 
 \subsubsection{IR Sensor Driver}
 
