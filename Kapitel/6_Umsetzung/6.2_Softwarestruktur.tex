@@ -131,6 +131,58 @@ In Tabelle \ref{tab:LP3943_Register} sind sämtliche Funktions Register des LP39
 Durch Verwendung der Register Input 1 sowie Input 2 können die Pins des LP3943 auch als Digital Inputs verwendet werden. In diesem Projekt wird der LP3943 allerdings nur zum treiben von LEDs verwendet.
 
 \subsubsection{ION Motion Driver}
+Der ION Motion Motorcontroller wird über UART mit einer Baudrate von 38400 baud angesteuert. Das Interface des Motorencontrollers besteht aus über 50 Befehle und ist nicht sehr übersichtlich. In Tabelle \ref{tab:ION_Kommandos} sind die in diesem Projekt verwendeten Kommandos zusammen mit der Menge Datenbytes aufgelistet. Dabei ist die Menge an Datenbytes, bei Kommandos welche mehrere Parameter übergeben, die Summe der jeweiligen Ziffern. So werden für das Kommando Nr. 65 beispielsweise 16 Datenbytes gesendet.
+
+\begin{table}[H]
+	\footnotesize
+	\centering
+	\caption{Software, ION Motion Kommandos}
+	\begin{tabular}{|c|l|c|}
+		\hline
+		\multicolumn{1}{|l|}{\textcolor[rgb]{ .247,  .247,  .247}{\textbf{Kommando}}} & \textcolor[rgb]{ .247,  .247,  .247}{\textbf{Beschreibung}} & \multicolumn{1}{l|}{\textcolor[rgb]{ .247,  .247,  .247}{\textbf{Datenbytes}}} \\
+		\hline
+		0     & Drive Forward Motor 1 & 1 \\
+		\hline
+		1     & Drive Backwards Motor 1 & 1 \\
+		\hline
+		4     & Drive Forward M2 & 1 \\
+		\hline
+		5     & Drive Backwards M2 & 1 \\
+		\hline
+		22    & Set Quadrature Encoder 1 Value & 4 \\
+		\hline
+		23    & Set Quadrature Encoder 2 Value & 4 \\
+		\hline
+		49    & Read Motor Currents & 2 / 2 \\
+		\hline
+		65    & Buffered Drive M1 with signed Speed, Accel, Deccel and Position & 4 / 4  / 4 / 4 \\
+		\hline
+		66    & Buffered Drive M2 with signed Speed, Accel, Deccel and Position & 4 / 4  / 4 / 4 \\
+		\hline
+	\end{tabular}%
+	\label{tab:ION_Kommandos}%
+\end{table}%
+
+Kommandos werden gemäss folgendem Schema gesendet: Address Byte, Command Byte, Data Bytes, CRC 16Bit checksum.  Nach dem empfangen eines gültigen Kommandos antwortet der Kontroller mit einem acknowledge Byte (0xFF) oder direkt mit den geforderten Datenbytes gefolgt von der 16Bit checksum.\\ 
+Aufgrund der unterschiedlichen Menge an Datenbytes ist es schwierig eine generische Methode für alle Kommandos zu schreiben. Diese würde schnell sehr gross und unübersichtlich. Deshalb werden die Kommandos aus Tab. \ref{tab:ION_Kommandos} in einer der vier Methoden setMotorSpeed, setEncoderValue, getMotorCurrent und ION\_Motion\_setPosition behandelt. Die Aufteilung der Kommandos auf die jeweiligen Methoden ist in Abb. \ref{fig:ION_Methoden} abgebildet.
+
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/ION_Funktionen.png}
+	\caption{Software, ION Motion Driver Methoden}
+	\label{fig:ION_Methoden}
+\end{figure}
+
+Auf Basis dieser vier Methoden wurde die Ansteuerung der Motoren für die Vereinzelung und die Verstellmechanik implementiert.
+
+
+
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/ION_Motion_Strommessung.png}
+	\caption{Software, ION Motion Driver Motorstrom}
+	\label{fig:ION_Motion_Strommessung}
+\end{figure}
+
+Die Stromkurve ist als qualitative Angabe zu verstehen, der Fokus liegt auf der Glättung der Messwerte.
 
 \subsubsection{IR Sensor Driver}
 
