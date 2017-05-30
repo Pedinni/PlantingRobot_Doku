@@ -11,7 +11,7 @@ Bei der Funktionsanalyse wird zwischen einer Pflicht und einer komplexeren Wunsc
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Initialisierung:} Die Initialisierung wird von einem Operator ausgeführt. Dieser Block ist nur in der Pflichtanforderung vorhanden, da die Maschine im Umfang der Pflichtanforderung die Initialisierung nicht selbstständig durchführt.
+	\item \textbf{Initialisierung:} Die Initialisierung wird durch einen Operator ausgeführt. Diese Teilfunktion ist nur in der Pflichtanforderung vorhanden, da die Maschine im Umfang der Pflichtanforderung die Initialisierung nicht selbstständig durchführt.
 	
 	\begin{itemize}
 		\item \textbf{Topfgrösse konfigurieren:} In diesem Funktionsblock wird an der Maschine über ein HMI die verwendete Topfgrösse eingestellt.
@@ -27,10 +27,10 @@ Bei der Funktionsanalyse wird zwischen einer Pflicht und einer komplexeren Wunsc
 		\label{fig:FunktWunsch}
 	\end{figure}
 	
-	\item \textbf{NemaCaps fördern:} Dieser Block behandelt die Verbindung zwischen Lager und Setzmechanismus.
+	\item \textbf{NemaCaps fördern:} Diese Teilfunktion behandelt die Verbindung zwischen Lager und Setzmechanismus.
 	
 	\begin{itemize}
-		\item \textbf{NemaCaps vereinzeln:} Um die NemaCaps gezielt und kontrolliert in die Topferde einsetzen zu können, sollen diese vor dem Setzen vereinzelt werden.
+		\item \textbf{NemaCaps vereinzeln:} Um die NemaCaps gezielt und kontrolliert in die Topferde einsetzen zu können, werden diese vor dem Setzen vereinzelt.
 		
 		\item \textbf{NemaCaps transportieren:} Der Transport zwischen Lager und Setzmechanismus kann vor oder nach der Vereinzelung stattfinden.
 	\end{itemize}
@@ -38,9 +38,9 @@ Bei der Funktionsanalyse wird zwischen einer Pflicht und einer komplexeren Wunsc
 
 
 
-	\item \textbf{Topf erkennen:} Dieser Block übernimmt implizit zwei Aufgaben. Es soll erkannt werden ob überhaupt ein Topf für den Setzprozess bereit steht und ob sich dieser bewegt oder still steht. 
+	\item \textbf{Topf erkennen:} Diese Teilfunktion übernimmt implizit zwei Aufgaben. Es soll erkannt werden, ob ein Topf für den Setzprozess bereit steht und ob sich dieser in Bewegung ist oder nicht. 
 	
-	\item \textbf{NemaCaps setzen:} Erst wenn ein Topf bereit steht wird der Setzprozess eingeleitet. Dieser unterscheidet sich wie in Abb. \ref{fig:FunktPflicht} und Abb. \ref{fig:FunktWunsch} ersichtlich zwischen Pflicht und Wunschanforderung anhand des Funktionsumfangs.
+	\item \textbf{NemaCaps setzen:} Erst wenn ein Topf bereit steht, wird der Setzprozess eingeleitet. Dieser unterscheidet sich, wie in Abb. \ref{fig:FunktPflicht} und Abb. \ref{fig:FunktWunsch} ersichtlich, zwischen Pflicht und Wunschanforderung anhand des Funktionsumfangs.
 	
 	\begin{itemize}
 		\item \textbf{Topfgrösse erkennen:} Durch Sensorik soll die Topfgrösse jedes Topfes vermessen werden.
