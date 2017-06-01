@@ -50,3 +50,32 @@ Desweiteren ist die Lochmaske mit zwei Langlöchern (14) ausgestattet. Diese wer
 \newline
 \newline
 Die Vereinigung von verschiedensten Funktionen in der Trommel (Integralbauweise) führt zu einer komplexeren Geometrie. Fertigungstechnisch sind gewisse Geometrien konventionell nicht herstellbar. Daher bietet sich Rapid Prototyping als Fertigungsverfahren an. Dadurch ergibt sich jedoch eine Einschränkung: Der Aussendurchmesser der Trommel darf maximal 200mm betragen, da der Bauraum des internen 3D-Druckers 200mm x 200mm x 300mm beträgt. 
+
+\subsubsection{Ansteuerung des Antriebs}
+\textit{(pro)} Die Vereinzelung benötigt einen drehmomentstarken Antrieb um eine flüssige Funktion zu gewährleisten. Dafür wird ein DC Getriebemotor von Pololu mit einer Getriebeübersetzung von 378:1 verwendet. Die Spezifikationen, sowie die Begründung für die Wahl dieser Antriebstechnik sind in Kapitel \ref{kap:Evaluation_der_Komponenten} erläutert.
+\\ Um die Lochmaske präzise positionieren zu können, kommen zwei Sensorik Systeme zum Einsatz. Ein Hall Sensor zur absoluten Bestimmung der Position der Lochmaske, sowie der Quadratur Encoder des Motors zur Bestimmung des zurückgelegten Winkels relativ zur gemessenen Position. Es wird der digitale Hall Sensor SS441A von Honeywell verwendet (siehe Abb. \ref{fig:SS441A}). Das Bauteil kann mit einer Spannung von 3.8V bis 30V betrieben werden. Die typische Stromaufnahme beläuft sich dabei bei einer Spannung von 5V auf 6.5mA. Der Hall Sensor reagiert auf den Südpol des verwendeten Stabmagneten und löst bei Raumtemperatur bei einem magnetischen Feld von 55G aus.
+
+\begin{figure}[H]
+	\includegraphics[width=0.9\textwidth]{Illustrationen/6-Umsetzung/Hall_Sensor.png}
+	\caption{SS441A, digitaler Hall Sensor \protect\cite{SS441A}}
+	\label{fig:SS441A}
+\end{figure}
+
+Das System initialisiert sich nach einem Neustart einmalig und ist dann für den Betrieb bereit. Der ganze Prozess der Vereinzelung ist in Abb. \ref{fig:Ansteuerung_Vereinzelung} illustriert.  Der Prozess wurde dabei in vier Etappen unterteilt welche mit den Ziffern 1... 4 nummeriert sind.
+
+\begin{figure}[H]
+	\includegraphics[width=0.9\textwidth]{Illustrationen/6-Umsetzung/Ansteuerung_Vereinzelung.png}
+	\caption{Ansteuerung der Vereinzelung}
+	\label{fig:Ansteuerung_Vereinzelung}
+\end{figure}
+
+Im folgenden Abschnitt werden die vier Etappen erläutert:
+
+\begin{enumerate}
+	\item Die Lochmaske wird solange gedreht bis einer der beiden Permanentmagnete, welche sich mit der Lochmaske drehen, den Hall Sensor erreichen. Der Hall Sensor ist fest hinter der Lochmaske montiert.
+ 	\item Zu diesem Zeitpunkt hat ein Magnet den Hall Sensor erreicht. Die Lochmaske wird eine definierte Anzahl Encoder Counts (Offset) weiter gedreht, bis die Löcher der Lochmasken übereinstimmen.
+ 	\item Das System ist nun initialisiert und bereit für den Betrieb. In dieser Etappe der Vereinzelung stimmen die Löcher der Lochmaske überein und die Nemacaps fallen durch die Lochmaske. 
+	\item Die Nemacaps werden nun durch drehen der Lochmaske mit einer definierten Anzahl Encoder Counts (Schrittweite) repetitiv ausgelöst.
+\end{enumerate}
+
+Auch nach der Initialisierungsphase wird jedes mal wenn ein Magnet den Hall Sensor erreicht, die Position der Lochmaske neu ermittelt. Dadurch wird eine mögliche Ungenauigkeit durch aufaddieren der Fehler in der Schrittweite vermieden. Ausserdem wird dadurch der Fehler durch mögliche Impulsverluste minimiert. 
