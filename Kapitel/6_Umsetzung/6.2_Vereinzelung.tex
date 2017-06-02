@@ -51,7 +51,7 @@ Desweiteren ist die Lochmaske mit zwei Langlöchern (14) ausgestattet. Diese wer
 \newline
 Die Vereinigung von verschiedensten Funktionen in der Trommel (Integralbauweise) führt zu einer komplexeren Geometrie. Fertigungstechnisch sind gewisse Geometrien konventionell nicht herstellbar. Daher bietet sich Rapid Prototyping als Fertigungsverfahren an. Dadurch ergibt sich jedoch eine Einschränkung: Der Aussendurchmesser der Trommel darf maximal 200mm betragen, da der Bauraum des internen 3D-Druckers 200mm x 200mm x 300mm beträgt. 
 
-\subsubsection{Ansteuerung des Antriebs}
+\subsubsection{Prozessablauf}
 \textit{(pro)} Die Vereinzelung benötigt einen drehmomentstarken Antrieb um eine flüssige Funktion zu gewährleisten. Dafür wird ein DC Getriebemotor von Pololu mit einer Getriebeübersetzung von 378:1 verwendet. Die Spezifikationen, sowie die Begründung für die Wahl dieser Antriebstechnik sind in Kapitel \ref{kap:Evaluation_der_Komponenten} erläutert.
 \\ Um die Lochmaske präzise positionieren zu können, kommen zwei Sensorik Systeme zum Einsatz. Ein Hall Sensor zur absoluten Bestimmung der Position der Lochmaske, sowie der Quadratur Encoder des Motors zur Bestimmung des zurückgelegten Winkels relativ zur gemessenen Position. Es wird der digitale Hall Sensor SS441A von Honeywell verwendet (siehe Abb. \ref{fig:SS441A}). Das Bauteil kann mit einer Spannung von 3.8V bis 30V betrieben werden. Die typische Stromaufnahme beläuft sich dabei bei einer Spannung von 5V auf 6.5mA. Der Hall Sensor reagiert auf den Südpol des verwendeten Stabmagneten und löst bei Raumtemperatur bei einem magnetischen Feld von 55G aus.
 
@@ -65,7 +65,7 @@ Das System initialisiert sich nach einem Neustart einmalig und ist dann für den
 
 \begin{figure}[H]
 	\includegraphics[width=0.9\textwidth]{Illustrationen/6-Umsetzung/Ansteuerung_Vereinzelung.png}
-	\caption{Ansteuerung der Vereinzelung}
+	\caption{Prozessablauf der Vereinzelung}
 	\label{fig:Ansteuerung_Vereinzelung}
 \end{figure}
 
