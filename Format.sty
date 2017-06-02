@@ -54,9 +54,9 @@
 \usepackage{titlesec}
 %\usepackage[font={footnotesize,sf,}, justification=RaggedRight, singlelinecheck=false]{caption} %macht die Bild und Tabellenbeschreibung linksbündig
 
-\titleformat{\section}[hang]{\bf\Large\sffamily}{\thesection\quad}{0pt}{}
-\titleformat{\subsection}[hang]{\bf\large\sffamily}{\thesubsection\quad}{0pt}{}
-\titleformat{\subsubsection}[hang]{\bf\normalsize\sffamily}{\thesubsubsection\quad}{0pt}{}
+%\titleformat{\section}[hang]{\bf\Large\sffamily}{\thesection\quad}{0pt}{}
+%\titleformat{\subsection}[hang]{\bf\large\sffamily}{\thesubsection\quad}{0pt}{}
+%\titleformat{\subsubsection}[hang]{\bf\normalsize\sffamily}{\thesubsubsection\quad}{0pt}{}
 
 
 \newcommand{\incADreiMode}{A3}  % [A3 | anything ]
@@ -104,10 +104,10 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[RO]{\sffamily \bf \flushright \sffamily Hochschule Luzern\\  \small Technik \& Architektur}
-\fancyhead[LO]{\footnotesize \sffamily {Bachelorarbeit FS 2017\\Planting Robot}}
-\fancyfoot[RO]{\sffamily \thepage}
-\fancyfoot[LO]{\small {\sffamily Yves Gubelmann \& Patrick Rossacher}}
+\fancyhead[RO]{\normalfont \bf \flushright \normalfont Hochschule Luzern\\  \small Technik \& Architektur}
+\fancyhead[LO]{\footnotesize \normalfont {Bachelorarbeit FS 2017\\Planting Robot}}
+\fancyfoot[RO]{\normalfont \thepage}
+\fancyfoot[LO]{\small {\normalfont Yves Gubelmann \& Patrick Rossacher}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -157,6 +157,7 @@ captionpos=b
 
 \usepackage{titletoc}
  
+
 \titlecontents{section}[1.5em]{\addvspace{1pc}\bfseries}{\contentslabel{1.5em}}
 {\hspace*{-1.5em}}{\titlerule*[0.3pc]{.}\contentspage}
 
