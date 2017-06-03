@@ -36,6 +36,8 @@ Die Bewegung der Verstellmechanik ist in Abbildung \ref{fig:motion_vm} dargestel
 Wie schon erläutert, ist ein geringes Gewicht der beschleunigten Masse anzustreben. Gemäss Berechnungen soll die beschleunigte Masse maximal 1kg betragen. Um diese Anforderung zu erfüllen, werden die Kulissen (Punkte 2 und 3 aus Abb. \ref{fig:motion_vm}) aus 6mm dickem Aluminiumblech gefertigt. Auch die Teile werden mittels \textbf{Laserschneidmaschine} hergestellt. Weiter erspart diese Wahl das Umrüsten der Maschine und hält die Kosten auf einem Minimum (\textbf{nochmals nötig? Evtl. sinnvoller ein Kapitel 'Materialwahl' zu machen und einmal dafür ausführlich darauf eingehen}).
 
 \subsubsection{Prozessablauf}
+\textit{(pro)} Genaue Spezifikationen für den Antrieb der Verstellmechanik zu definieren stellte sich als schwierig heraus. Da die einzigen Drehmomente, welche dem Antrieb entgegenwirken, auf Reibkräfte der Mechanik beruhen, welche schlecht geschätzt werden können. Eine weitere Herausforderung bergen die kleinen Winkeländerungen an der Antriebswelle des Motors (der ganze Bewegungsraum von Anschlag zu Anschlag beträgt ca. 100°). Um solch kleine Winkeländerungen präzise fahren zu können wird ein DC Getriebemotor von Pololu mit einer Getriebeübersetzung von 378:1 verwendet.  Die Spezifikationen, sowie die Begründung für die Wahl dieser Antriebstechnik sind in Kapitel \ref{kap:Evaluation_der_Komponenten} erläutert.\\
+Der Prozessablauf zur Initialisierung sowie das Einstellen verschiedener Topfgrössen ist in Abb. \ref{fig:Prozessablauf_Verstellmechanik} illustriert. Wie bei der Setzeinheit wird die Verstellmechanik durch das Anfahren eines mechanischen Anschlags initialisiert. Die verschiedenen Topfgrössen von 9cm... 14cm können durch fahren einer relativen Schrittweite zum Anschlag eingestellt werden.
 
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Prozessablauf_Verstellmechanik.png}
@@ -43,3 +45,12 @@ Wie schon erläutert, ist ein geringes Gewicht der beschleunigten Masse anzustre
 	\label{fig:Prozessablauf_Verstellmechanik}
 \end{figure}
 
+Der Prozess wurde in drei Etappen unterteilt welche mit den Ziffern 1... 3 nummeriert sind. Im folgenden Abschnitt werden die drei Etappen erläutert:
+
+\begin{enumerate}
+	\item Nach einem Neustart der Maschine befindet sich die Verstellmechanik in einer unbekannten Position. Um die absolute Position der Verstellmechanik zu ermitteln wird diese an die mechanischen Endanschläge der Führungskullise bewegt. Durch die Erhöhung des Laststroms wird der Endanschlag vom uC erkannt.
+	\item In dieser Etappe befindet sich die Verstellmechanik an den Endanschläge. Dies wurde durch grüne Kreise, an den jeweiligen Punkten wo die Mechanik den Endanschlag berührt, gekennzeichnet.
+	\item Durch bewegen der Verstellmechanik um eine definierte Schrittweite relativ zum Endanschlag können nun die verschiedenen Setzradien eingestellt werden. Aufgrund der Form der Führungskulisse ergeben sich jeweils zwei Positionen, links und rechts vom kleinsten Setzradius, für die Topfgrössen 11cm, 12cm, 13cm und 14cm.
+\end{enumerate}
+
+Die Parameter für die Schrittweiten der jeweiligen Setzradien werden im Kapitel Inbetriebnahme (\ref{sec:Inbetriebnahme_Verstellmechanik}) behandelt.
