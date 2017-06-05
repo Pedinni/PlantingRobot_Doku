@@ -23,9 +23,9 @@ Um drei NemaCaps in einen Topf zu pflanzen, erfolgt folgender Prozess:
 
 Konstruktiv sind drei Masse hervorzuheben:
 \begin{itemize}
-	\item \textbf{L - Maximaler Hubweg:} Der maximale Hub L beträgt 111mm. Gemäss Berechnungen (Siehe Anhang: \textit{Auslegung Spindel}) muss dieser mindestens 86mm betragen. Somit beträgt die Reserve 25mm. 
+	\item \textbf{L - Maximaler Hubweg:} Der maximale Hub L beträgt 111mm. Gemäss Berechnungen (vgl. Anhang 'Auslegung Spindel') muss dieser mindestens 86mm betragen. Somit beträgt die Reserve 25mm. 
 	
-	\item \textbf{C - Länge der Führungen:} Die Länge der Führungen ist gegeben durch den Hubweg L, der Höhe des Motors für die Verstellmechanik  und dessen Kupplung. Dies bedingt eine Länge von 270mm.
+	\item \textbf{C - Länge der Führungen:} Die Länge der Führungen ist durch den Hubweg L gegeben, der Höhe des Motors für die Verstellmechanik  und dessen Kupplung. Dies bedingt eine Länge von 270mm.
 	
 	\item \textbf{D - Länge der Spindel:} Die Spindellänge ergibt sich durch den maximalen Hub L und der Höhe der Bewegungsschraube (Punkt 5 in Abbildung \ref{fig:setzeinheit}) plus Montageplatte (15). Dadurch beträgt die Länge der Spindel 168mm.
 \end{itemize}
@@ -36,7 +36,7 @@ Die Wahl der Spindel und des Spindelantriebes haben einen entscheidenden Einflus
 
 Dieses Subkapitel befasst sich mit der Auslegung und Berechnung der Spindel. Dabei sind Berechnungen in zusammengefasster Form dargestellt. Der vollständige Rechenweg und die detaillierte Vorgehensweise sind im Anhang (Dokument \textit{Auslegung Spindel}) zu entnehmen.
 
-Gegeben durch den Setzprozess und die Geometrie sind folgende Daten:
+Folgende Daten sind durch den Setzprozess und die Geometrie gegeben:
 	\begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/topfgeometrie.png}
 	\caption{Geometrie der Töpfe und des Setzprozess}
@@ -62,7 +62,7 @@ Gegeben durch den Setzprozess und die Geometrie sind folgende Daten:
 	\label{tab:Randbedingungen}
 \end{table}
 
-Anhand dieser Randbedingungen und den getroffenen Annahmen ergibt sich eine Beschleunigungs- und Bremszeit T\textsubscript{b}=0.1125s. Bei einem maximalen Hubweg U\textsubscript{max} = 72.4mm beträgt die grösste durschnittliche Geschwindigkeit v\textsubscript{avmax}:
+Anhand dieser Randbedingungen und den getroffenen Annahmen ergeben sich eine Beschleunigungs- und Bremszeit T\textsubscript{b}=0.1125s. Bei einem maximalen Hubweg U\textsubscript{max} = 72.4mm beträgt die grösste durschnittliche Geschwindigkeit v\textsubscript{avmax}:
 
 \begin{equation}
 v_{avmax}=\frac{U_{max}}{t_{b}}=\frac{72.4mm}{0.1125s}=643.5mm/s
@@ -74,7 +74,7 @@ Die Geschwindigkeit des Dornes kann  gemäss Abbildung \ref{fig:vprofil_dorn} st
 	\caption{Geschwindigkeitsprofil des Dorns}
 	\label{fig:vprofil_dorn}
 \end{figure}
-Orientiert an den Anforderungen aus Kapitel \ref{subsec:Translation} und der berechneten Geschwindigkeit sind vier Steilgewindespindeln von Igus ausgewählt worden. In Rücksprache mit Mark Chalençon, Produktmanager bei igus Schweiz GmbH, wurde die Auswahl der Produkte zusätzlich verifiziert (E-Mail vom 18.4.17).
+Basierend auf den Anforderungen aus\ref{subsec:Translation} und der berechneten Geschwindigkeit sind vier Steilgewindespindeln von Igus ausgewählt worden. In Rücksprache mit Mark Chalençon, Produktmanager bei Igus Schweiz GmbH, wurde die Auswahl der Produkte zusätzlich verifiziert. 
 \begin{table}[H]
 \begin{tabular}{|c|c|}
 	\hline 
@@ -86,7 +86,7 @@ Orientiert an den Anforderungen aus Kapitel \ref{subsec:Translation} und der ber
 \caption{Ausgewählte Steilgewindespindeln von Igus}
 \label{tab:spindeln}
 \end{table}
-Mit diesen Angaben kann die Spindel durch ein reduziertes Model dargestellt werden, analog zu Abbildung 13-5, S.448 \cite{roloffmatek}:
+Mit diesen Angaben kann die Spindel durch ein reduziertes Model dargestellt werden, analog zu Abbildung 13-5 (\citeNP[S.~448]{roloffmatek}):
  	\begin{figure}[H]
  	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/red_modell.png}
  	\caption{Schema des Spindelantriebs sowie des reduzierten Modells}
@@ -124,31 +124,32 @@ Die berechneten Werte für das Beschleunigungsmoment M\textsubscript{a} aus Tabe
 \newline
 Als definitive Wahl wird die Spindel \textbf{Ds10x25 aus Edelstahl} ausgewählt. Folgende Argumente sind ausschlaggebend:
 	\begin{itemize}
-	\item Die Variante Ds10x25 aus Edelstahl bietet das Optimum von geringem Durchmesser und hoher Festigkeit. Das leicht höhere Beschleunigungsmoment der Ds10x25 aus Edelstahl zur Ds14x30 wird für eine höhere Festigkeit in Kauf genommen.
+	\item Die Variante Ds10x25 aus Edelstahl bietet das Optimum aus kleinem Durchmesser und hoher Festigkeit. Das leicht höhere Beschleunigungsmoment der Ds10x25 aus Edelstahl zur Ds14x30 wird für eine höhere Festigkeit in Kauf genommen.
 	
 	\item \ Die geringere Steigung gibt dem Motor mehr Weg (Umdrehungen) zur Beschleunigung.
 \end{itemize}
-Die Ausgewählte Spindel verfügt somit über eine Reserve S von 3.5 gegenüber dem verfügbaren Beschleunigungsdrehmoment des Antriebs (Siehe Anhang: \textit{Auslegung Spindel}).
+Die Ausgewählte Spindel verfügt somit über eine Reserve S von 3.5 gegenüber dem verfügbaren Beschleunigungsdrehmoment des Antriebs (vgl. Anhang: \textit{Auslegung Spindel}).
 
 \subsubsection{Kupplung}
-Zur mechanischen Verbindung zwischen Spindelantrieb und Spindel wird eine drehstarre Kupplung verwendet. Dadurch kann eine winkelgetreue Drehmomentenübertragung gewährleistet werden, was für diese Anwendung essentiell ist \cite{dubbel}. Hierfür wird die Kupplung HELICAL WA 20-8-6 aus Aluminium von Ringspann AG verwendet \cite{helical}. Die Wahl eines kleinen Aussendurchmessers (20mm) und ein leichter Werkstoff sind für ein möglichst geringes zusätzliches Trägheitsmoment entscheidend und wurde hier berücksichtigt.
+Als mechanischen Verbindung zwischen Spindelantrieb und Spindel wird eine drehstarre Kupplung verwendet. Dadurch kann eine winkelgetreue Drehmomentenübertragung gewährleistet werden, was für diese Anwendung essentiell ist \cite{dubbel}. Hierfür wird die Kupplung HELICAL WA 20-8-6 aus Aluminium von Ringspann AG verwendet \cite{helical}. Die Wahl eines kleinen Aussendurchmessers (20mm) und ein leichter Werkstoff sind für ein möglichst geringes zusätzliches Trägheitsmoment entscheidend und wurden hier berücksichtigt.
 
 \subsubsection{Lagerung}
 \textbf{Rotation der Spindel}
 \newline
-Die Spindel wird durch ein Fest- sowie ein Loslager eindeutig gelagert. Das Festlager ist in der obersten Montageplatte (Punkt. 12 in Abb. \ref{fig:setzeinheit}) vorgesehen, das Loslager hingegen in der zweiten Montageplatte (13). Diese Anordnung ist bewusst so gewählt, damit das Festlager Axialkräfte aufnimmt und der Spindelantrieb axial unbelastet bleibt. Für die Lagerung werden fertige Lagerböcke von Mädler Norm-Antrieb AG verwendet, welche speziell für Spindeln ausgelegt sind. Diese sind einfach im Einbau und erfordern keinen zusätzlichen Entwicklungsaufwand. An der Spindel wird konstruktiv einen Freistich Form E umgesetzt (Siehe Anhang: \textit{Spindel DST LS 10x25})\cite{vsm}.
+Die Spindel wird durch ein Fest- sowie ein Loslager eindeutig gelagert. Das Festlager ist in der obersten Montageplatte (Punkt. 12 in Abb. \ref{fig:setzeinheit}) vorgesehen, das Loslager hingegen in der zweiten Montageplatte (13). Diese Anordnung ist bewusst so gewählt, damit das Festlager Axialkräfte aufnimmt und der Spindelantrieb axial unbelastet bleibt. Für die Lagerung werden fertige Lagerböcke von Mädler Norm-Antrieb AG verwendet, welche speziell für Spindeln ausgelegt sind. Sie erfordern keinen zusätzlichen Entwicklungsaufwand und können einfach eingebaut werden. An der Spindel wird konstruktiv einen Freistich Form E umgesetzt (vgl. Anhang: \textit{Spindel DST LS 10x25})\cite{vsm}.
 \newline
 
 \textbf{Translation der Setzeinheit}
 \newline
-Die Lagerung der translatorischen Bewegung wird durch drei Gleitlager (Punkt. 7 in Abb. \ref{fig:setzeinheit}) realisiert. Dabei werden diese in die Montageplatte (14) eingepresst. Dafür werden drei Kunststoff Gleitlager iglidur JSM-1012 von igus verwendet. Begründet wird die Wahl dadurch, dass Kunstoffgleitlager schmiermittel- und wartungsfrei sind, geringe Reibwerte und eine hohe Lebensdauer aufweisen. Weiter sind dies Standard-Maschinenelemente und dadurch günstig erhätlich. Weitere Informationen die Gleitlager sind aus dem Datenblatt zu entnehmen \cite{igusJSM}.
+Die Lagerung der translatorischen Bewegung wird durch drei Gleitlager (Punkt. 7 in Abb. \ref{fig:setzeinheit}) realisiert. Dabei werden diese in die Montageplatte (14) eingepresst. Dafür werden drei Kunststoff Gleitlager iglidur JSM-1012 von igus verwendet. Begründet wird die Wahl dadurch, dass Kunstoffgleitlager schmiermittel- und wartungsfrei sind, geringe Reibwerte und eine hohe Lebensdauer aufweisen. Weiter sind dies Standard-Maschinenelemente und dadurch günstig erhätlich. Weitere Informationen zum Gleitlager sind aus dem Datenblatt zu entnehmen \cite{igusJSM}.
 
 
 \subsubsection{Montage}
 Wie schon mehrfach erläutert werden verschiedenste Komponenten an Montageplatten montiert. Wie aus Abbildung \ref{fig:setzeinheit} ersichtlich, werden die Montageplatten vertikal angeordnet. Diese Anordnung bildet das Gerüst für eine funktionierende Setzeinheit. Wie in Kapitel \ref{sec:Vereinzelung} erwähnt, bietet sich die konsequente Fertigung mittels Lasermaschine an. Mechanisch fixiert werden die Montageplatten durch Aluminium Profile der Firma Kanya AG (weitere Informationen: siehe Kapitel \ref{maschinengestell}), wobei durch die Nut der Profile eine Blechdicke von 6mm vorgegeben ist. Diese Konstruktion bringt folgende Vorteile:
 	\begin{itemize}
 	\item Komponenten können auf unterschiedlichen Ebenen angeordnet werden. Weiter ist das Hinzufügen von weiteren Komponenten auf einfachste Art realisierbar. Wird eine weitere Komponente benötigt, wird die entsprechende Kontur (z.B. ein Langloch oder Bohrung) vorgesehen und die Komponente kann montiert werden.
-	\item Die Fixierung der Montageplatten durch Aluminium-Profile bringt weitere Flexibilität bei der Montage. Dadurch bleibt die Höhe der einzelnen Platten verstellbar. Auch seitlich können die Platten in eine Richtung verstellt werden.
+
+	\item Die Fixierung der Montageplatten durch Aluminium-Profile macht die Montage flexibler. Dadurch bleibt die Höhe der einzelnen Platten verstellbar. Auch seitlich können die Platten in eine Richtung verstellt werden.
 \end{itemize}
  	\begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Montageplatten.png}
