@@ -22,7 +22,7 @@ Der Funktionsnachweis aus Kapitel \ref{funktionsnachweis} zeigte auf, dass Kompl
 \end{itemize}
 
 \subsubsection{Handhabung}
-Die Verwendung von frischen NemaCaps trägt zur verbesserten Zuverlässigkeit der Vereinzelung bei. Der benutzerfreundliche Wechsel von NemaCaps ist also ein wichtiges Anliegen und wird in der Konstruktion der Vereinzelung berücksichtigt. So ist die Trommel (Punkt 1 in Abb. \ref{fig:vereinzelung_entleeren}) mit einem dreifachen Bajonettverschluss (Detail C, 12) versehen. Die Trommel kann mit einer Drehung von 15° im Gegenuhrzeigersinn entriegelt werden (Detail A in Abb. \ref{fig:vereinzelung_entleeren}). Nun kann die Trommel entfernt werden (Detail B). Die verbleibenden NemaCaps (Detail X) rollen nun auf der Grundplatte hinunter. Geleitet durch zwei Leitbleche (5) fallen diese in Richtung Detail Y, wo man diese in einem Behälter sammeln kann. Auch verfügt die Trommel über einen Deckel (2), welcher durch zwei angebrachte Magnete sicher verschlossen wird.
+Die Verwendung von frischen NemaCaps trägt zur verbesserten Zuverlässigkeit der Vereinzelung bei. Der benutzerfreundliche Wechsel von NemaCaps ist also ein wichtiges Anliegen und wird in der Konstruktion der Vereinzelung berücksichtigt. So ist die Trommel (Punkt 1 in Abb. \ref{fig:vereinzelung_entleeren}) mit einem dreifachen Bajonettverschluss (Detail C in Abb. \ref{fig:vereinzelung_entleeren} und Punkt 12 in Abb. \ref{fig:details_vereinzelung}) versehen. Die Trommel kann mit einer Drehung von 15° im Gegenuhrzeigersinn entriegelt werden (Detail A in Abb. \ref{fig:vereinzelung_entleeren}). Nun kann die Trommel entfernt werden (Detail B). Die verbleibenden NemaCaps (Detail X) rollen nun auf der Grundplatte hinunter. Geleitet durch zwei Leitbleche (5) fallen diese in Richtung Detail Y, wo man diese in einem Behälter sammeln kann. Auch verfügt die Trommel über einen Deckel (2), welcher durch zwei angebrachte Magnete sicher verschlossen wird.
 	\begin{figure}[H]
 	\includegraphics[scale=0.42]{Illustrationen/6-Umsetzung/vereinzelung_entleeren.jpg}
 	\caption{Entleerung der Trommel}
@@ -39,7 +39,6 @@ Folgende Massnahmen werden umgesetzt:
 	
 	\item \textbf{Fertigungsqualität:} Die Tests vom 26.4.2017 zeigten auch, dass die Rauheit der Oberfläche relevant ist. Je feiner die Oberfläche der Bohrung (Punkt 13 in Abbildung \ref{fig:detail_lochmaske}), desto geringer das Risiko, dass NemaCaps hängenbleiben. Folglich werden diese Löcher nach der Bohrung zusätzlich mit einer Reibale (\textbf{H7?}) ausgerieben. Der ideale Durchmesser D1 muss während der Inbetriebnahme durch zielgerichtetes Ausprobieren erörtert werden.
 	
-	\item \textbf{Fertigungsverfahren:} Gegeben durch den einfachen zweidimensionalen Aufbau wird die Lochmaske \textbf{mit dem Laser hergsetellt (korrekt?)}. Als Dicke bietet sich 4mm an, sodass ein grosses NemaCap Platz findet und weitere abgestreift werden.
 \end{itemize}
 Desweiteren ist die Lochmaske mit zwei Langlöchern (14) ausgestattet. Diese werden zur Einpassung von Dauermagneten verwendet, welche zur Positionsbestimmung der Lochmaske dienen. Der Abstand B in Abbildung \ref{fig:detail_lochmaske} ist gegeben durch die Grösse der Schlauchkupplungen (Punkt 8 in Abb. \ref{fig:details_vereinzelung}) und kann dadurch nicht verkleinert werden.
 	\begin{figure}[H]
@@ -47,11 +46,6 @@ Desweiteren ist die Lochmaske mit zwei Langlöchern (14) ausgestattet. Diese wer
 	\caption{Grundriss der Lochmaske mit Schnitt}
 	\label{fig:detail_lochmaske}
 	\end{figure}
-\subsubsection{Fertigungsverfahren und Materialwahl}
- Die Grundplatte sowie die Lochmaske werden mit dem Laser gefertigt. Dieses Fertigungsverfahren ist optimal für die Herstellung von zweidimensionalen Teilen. Ein Minimum von verschiedenen Blechdicken spart Umrüstungzeiten und senkt dadurch Kosten. Ein weiterer Vorteil ist, dass ein direkter Export der Fertigungsunterlagen aus dem CAD möglich ist. Für weitere Komponenten anderer Teilfunktionen wird die Realisation aus gelasertem Blech bevorzugt.
-\newline
-\newline
-Die Vereinigung von verschiedensten Funktionen in der Trommel (Integralbauweise) führt zu einer komplexeren Geometrie. Fertigungstechnisch sind gewisse Geometrien konventionell nicht herstellbar. Daher bietet sich Rapid Prototyping als Fertigungsverfahren an. Dadurch ergibt sich jedoch eine Einschränkung: Der Aussendurchmesser der Trommel darf maximal 200mm betragen, da der Bauraum des internen 3D-Druckers 200mm x 200mm x 300mm beträgt. 
 
 \subsubsection{Prozessablauf}
 \textit{(pro)} Die Vereinzelung benötigt einen drehmomentstarken Antrieb um eine flüssige Funktion zu gewährleisten. Dafür wird ein DC Getriebemotor von Pololu mit einer Getriebeübersetzung von 99:1 verwendet. Die Spezifikationen, sowie die Begründung für die Wahl dieser Antriebstechnik sind in Kapitel \ref{kap:Evaluation_der_Komponenten} erläutert.

@@ -3,15 +3,13 @@
 \newline
 
 \subsubsection{Aufbau}
-Der Stechdorn besteht aus mehreren Teilen, wobei diese über eine lineare Führung (Punkt 5 in Abbildung \ref{fig:details_stechdorn}) verbunden sind. Dabei wird das Haupt (1) an der Verstellmechanik montiert und macht die Translation der Setzeinheit mit. Sobald der untere Teil (2, 3) in die Topferde einsticht, fährt die Spitze an den oberen Anschlag der Führung (Detail A). Bei der Bewegung zurück nach oben, öffnet sich die Spitze wieder und das NemaCaps kann durch den Kanal (8) ins ausgehobene Setzloch fallen (Detail B). Diese Bewegung soll nur durch die Gewichts- sowie Trägheitskraft der Spitze ausgelöst werden. Falls die Spitze zu leicht ist, um sich durch die Bewegung zu öffnen, kann der Hohlraum der Spitze mit Blei aufgefüllt werden. Dafür ist ein Füllloch (4) vorgesehen, welches mit einer Madenschraube M6 verschlossen wird.
-\newline
-Folgende Überlegungen geben die Lage der linearen Führung vor:
+Der Stechdorn besteht aus mehreren Teilen, wobei diese über eine lineare Führung (Punkt 5 in Abbildung \ref{fig:details_stechdorn}) verbunden sind. Dabei wird das Haupt (1) an der Verstellmechanik montiert und macht die Translation der Setzeinheit mit. Sobald der untere Teil (2, 3) in die Topferde einsticht, fährt die Spitze an den oberen Anschlag der Führung (Detail A). Bei der Bewegung zurück nach oben, öffnet sich die Spitze wieder und das NemaCaps kann durch den Kanal (8) ins ausgehobene Setzloch fallen (Detail B). Diese Bewegung soll nur durch die Gewichts- sowie Trägheitskraft der Spitze ausgelöst werden. Falls die Spitze zu leicht ist, um sich durch die Bewegung zu öffnen, kann der Hohlraum der Spitze mit Blei aufgefüllt werden. Dafür ist ein Füllloch (4) vorgesehen, welches mit einer Madenschraube M6 verschlossen wird. Folgende Überlegungen geben die Lage der linearen Führung vor:
 \begin{itemize}
 	\item Die lineare Führung soll möglichst parallel zur Bewegungsachse der Setzeinheit verlaufen, sodass möglichst keine Radialkräfte auf den Dorn wirken.
 	
 	\item Wiederum muss eine seitliche Öffnung der Spitze soweit geschehen, dass die Öffnung (9) frei über dem Setzloch steht (Detail B) und ein freier Fall des NemaCaps möglich ist.
 	
-	\item Der maximale Weg der Spitze in vertikaler Richtung beschränkt durch die maximale Hublänge der Spindel. Dabei ist der Abstand A in den Berechnungen (Siehe Anhang: \textit{Auslegung Spindel}) mit 15mm angenommen. Die Umsetzung überschreitet diese Annahme um 1mm, bewegt jedoch im angemessenem Rahmen.
+	\item Der maximale Weg der Spitze in vertikaler Richtung beschränkt durch die maximale Hublänge der Spindel. Dabei ist der Abstand A in den Berechnungen (vgl. Anhang: \textit{Auslegung Spindel}) mit 15mm angenommen. Die Umsetzung überschreitet diese Annahme um 1mm, bewegt jedoch im angemessenem Rahmen.
 \end{itemize}
 
 	\begin{figure}[H]
@@ -58,8 +56,7 @@ An der Spitze oben sind folgende konstruktive Überlegungen hervorzuheben:
 	\label{fig:details_spitze_oben}
 	\end{figure}
 
-\subsubsection{Materialwahl und Fertigungsverfahren}
-Die komplexe Geometrie dieser Teile sind ausschlaggebend, dass Rapid Prototyping als Fertigungsverfahren gewählt wird. Bewusst wird die Interalbauweise für den Stechdorn genutzt, um viele Funktionen in einem Teil zu vereinen. Durch die erhöhten Anforderungen an das Gewicht wird ein Kunststoff (ABS) als Material verwendet. Dabei ist es möglich, dass ein Teil mehrmals gedruckt wird, da das optimale Spielmass der linearen Führung iterativ durch zielgerichtetes Ausprobieren gefunden werden muss. 
+Als Fertigungsverfahren wird Rapid Prototyping gewählt. Bewusst wird die Interalbauweise für den Stechdorn genutzt, um viele Funktionen in einem Teil zu vereinen. Es ist möglich, dass ein Teil mehrmals gedruckt wird, da das optimale Spielmass der linearen Führung iterativ durch zielgerichtetes Ausprobieren gefunden wird. 
 
 \subsubsection{Schlauch}
 Für den Transport der NemaCaps zwischen Vereinzelung und Stechdorn wird die Gravitation verwendet. Dabei werden die fallenden NemaCaps durch einen Pneumatikschlauch geleitet. Weiter stellt der Schlauch sicher, dass eine flexible Verbindung zum bewegten Stechdorn existiert. In der Pneumatik sind folgende Schlauchdimensionen gängig \cite{camozzi}:
@@ -91,3 +88,44 @@ Für die Wahl der Schlauches stehen sich zwei widersprüchliche Aspekte gegenüb
 Dieser Zielkonflikt beider Aspekte bedeutet, dass die optimale Wahl des Schlauches ein Kompromiss sein muss. Daher wird ein Schlauch mit den Dimensionen 8/6 (D/d) verwendet.
 \newline
 Die Flexibilität wird durch das Material massgebend beeinflusst. Da keine Herstellerangaben dafür verfügbar sind, werden die Materialien Polyurethan sowie Polyamid (Nylon) für die Inbetriebnahme bestellt und dort miteinander verglichen.
+
+\subsection{Wahl Fertigungsverfahren und Material}
+Das gewählte Fertigungsverfahren sowie verwendete Material beeinflusst die Charakteristik eines Teils massgeblich. Wegen dieser Relevanz wird diesen Thema ein Unterkapitel gewidmet. Darin werden verwendete Verfahren erwähnt und deren Wahl begründet.
+
+\subsubsection{Laserschneidverfahren}
+Für Einfache Teile mit zweidimensionaler Kontur (wie Bleche und Montageplatten) bietet sich Laserschneiden als Verfahren an. Dieses Verfahren bietet folgende Vorteile:
+
+\begin{itemize}
+	\item Beliebige zweidimensionale Konturen können realisiert werden.
+	
+	\item Durch die konsequente Verwendung vom gleichen Material sowie einem Miniumum an Blechdicken können Umrüstzeiten eingespart werden. Dies hat direkt positiven Einfluss auf die Kosten.
+	
+	\item Die Fertigungsunterlagen können direkt aus dem CAD als .DXF-Datei exportiert und am Hersteller gesendet werden. 
+\end{itemize}
+Folgende Teile werden mit dem Laserschneidverfahren hergestellt:
+\begin{itemize}
+	\item 4x Montageplatten der Setzeinheit
+	\item 3x Kulissen der Verstellmechanik
+	\item 2x bewegte Montageplatten der Verstellmechanik
+	\item 1x Montageplatte der Vereinzelung
+	\item 2x Leitbleche der Vereinzelung
+	\item 1x Deckel der Vereinzelung
+	\item 1x Lochmaske der Vereinzelung
+\end{itemize}
+Für das Funktionsmuster wird konsequent 6mm dickes Aluminium-Blech verwendet. Folgende Begründung ist ausschlagegebend:
+
+\begin{itemize}
+	\item Ein Teil der gelaserten Bleche wird in der Setzeinheit verwendet. Für den bewegten Teil ist es zentral, dass möglichst wenig Masse beschleunigt wird. Daher ein Werkstoff mit geringer Dichte verwendet.
+	
+	\item Durch die Verwendung von 6mm dickem Blech, können die Montageplatten direkt in der Nut der Kanya Profile montiert werden.
+\end{itemize}
+
+Einzig für die Lochmaske wird 4mm dickes Aluminium-Blech verwendet, da diese Dicke für die Abstreifung von überschüssigen NemaCaps zentral ist (vgl. Kapitel \ref{lochmaske}).
+
+\subsubsection{Rapid Prototyping}
+
+Die Vereinigung von verschiedensten Funktionen in der Trommel (Integralbauweise) führt zu einer komplexeren Geometrie. Fertigungstechnisch sind gewisse Geometrien konventionell nicht herstellbar. Daher bietet sich Rapid Prototyping als Fertigungsverfahren an. Dadurch ergibt sich jedoch eine Einschränkung: Der Aussendurchmesser der Trommel darf maximal 200mm betragen, da der Bauraum des internen 3D-Druckers 200mm x 200mm x 300mm beträgt. 
+
+Die komplexe Geometrie dieser Teile sind ausschlaggebend, dass Rapid Prototyping als Fertigungsverfahren gewählt wird. Bewusst wird die Interalbauweise für den Stechdorn genutzt, um viele Funktionen in einem Teil zu vereinen. Durch die erhöhten Anforderungen an das Gewicht wird ein Kunststoff (ABS) als Material verwendet. Dabei ist es möglich, dass ein Teil mehrmals gedruckt wird, da das optimale Spielmass der linearen Führung iterativ durch zielgerichtetes Ausprobieren gefunden werden muss. 
+
+\subsubsection{Spanende Bearbeitung}
