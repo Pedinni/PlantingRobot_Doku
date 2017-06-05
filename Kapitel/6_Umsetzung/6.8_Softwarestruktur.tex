@@ -187,12 +187,14 @@ Auf den beiden Graphen ist ein deutlicher Stromanstieg zu erkennen. Der linke Gr
 
 
 \subsubsection{IR Sensor Driver}
-In diesem Teil der Software wird die Topferkennung implementiert. Dabei setzt sich die Topferkennung gemäss folgender Aufzählung aus zwei Teilen zusammen:
+Dieser Teil der Software befasst sich mit der Messgrössenerfassung und Auswertung der IR-Sensor Daten zur Topferkennung. Dabei setzt sich die Topferkennung gemäss folgender Aufzählung aus zwei Teilen zusammen:
 
 \begin{itemize}
 	\item Die Erkennung eines Topfes welcher sich vor dem Planting Robot in Position befindet um mit Nemacaps besetzt zu werden.
 	\item Das Erkennen von verschiedenen Topfgrössen zur Laufzeit der Anlage. Dadurch soll sich die Verstellmechanik adaptiv an einen neuen Produktionsbatch mit anderen Töpfen anpassen.
 \end{itemize}
+
+Die Softwareauswertung der Topferkennung wurde aus Zeitgründen nicht mehr implementiert. Allerdings wurde ein Prove of Concept der Messmethode zur Erkennung der Topfposition durchgeführt. Dieses ist in Kapitel \ref{sec:Topferkennung} beschrieben.
 
 \subsubsection{Trinamic Motion Driver}
 
