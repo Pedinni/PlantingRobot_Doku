@@ -136,7 +136,7 @@ Der ION Motion Motorcontroller wird über UART mit einer Baudrate von 38400 baud
 \begin{table}[H]
 	\footnotesize
 	\centering
-	\caption{Software, ION Motion Kommandos}
+	\caption{Software, ION Motion Kommandos \ref{ION_Motion}}
 	\begin{tabular}{|c|l|c|}
 		\hline
 		\multicolumn{1}{|l|}{\textcolor[rgb]{ .247,  .247,  .247}{\textbf{Kommando}}} & \textcolor[rgb]{ .247,  .247,  .247}{\textbf{Beschreibung}} & \multicolumn{1}{l|}{\textcolor[rgb]{ .247,  .247,  .247}{\textbf{Datenbytes}}} \\
@@ -175,7 +175,6 @@ Aufgrund der unterschiedlichen Menge an Datenbytes ist es schwierig eine generis
 Auf Basis dieser vier Methoden wurde die Ansteuerung der Motoren für die Vereinzelung und die Verstellmechanik implementiert. Die beiden Prozesse sind in den Kapiteln Vereinzelung (\ref{sec:Vereinzelung}) und Verstellmechanik (\ref{verstellmechanik}) systematisch beschrieben. Die genaue Implementierung der vier Methoden kann im ION\_Motion\_Driver.c File im Anhang nachgeschlagen werden. Im folgenden Absatz wird noch kurz auf die Auswertung der mit dem Motorcontroller gemessen Motorstromwerte eingegangen.\newline
 Für die Initialisierung der Verstellmechanik wird der Motor langsam in eine Richtung gedreht bis die Welle an den mechanischen Anschlag läuft. In diesem Moment steigt der Strom durch den Motor aufgrund der erhöhten Last stark an. Dieser Anstieg wird über die Auswertung der Stromwerte detektiert. Im konkreten Fall wird in der Software ein Schwellwert für die Stromstärke definiert, bei welchem der Motor angehalten soll. Um die Fluktuationen der gemessenen Stromwerte zu glätten wird ein Mittelwert über die letzten X Werte gebildet.
 
-
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/ION_Motion_Strommessung.png}
 	\caption{Software, Glättung des Motorstroms}
@@ -197,4 +196,117 @@ Dieser Teil der Software befasst sich mit der Messgrössenerfassung und Auswertu
 Die Softwareauswertung der Topferkennung wurde aus Zeitgründen nicht mehr implementiert. Allerdings wurde ein Prove of Concept der Messmethode zur Erkennung der Topfposition durchgeführt. Dieses ist in Kapitel \ref{sec:Topferkennung} beschrieben.
 
 \subsubsection{Trinamic Motion Driver}
+Die Kommunikation zum Trinamic Motor Controller TMCM-1630-2C wurde über UART realisiert. Dabei beträgt die Baudrate 38400 baud. Das Command Format ist in Tabelle \ref{tab:Trinamic_Command_Format} abgebildet. Dabei ist links das Format der Commands die zum Kontroller gesendet werden und rechts die Commands die vom Kontroller zurückgesendet werden abgebildet. 
+
+\begin{table}[H]
+	\centering 
+	%\subfloat[Sender]{ 
+	\begin{tabular}{|c|l|}
+		\hline
+		\textbf{Bytes} & \textbf{Meaning} \\
+		\hline
+		1     & Module adress \\
+		\hline
+		1     & Command number \\
+		\hline
+		1     & Type number \\
+		\hline
+		1     & Motor or Bank number \\
+		\hline
+		4     & Value (MSB first!) \\
+		\hline
+		1     & Checksum \\
+		\hline
+	\end{tabular}%
+	%}   
+	\qquad 
+	%\subfloat[Empfänger]{ 
+	\begin{tabular}{|c|l|}
+		\hline
+		\textbf{Bytes} & \textbf{Meaning} \\
+		\hline
+		1     & Reply address \\
+		\hline
+		1     & Module address \\
+		\hline
+		1     & Status (e.g. 100 means no error) \\
+		\hline
+		1     & Command number \\
+		\hline
+		4     & Value (MSB first!) \\
+		\hline
+		1     & Checksum \\
+		\hline
+	\end{tabular}%
+	%} 
+	\caption{Software, Command Format Trinamic \protect\cite{Trinamic}} 
+	\label{tab:Trinamic_Command_Format} 
+\end{table} 
+
+Durch die Gegebenheit, dass alle Commands welche an den Trinamic Controller geschickt werden über die gleiche Bytelänge verfügen, kann für das Senden und Empfangen von Commands jeweils eine generische Methode verwendet werden. Die beiden Methoden sind in Abb. \ref{fig:Trinamic_Funktionen} illustriert.
+
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Trinamic_Funktionen.png}
+	\caption{Software, Trinamic Methoden zur Kommunikation}
+	\label{fig:Trinamic_Funktionen}
+\end{figure}
+
+Um den Trinamic Motion Controller zu steuern, können über die Methode Trinamic\_Motion\_sendPacket commands zusammen mit dem jeweiligen type und einer value als Parameter mitgegeben werden. Die verwendeten commands wurden als Enum definiert und können auf diese Weise in der Software einfach verwaltet werden. Tabelle \ref{tab:Trinamic_instructions} bietet eine Übersicht über die verwendeten instructions.
+
+\begin{table}[H]
+	\centering
+	\caption{Software, Trinamic Instructions Overview \protect\cite{Trinamic}}
+	\begin{tabular}{|l|c|l|}
+		\hline
+		\textcolor[rgb]{ .247,  .247,  .247}{\textbf{Instruction}} & \textcolor[rgb]{ .247,  .247,  .247}{\textbf{Command number}} & \textcolor[rgb]{ .247,  .247,  .247}{\textbf{Meaning}} \\
+		\hline
+		ROR   & 1     & Rotate right \\
+		\hline
+		ROL   & 2     & Rotate left \\
+		\hline
+		MST   & 3     & Motor stop \\
+		\hline
+		MVP   & 4     & Move to position \\
+		\hline
+		SAP   & 5     & Set axis parameter \\
+		\hline
+		GAP   & 6     & Get axis parameter \\
+		\hline
+	\end{tabular}%
+	\label{tab:Trinamic_instructions}%
+\end{table}%
+
+Die Commands SAP und GAP verlangen einen type Übergabeparameter welcher die Axis Parameter repräsentiert. Die axis parameter enthalten Konfigurations- sowie Statuswerte des Motion Controllers. Ein Auszug aus der Liste der verwendeten Axis Parameter ist in Tabelle \ref{tab:Trinamic_Axis_Parameter} aufgeführt.
+
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\caption{Software, Trinamic Axis Parameter Overview \protect\cite{Trinamic}}
+	\begin{tabular}{|c|l|l|l|}
+		\hline
+		\multicolumn{1}{|l|}{\textbf{Number}} & \textbf{Axis Parameter} & \textbf{Description} & \textbf{Access} \\
+		\hline
+		1     & Actual position & Set/get the position counter without moving the motor. & R / W \\
+		\hline
+		6     & Max current & Set/get the max allowed motor current. & R / W \\
+		\hline
+		11    & Acceleration & Acceleration parameter for ROL, ROR, MVP. & R / W \\
+		\hline
+		150   & Actual motor current & Get actual motor current. & R \\
+		\hline
+		172   & P current PID & P parameter of current PID regulator. & R / W \\
+		\hline
+		173   & I current PID & I parameter of current PID regulator. & R / W \\
+		\hline
+		234   & P velocity PID & P parameter of velocity PID regulator. & R / W \\
+		\hline
+		235   & I velocity PID & I parameter of velocity PID regulator. & R / W \\
+		\hline
+		230   & P position PID & P parameter of position PID regulator. & R / W \\
+		\hline
+	\end{tabular}
+	\label{tab:Trinamic_Axis_Parameter}
+\end{table}
+
+Mit den in diesem Kapitel erläuterten Software Methoden, Commands, sowie Axis Parameter wurde der Bewegungsablauf der Setzeinheit im Trinamic\_Motion\_Driver.c File implementiert. Die entsprechenden .c und .h Files sind im Anhang zu finden.
 
