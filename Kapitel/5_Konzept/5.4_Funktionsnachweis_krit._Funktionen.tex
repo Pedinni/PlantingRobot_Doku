@@ -1,18 +1,18 @@
 \subsection{Funktionsnachweis kritischer Funktionen}
 \label{funktionsnachweis}
-\textit{(ygu)} Dieses Unterkapitel befasst sich mit dem praktischen Nachweis von kritischen Teilfunktionen. Kritische Teilfunktionen sind Funktionen, welche bei einem Ausfall, einen Ausfall des Gesamtsystems zur Folge hat. Dabei soll die Umsetzung einfacher Funktionsmuster einen praktischen Nachweis bringen, ob die technische Umsetzung dieser Teillösung realistisch erscheint. Diese Beurteilung wird für Bewertung der ausgearbeiteten Lösungskonzepte miteinbegezogen.
+\textit{(ygu)} Dieses Unterkapitel befasst sich mit dem praktischen Nachweis von kritischen Teilfunktionen. Kritische Teilfunktionen sind Funktionen, welche bei einem Ausfall, einen Ausfall des Gesamtsystems zur Folge hat. Daher wird die technische Machbarkeit dieser Teillösungen zusätzlich überprüft. Einfach aufgebaute aber funktionell ähnliche Versuche werden realisert. An diesen Aufbauten wird dann der praktische Nachweis erbracht, ob die techische Umsetzbarkeit realistisch erscheint. Diese Beurteilung wird für Bewertung der ausgearbeiteten Lösungskonzepte miteinbegezogen.
 \newline
-Bei Betrachtung der Funktionsanalysen (Abbildungen \ref{fig:FunktPflicht} und \ref{fig:FunktWunsch}) ist erkennbar, dass beide Varianten (Pflicht sowie Wunsch) eine Serieschaltung darstellen. Bei einer Umsetzung einer Maschine mit einfacher Redundanz ergibt dies implizit, dass jede Funktion als kritisch eingestuft werden kann. Aus zeitlichen Gründen kann ein umfassenden Nachweis von allen Teillösungskonzepten nicht abschliessend durchgeführt werden. Eine pragmatische Auswahl von Funktionen mit erhöhtem Ausfallrisiko und einer vielversprechenden Funktionserfüllung wird daher angestrebt.
+Bei Betrachtung der Funktionsanalysen (Abbildungen \ref{fig:FunktPflicht} und \ref{fig:FunktWunsch}) ist erkennbar, dass beide Varianten (Pflicht sowie Wunsch) eine Serieschaltung darstellen.  Bei der Umsetzung einer Maschine mit einfacher Redundanz ergibt dies implizit, dass jede Funktion als kritisch eingestuft wird. Aus zeitlichen Gründen kann ein umfassenden Nachweis von allen Teillösungskonzepten nicht abschliessend durchgeführt werden. Für den Nachweis ist eine pragmatische Auswahl notwendig. Es werden daher nur Funktionen mit erhöhtem Ausfallrisiko und einer vielversprechenden Funktionserfüllung überprüft.
 
 \subsubsection{NemaCaps vereinzeln und fördern}
-Die Vereinzelung sowie Förderung von Gütern ist in der Automatisationsbranche ein bedeutendes Thema. Die automatisierte Sortierung sowie Transport eines Gutes sind grundlegende Bedingungen, sodass ein Produkt überhaupt in der automatisierten Serienfertigung herstellbar wird. Da solche Lösungen vielfach beide Funktionen miteinander vereinen, werden diese gemeinsam in einem Unterkapitel untersucht.
+Die Automatisationsbranche setzt sich vertieft mit der Förderung und Vereinzelung von Gütern auseinander. Die automatisierte Sortierung sowie Transport eines Gutes sind grundlegende Bedingungen, sodass ein Produkt überhaupt in der automatisierten Serienfertigung herstellbar wird. Da solche Lösungen vielfach beide Funktionen miteinander vereinen, werden diese gemeinsam in einem Unterkapitel untersucht.
 \newline
 \newline
 \textbf{Vibrationswendelförderer}
 \newline
-Der Vibrationswendelförderer ist Teil von Konzept Grün. Die detaillierte Funktionsweise eines Vibrationswendelförderer ist in Kapitel \ref{KonzeptGreen} erläutert.
+Der Vibrationswendelförderer ist ein Bestandteil von Konzept Grün. Die detaillierte Funktionsweise des Vibrationswendelförderers wurde bereits im Kapitel \ref{KonzeptGreen} erläutert.
 \newline
-Aus vergangenen Studentenarbeiten besitzt die HSLU T\&A solch ein Wendelförderer. Dimensioniert ist dieser für die Vereinzelung von gezuckerten Mandeln. Auch wenn dadurch die Vereinzelung nur bedingt funktionsfähig ist, eignet sich dieses Gerät zur ersten Überprüfung der Funktion mit NemaCaps. 
+Aus vergangenen Studentenarbeiten besitzt die HSLU T\&A solch ein Wendelförderer. Dimensioniert ist dieser für die Vereinzelung von gezuckerten Mandeln. Auch wenn dadurch die Vereinzelung nur bedingt funktionsfähig ist, eignet sich dieses Gerät zur ersten Überprüfung mit NemaCaps. 
 
 Praktische Tests mit NemaCaps konnten am 15.3.2017 am Wendelförderer durchgeführt werden. NemaCaps wurden ins Haufwerk (Punkt 1 in Abbildung \ref{fig:wendelfoerderer}) eingefüllt und der Wendelförderer gestartet. Durch die Vibration sammelten sich die NemaCaps im Wendel (2) und begannen zu wandern. Die Förderung klappte einwandfrei, wobei die rasche Transportgeschwindigkeit positiv überraschte. 
 \begin{figure}[H]
@@ -26,14 +26,14 @@ Folgende Erkenntnisse lieferten die Versuche:
 \begin{itemize}
 	\item Eine Förderung von NemaCaps mit einem Wendelförderer ist möglich. Die NemaCaps eignen sich als Fördergut und werden mit einer hohen Zuverlässigkeit gefördert.
 	
-	\item Die Schikane erfüllt ihre Funktion nicht. Dies ist allein auf die Tatsache zurückzuführen, dass der verwendete  Wendelförderer für gezuckerte Mandeln dimensioniert wurde. Eine Anpassung der Schikanen auf NemaCaps ist technisch machbar und ist kein Hindernis.
+	\item Die Schikane erfüllt ihre Funktion nicht. Dies ist allein auf die Tatsache zurückzuführen, dass der verwendete  Wendelförderer für gezuckerte Mandeln dimensioniert wurde. Eine Anpassung der Schikanen auf NemaCaps ist technisch machbar.
 	
 	\item Die Umsetzung der Funktionen 'NemaCaps vereinzeln' und 'NemaCaps fördern' mit einem Wendelförderer ist aus rein technischer Sicht realisierbar.
 \end{itemize} 
 \newpage
 \textbf{Vereinzelung durch Lochmaske}
 \newline
-Die Vereinzelung durch eine rotierende Lochmaske ist Teil von Konzept Blau. Der praktische Funktionsnachweis wird anhand eines einfachen Funktionsmusters erbracht. Eine manuell drehbare Lochmaske wird dabei auf einer schief gelagerten Grundplatte montiert (siehe Abbildung \ref{fig:funktmuster_vereinzelung}). Auch ist auf der Grundplatte gewölbte Wand verklebt, die zur Lagerung der NemaCaps dient. Das Design des Funktionsnachweises stark am Funktionsmuster der Firma Kofatec GmbH angelehnt. Die Lochmaske wird für einen ersten Funktionsnachweis von Hand betrieben.
+Die Vereinzelung durch eine rotierende Lochmaske ist Teil von Konzept Blau. Der praktische Funktionsnachweis wird anhand eines einfachen Funktionsmusters erbracht. Eine manuell drehbare Lochmaske wird dabei auf einer schief gelagerten Grundplatte montiert (siehe Abbildung \ref{fig:funktmuster_vereinzelung}). Auf der Grundplatte ist eine gewölbte Wand verklebt, die zur Lagerung der NemaCaps dient. Das Design des Funktionsnachweises ist jenem der Firma Kofatec GmbH angelehnt. Die Lochmaske wird für einen ersten Funktionsnachweis von Hand betrieben.
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/5-Konzept/funktmuster_vereinzelung.jpg}
 	\caption{Teilfunktionsmuster zur Vereinzelung der NemaCaps}
@@ -60,12 +60,12 @@ Folgende Erkenntnisse lieferten die Versuche:
 
 
 \subsubsection{NemaCaps setzen}
-Ein Lösungsansatz der Teilfunktion 'NemaCaps setzen' basiert auf der Idee, erst ein Loch auszuheben oder Erde zu verdrängen und anschliessend ein NemaCap ins Loch fallen zu lassen. Ein ähnlicher Ansatz verfolgt die Idee, mit einer spitzen Zange Erde zu verdrängen und anschliessend die Zange im Erdreich zu öffnen und so ein NemaCap dort zu platzieren. Schematisch dargestellt sind beide Ansätze in Abbildung \ref{fig:skizze_setzversuch}.
+Der Lösungsansatz der Teilfunktion 'NemaCaps setzen' basiert auf der Idee, in einem ersten Schritt ein Loch auszuheben oder Erde zu verdrängen und anschliessend ein NemaCap in die Vertiefung fallen zu lassen. Ein ähnlicher Ansatz verfolgt die Idee, mit einer spitzen Zange Erde zu verdrängen, die Zange im Erdreich zu öffnen und dort ein NemaCap zu platzieren. Schematisch dargestellt sind beide Ansätze in Abbildung \ref{fig:skizze_setzversuch}.
 \newline
 Um die Umsetzbarkeit dieser Ideen zu überprüfen, werden zwei Versuche durchgeführt:
 \begin{itemize}
-	\item \textbf{A) Ermittlung der Verdrängkraft:} Mit einer konventionellen Setzhilfe aus dem Gartenbau werden praktische Tests durchgeführt. Dabei wird ein Topf mit dem vorgegebenen Gartenhumus von Ricoter befüllt und leicht angepresst. Nun wird die maximale Einsetztiefe an der Setzhilfe markiert und schrittweise mit Gewicht (Masse m in Abbildung \ref{fig:skizze_setzversuch}) beschwert. Sobald die Markierung den Gartenhumus berührt, wird die Setzhilfe inklusive Masse m gewogen und durch die Multiplikation mit der Erdbeschleunigung die benötigte Verdrängkraft ermittelt.
-	
+	\item \textbf{A) Ermittlung der Verdrängkraft:} Mit einer konventionellen Setzhilfe aus dem Gartenbau werden praktische Tests durchgeführt. Ein Topf wird mit dem vorgegebenen Gartenhumus von Ricoter befüllt und leicht angepresst. Anschliessend wird die maximale Einsetztiefe an der Setzhilfe markiert und schrittweise mit Gewicht (Masse m in Abbildung \ref{fig:skizze_setzversuch}) beschwert. Sobald die Markierung den Gartenhumus berührt, wird die Setzhilfe inklusive Masse m gewogen und durch die Multiplikation mit der Erdbeschleunigung die benötigte Verdrängungskraft ermittelt.
+		
 	\item \textbf{B) NemaCap mittels Zange setzen:} Der identische Versuch wird mit der genannten Zange durchgeführt, wobei die geschlossene Zange ein NemaCap gegeben wird. Bei Erreichung der Setztiefe wird die Zange geöffnet und das NemaCap platziert (siehe Abbildung \ref{fig:skizze_setzversuch}).
 \end{itemize} 
 
@@ -98,11 +98,11 @@ Folgende Erkenntnisse lieferten die Versuche:
 	
 	\item Der gegebene Gartenhumus von Ricoter besitzt gute Eigenschaften für diese Anwendung. Nach der Verdrängung behält das Setzloch seine Form bei, sodass die Bedingungen für das Einsetzen des NemaCaps gegeben sind. Dabei ist darauf zu achten, dass stets frischer Gratenhumus verwendet wird.
 	
-	\item Tests mit der Zange ergaben, dass eine Verdrängung der Erde mit dem identischen Kraftaufwand machbar ist. In der erforderlichen Setztiefe angekommen, benötigt es einen erhöhten Kraftaufwand, um die Zange zu öffnen und das NemaCap zu platzieren. Wie eine Streckenlast wirkt die zu verdrängende Erde der Bewegung entgegen und erschwert die Öffnung. Diese Teillösung wird als nicht umsetzbar bewertet.
+	\item Tests mit der Zange ergaben, dass eine Verdrängung der Erde mit dem identischen Kraftaufwand machbar ist. Um die Zange in der erforderlichen Setztiefe zu öffnen und das NemaCap zu platzieren, wird ein erhöhter Kraftaufwand benötigt. Wie eine Streckenlast wirkt die zu verdrängende Erde der Bewegung entgegen und erschwert die Öffnung. Diese Teillösung wird als nicht umsetzbar bewertet.
 \end{itemize} 
 
 \subsubsection{Setzmechanismus konfigurieren}
-Die automatische Konfuguration des Setzmechanismus ist als Wunschanforderung im Pflichtenheft formuliert. Gemeint ist dabei die automatische Verstellung der Radien der Einsatzlokalität. Ein ausgearbeiteter Lösungsansatz basiert auf zwei Kulissen, welche ingsesamt drei Dorne halten. Über die Rotation der einen Kulisse kann der Dorn radial verstellt werden. Umgesetzt werden die Kulissen als kreisförmige Scheiben (siehe Abbildung \ref{fig:setzmech_konfig}), welche über eine innere Kulisse (nicht sichtbar in Abb. \ref{fig:setzmech_konfig}) synchron verstellt werden. Dabei wird dieses Funktionsmuster manuell von Hand betrieben.
+Die automatische Konfiguration des Setzmechanismus ist als Wunschanforderung im Pflichtenheft formuliert. Gemeint ist dabei die automatische Verstellung der Radien der Einsatzlokalität. Ein ausgearbeiteter Lösungsansatz basiert auf zwei Kulissen, welche ingsesamt drei Dorne halten. Über die Rotation der einen Kulisse kann der Dorn radial verstellt werden. Umgesetzt werden die Kulissen als kreisförmige Scheiben (siehe Abbildung \ref{fig:setzmech_konfig}), welche über eine innere Kulisse (nicht sichtbar in Abb. \ref{fig:setzmech_konfig}) synchron verstellt werden. Dabei wird dieses Funktionsmuster manuell von Hand betrieben.
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/5-Konzept/setzmech_konfig.jpg}
 	\caption{Teilfunktionsmuster zur Konfiguration des Setzmechanismus}
@@ -110,10 +110,10 @@ Die automatische Konfuguration des Setzmechanismus ist als Wunschanforderung im 
 \end{figure}
 Folgende Erkenntnisse lieferte das Funktionsmuster:
 \begin{itemize}
-	\item Die manuelle Verstellung des Radius mittels Kulisse ist möglich. Durch eine Drehbewegung werden die Dorne synchron verstellt.
+	\item Die manuelle Verstellung des Radius mittels Kulisse ist möglich. Durch eine Drehbewegung werden die Dornen synchron verstellt.
 	
-	\item Aus der Geometrie der Kulissen wird erkennbar, dass die maximale Rotation 45° beträgt. Dies muss bei einer allfälligen Evaluation des Antriebes berücksichtigt werden.
+	\item Aus der Geometrie der Kulissen wird erkennbar, dass die maximale Rotation 45° beträgt. Dies muss bei einer allfälligen Evaluation des Antriebs berücksichtigt werden.
 	
-	\item Am Rand der Kulisse nimmt der Kraftaufwand für eine Verstellung deutlich zu. Auch kommt es vor, dass die Kulisse an Rand kaum in Bewegung gerät. Dies ist damit erklärbar, dass an diesem Punkt die Wirkungslinien der Kulissen normal zueinander stehen und so kein Moment auf die äussere Kulisse wirken kann. Bei einer allfälligen Umsetzung müssen die Wirkungslinien der Kulissen möglichst parallel verlaufen. 
+	\item Am Rand der Kulisse nimmt der Kraftaufwand für eine Verstellung deutlich zu. Es kommt auch vor, dass die Kulisse am Rand kaum in Bewegung gerät. Dies ist damit erklärbar, dass an diesem Punkt die Wirkungslinien der Kulissen normal zueinander stehen und so kein Moment auf die äussere Kulisse wirken kann. Bei einer allfälligen Umsetzung müssen die Wirkungslinien der Kulissen möglichst parallel verlaufen. 
 \end{itemize} 
 \subsubsection{Topferkennung}

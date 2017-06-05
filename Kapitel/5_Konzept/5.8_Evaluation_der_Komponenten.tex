@@ -3,14 +3,15 @@
 
 \subsubsection{Setzeinheit} \label{subsec:Translation}
 \textbf{mechanische Komponenten}\\
-\textit{(ygu)} Für die Realisierung der translatorischen Bewegung der Setzeinheit bieten sich verschiedene Technologien an. In der Automatisation werden verbreitet eingesetzt:
+\textit{(ygu)} Für die Realisierung der translatorischen Bewegung der Setzeinheit bieten sich verschiedene Technologien an. In der Automatisation werden folgende Realisierungen verbreitet eingesetzt:
 	\begin{itemize}
 	\item \textbf{Spindelantriebe:}
-	Ein Motor treibt eine gelagerte Spindel an. Durch eine Bewegungsschraube wird die Rotation in eine Translation gewandelt. Spindeln sind preiswert und bieten eine hohe Gestaltungsfreiheit sowie vielfältige Einsetzbarkeit. Für Anwendungen mit hohen Geschwindigkeiten kommen Steilgewindespindeln zum Einsatz. Nachteilig ist der höhere Entwicklungsaufwand.
+	Ein Motor treibt eine gelagerte Spindel an. Durch eine Bewegungsschraube wird die Rotation in eine Translation gewandelt. Spindeln sind preiswert, bieten eine hohe Gestaltungsfreiheit und sind vielfältig einsetzbar. Für Anwendungen mit hohen Geschwindigkeiten kommen Steilgewindespindeln zum Einsatz. Nachteilig ist der höhere Entwicklungsaufwand.
 	\item \textbf{Elektrozylinder:}
-	Elektrozylinder werden als fertige Komponenten eingekauft. In der Funktionsweise sind Elektrozylinder identisch zu Spindeln. Im Innern befindet sich auch eine Spindel, welche über einen Riemenantrieb oder Getriebe vom Motor angetrieben wird. Diese Fertigteile erreichen Geschwindigkeiten bis 600 mm/s und 15kN Axialkraft. Verglichen mit Spindeln sind Elektrozylinder wesentlich teurer.
+	Elektrozylinder werden als fertige Komponenten eingekauft und sind in ihrer Funktionsweise mit jene der Spindeln identisch. Im Innern befindet sich auch eine Spindel, welche über einen Riemenantrieb oder Getriebe vom Motor angetrieben wird. Diese Fertigteile erreichen Geschwindigkeiten bis 600 mm/s und 15kN Axialkraft. Verglichen mit Spindeln sind Elektrozylinder in der Anschaffung wesentlich teurer.
+	
 	\item \textbf{Pneumatik:}
-	Auch die Pneumatik bietet Lösungen für die Anwendung. Dabei wird Druckenergie in kinetische Energie gewandelt. Ein Pneumatikzylinder kann die geforderte Geschwindigkeit und Kraft für diese Anwendung aufbringen. Die einfache Implementation und Ansteuerung sind klare Vorteile. Jedoch sind Pneumatikkomponenten teuer und benötigen einen Druckluftkompressor.
+	Auch die Pneumatik bietet Lösungen für die Anwendung. Dabei wird Druckenergie in kinetische Energie umgewandelt. Ein Pneumatikzylinder kann die geforderte Geschwindigkeit und Kraft für diese Anwendung aufbringen. Die einfache Implementation und Ansteuerung sind klare Vorteile. Jedoch sind Pneumatikkomponenten teuer und benötigen einen Druckluftkompressor.
 	\end{itemize}
 
 Durch den Setzprozess und die Geometrie der Töpfe sind folgende Anforderungen gegeben:
@@ -24,9 +25,9 @@ Durchschnittliche Geschwindigkeit (überschlägig):
 v_{avg}=\frac{2*s_{max}}{T_{min}-T_{t}}=\frac{2*100mm}{0.5s-0.1s}=500mm/s
 \end{equation}
 
-Für die Evaluation der Translation wurden alle drei Technologien unter Berücksichtigung der genannten Anforderungen in Betracht gezogen. Obwohl die Pneumatik die einfachste Umsetzung bietet, kommt diese nicht in Frage. Begründet wird dies mit dem Fehlen von Pneumatikanschlüssen in der Grundausstattung der Topfmaschine sowie den hohen Kosten.
+Für die Evaluation der Translation wurden alle drei Technologien unter Berücksichtigung der genannten Anforderungen in Betracht gezogen. Obwohl die Pneumatik die einfachste Umsetzung bietet, kommt diese nicht in Frage. Diese Entscheidung wird mit den hohen Kosten un dem Fehlen von Pneumatikanschlüssen bei der Topfmaschine begründet.
 \newline
-Da zwischen Spindelantriebe und Elektrozylinder keinen funktionellen Unterschied feststellbar ist, wurde die Wahl nach Verfügbarkeit und Preis beurteilt. Im Gespräch (29.3.17) mit dem betreuenden Dozenten wurde Igus als kompetenter Hersteller von Spindeln genannt. Für Elektrozylinder wurden verschiedene Distributoren (Tecalto AG, Bachofen AG, Parkem AG, Phoenix Mecano Komponenten AG) angefragt. Nur Parkem AG konnte ein Produkt zur Offerte anbieten. Somit ergibt sich folgende Gegenüberstellung:
+Da zwischen dem Spindelantrieb und dem Elektrozylinder keinen funktionellen Unterschied feststellbar ist, wurde die Wahl aufgrund der Verfügbarkeit und Preis beurteilt. Im Gespräch (29.3.17) mit dem betreuenden Dozenten wurde Igus als kompetenter Hersteller von Spindeln genannt. Für Elektrozylinder wurden verschiedene Distributoren (Tecalto AG, Bachofen AG, Parkem AG, Phoenix Mecano Komponenten AG) angefragt. Nur Parkem AG konnte ein Produkt zur Offerte anbieten. Somit ergibt sich folgende Gegenüberstellung:
 \begin{table}[H]
 \begin{tabular}{|c|c|c|}
 	\hline 
