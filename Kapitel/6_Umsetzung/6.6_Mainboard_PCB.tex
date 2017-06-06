@@ -132,57 +132,26 @@ Bei einem getakteten Spannungswandler sollte das Layout gemäss den Design Richt
 \subsubsection{HMI Interface} \label{sec:Mainboard_HMI_Interface}
 Das HMI bildet die Schnittstelle zwischen Operator und Planting Robot. Der Planting Robot soll so einfach wie möglich zu bedienen sein. Auf ein Touchscreen Interface oder Displays mit Menüführung durch Taster wird daher bewusst verzichtet. Stattdessen werden Taster mit blau, grün und weisser LED-Ring Beleuchtung (siehe Abb. \ref{fig:Taster_LED-Ring}) verwendet. Die Funktionen des Planting Robots werden dabei durch korrespondierende Taster realisiert. Die Funktionen des HMI werden in Kapitel \ref{sec:HMI} erklärt.
 \begin{figure}[H]
-	\includegraphics[width=0.9\textwidth]{Illustrationen/6-Umsetzung/HMI_LED_Taster.png}
+	\includegraphics[width=0.7\textwidth]{Illustrationen/6-Umsetzung/HMI_LED_Taster.png}
 	\caption{HMI Taster mit LED Ring \protect\cite{HMI_Taster}}
 	\label{fig:Taster_LED-Ring}
 \end{figure}
 
-In Summe werden für das HMI 11 Taster und 14 LEDs angesteuert. Gemäss Tabelle \ref{tab:FRDM_Port_Mapping} sind zu wenig freie GPIO Ports Verfügbar um das HMI vollständig an Digital I/O Pins des FRDM-Boards anzuschliessen. Um die Anzahl benötigter GPIOs zu reduzieren könnten folgende Beschaltungen verwendet werden:
+In Summe werden für das HMI 11 Taster und 14 LEDs angesteuert. Gemäss Tabelle \ref{tab:FRDM_Port_Mapping} sind zu wenig freie GPIO Ports Verfügbar um das HMI vollständig an Digital I/O Pins des FRDM-Boards anzuschliessen. Um die Anzahl benötigter GPIOs zu reduzieren können folgende Beschaltungen verwendet werden:
 \begin{itemize}
-	\item Tasterauswertung durch ADC
-	\item Keyboard Matrix
-	\item LED Treiber
+	\item Testerauswertung über eine Keyboard Matrix
+	\item LED Ansteuerung durch einen LED Treiber
 \end{itemize}
 
-\textbf{Tasterauswertung durch ADC:} Für diese Implementierungsvariante wird lediglich 1 Analog Input Pin benötigt. Dieser muss allerdings kontinuierlich ausgewertet werden und kann nicht über einen Interrupt gesteuert werden wie ein Digital Input.
+Eine Keyboard Matrix kann über ein entsprechendes IC wie z.B. den LM8330 von TI realisiert werden. Dieses IC wird an den I$^2$C Bus angeschlossen und übernimmt die Matrizenauswertung inklusive entprellen der Taster. Der LM8330 ist allerdings nur im DSBGA Package (siehe Abb. \ref{fig:DSBGA_Package}), in der Grösse 2mm x 2mm, erhältlich. Dieses Package ist im Leiterplatten Prototypenbau nicht verwendbar, da es nicht von Hand bestückt werden kann.\newline
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Spannungsteiler_ADC.png}
-	\caption{Tasterauswertung durch ADC}
-	\label{fig:Spannungsteiler_ADC}
-\end{figure}
-
-Wenn davon ausgegangen werden kann, dass jeweils nur ein Taster zur gleichen Zeit gedrückt wird entstehen so 11 mögliche Spannungszustände am ADC Pin. Ein grosser Nachteil dieser Schaltung ist die grosse Komplexität der Spannungsauswertung wenn mehrere Taster gleichzeitig gedrückt werden. Beim Aufbau in Abb. \ref{fig:Spannungsteiler_ADC} mit 11 Tastern sind somit
-
-\begin{equation}\label{nZustaende}
-n_{Zustaende} = 2^{n_{Taster}} = 2^{11} = 2048
-\end{equation}
-
-Zustände auszuwerten. Bei einer linearen Skalierung dieser Zustände auf den ADC Spannungsbereich von 3.3V müsste folgende Spannungsdifferenz detektiert werden:
-
-\begin{equation}\label{deltaU}
-\bigtriangleup U = \frac{U_{in}}{n_{Zustaende}} = \frac{3.3V}{2048} = 1.61mV
-\end{equation}
-
-Solche geringen Spannungsdifferenzen für ein Taster Interface auszuwerten ist aufgrund des Aufwandes nicht sinnvoll, zumal eine lineare Aufteilung der Spannungspegel über den 3.3V Bereich mit Widerständen aus der Standard E12-Reihe nicht möglich ist. Die Anzahl Taster könnte auch auf mehrere ADC Eingänge des uC aufgeteilt werden, wodurch deutlich weniger verschieden Spannungspegel zu detektieren wären und diese sich im Wert stärker unterscheiden würden.\newline
-
-\textbf{Keyboard Matrix:} Eine weit verbreitet Möglichkeit eine grosse Anzahl Taster auszuwerten ist eine Keyboard Matrix. Durch die Anordnung der Taster in Matrizenform kann die Anzahl benötigter GPIO Ports reduziert werden. Bei dieser Beschaltung wird jeweils Zeilenweise ein Low-Pegel auf die Matrize getrieben und dann Spaltenweise ausgelesen. Zur Veranschaulichung dient die folgende 4x4 Taster Matrize für ein Keypad in Abb. \ref{fig:Keyboard_Matrix}.
-
-\begin{figure}[H]
-	\includegraphics[width=0.4\textwidth]{Illustrationen/6-Umsetzung/Keyboard_Matrix.png}
-	\caption{4x4 Keyboard Matrix \protect\cite{Keyboard_Matrix}}
-	\label{fig:Keyboard_Matrix}
-\end{figure}
-
-Für die Auswertung von 11 Tastern müsste so eine 3x4 Matrize gebildet werden, welche demnach 7 GPIO Ports beanspruchen würde. Somit könnten lediglich 4 GPIO Ports am uC eingespart werden. Die Anzahl Anschlüsse kann mit einer Keyboard Matrix vor allem bei steigender Ordnung der Matrize drastisch reduziert werden. Für unsere Anwendung macht sie eher wenig Sinn, zumal die Softwareauswertung der GPIO Ports dadurch komplexer wird. Eine Keyboard Matrix kann auch über ein entsprechendes IC wie z.B. den LM8330 von TI ausgewertet werden. Dieses IC wird an den I$^2$C Bus angeschlossen und übernimmt die Matrizenauswertung inklusive entprellen der Taster. Der LM8330 ist allerdings nur im DSBGA Package (siehe Abb. \ref{fig:DSBGA_Package}), in der Grösse 2mm x 2mm, erhältlich. Dieses Package ist im Leiterplatten Prototypenbau nicht verwendbar, da es nicht von Hand bestückt werden kann.\newline
-
-\begin{figure}[H]
-	\includegraphics[width=0.3\textwidth]{Illustrationen/6-Umsetzung/DSBGA_Package.png}
+	\includegraphics[width=0.27\textwidth]{Illustrationen/6-Umsetzung/DSBGA_Package.png}
 	\caption{LM8330 DSBGA Package \protect\cite{DSBGA_Package}}
 	\label{fig:DSBGA_Package}
 \end{figure}
 
-\textbf{LED Treiber:} Um GPIO Ports am uC einzusparen und um einen höheren Diodenstrom liefern zu können, wird der LP3943 LED Treiber Baustein von TI verwendet. Er verfügt über ein I$^{2}$C Schnittstelle für die Kommunikation zum FRDM-Board. Das genaue Kommunikationsprotokoll und dessen Verwendung werden im Kapitel \ref{} behandelt. Der LP3942 ist durch sein Open-Drain Treiberstufe in der Lage bis zu 25mA pro LED Pin und 200mA pro Package zu treiben. Das IC verfügt weiterhin über zwei Integrierte Timer, durch welche zwei PWM Signale zum dimmen der LEDs generiert werden können. Der Tastgrad des PWM Signals kann dabei von 0\%... 100\% in ein 1 Byte Register geschrieben werden. Die Timerfrequenz kann zwischen 0.625Hz und 160Hz gewählt werden. In Abb. \ref{fig:Mainboard_LED_Driver_LP3943} ist ein Auszug aus dem Schema des Mainboard PCBs illustriert. 
+Um GPIO Ports am uC einzusparen und um einen höheren Diodenstrom liefern zu können, wird der LP3943 LED Treiber Baustein von TI verwendet. Er verfügt über ein I$^{2}$C Schnittstelle für die Kommunikation zum FRDM-Board. Der LP3942 ist durch sein Open-Drain Treiberstufe in der Lage bis zu 25mA pro LED Pin und 200mA pro Package zu treiben. Das IC verfügt weiterhin über zwei integrierte Timer, durch welche zwei PWM Signale zum dimmen der LEDs generiert werden können. Die Timerfrequenz kann zwischen 0.625Hz und 160Hz eingestellt werden. In Abb. \ref{fig:Mainboard_LED_Driver_LP3943} ist ein Auszug aus dem Schema des Mainboard PCBs abgebildet. 
 
 \begin{figure}[H]
 	\includegraphics[width=0.7\textwidth]{Illustrationen/6-Umsetzung/Schema_Mainboard_LP39431.png}
