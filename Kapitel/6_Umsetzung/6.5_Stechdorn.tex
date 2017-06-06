@@ -90,10 +90,10 @@ Dieser Zielkonflikt beider Aspekte bedeutet, dass die optimale Wahl des Schlauch
 Die Flexibilität wird durch das Material massgebend beeinflusst. Da keine Herstellerangaben dafür verfügbar sind, werden die Materialien Polyurethan sowie Polyamid (Nylon) für die Inbetriebnahme bestellt und dort miteinander verglichen.
 \newpage
 \subsection{Wahl Fertigungsverfahren und Material}
-Das gewählte Fertigungsverfahren sowie verwendete Material beeinflusst die Charakteristik eines Teils massgeblich. Wegen dieser Relevanz wird diesen Thema ein Unterkapitel gewidmet. Darin werden verwendete Verfahren erwähnt und deren Wahl begründet.
+Das gewählte Fertigungsverfahren sowie verwendete Material beeinflusst die Charakteristik eines Teils massgeblich. Aufgrund der Relevanz wird diesen Thema ein Unterkapitel gewidmet. Darin werden verwendete Verfahren erwähnt und deren Wahl begründet.
 
-\subsubsection{Laserschneidverfahren}
-Für Einfache Teile mit zweidimensionaler Kontur (wie Bleche und Montageplatten) bietet sich Laserschneiden als Verfahren an. Dieses Verfahren bietet folgende Vorteile:
+\subsubsection{Lasertrennverfahren}
+Für Einfache Teile mit zweidimensionaler Kontur (wie Bleche und Montageplatten) bietet sich Lasertrennen als Verfahren an. Beim Lasertrennen wird durch das Fokussieren von gebündelten Laserstrahlen und einem Schneidgas am Werkstück eine Schnittfuge erzeugt \cite{laser}. Durch das zweidimensionale Bewegen des Fokus kann eine Kontur geschnitten werden. Dieses Verfahren bietet folgende Vorteile:
 
 \begin{itemize}
 	\item Beliebige zweidimensionale Konturen können realisiert werden.
@@ -102,30 +102,68 @@ Für Einfache Teile mit zweidimensionaler Kontur (wie Bleche und Montageplatten)
 	
 	\item Die Fertigungsunterlagen können direkt aus dem CAD als .DXF-Datei exportiert und am Hersteller gesendet werden. 
 \end{itemize}
-Folgende Teile werden mit dem Laserschneidverfahren hergestellt:
-\begin{itemize}
-	\item 4x Montageplatten der Setzeinheit
-	\item 3x Kulissen der Verstellmechanik
-	\item 2x bewegte Montageplatten der Verstellmechanik
-	\item 1x Montageplatte der Vereinzelung
-	\item 2x Leitbleche der Vereinzelung
-	\item 1x Deckel der Vereinzelung
-	\item 1x Lochmaske der Vereinzelung
-\end{itemize}
-Für das Funktionsmuster wird konsequent 6mm dickes Aluminium-Blech verwendet. Folgende Begründung ist ausschlagegebend:
+Folgende Teile werden mit dem Lasertrennverfahren hergestellt:
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+	Stück & Dicke [mm] & Verwendung & Einheit \\ 
+	\hline 
+	4x & 6 &Montageplatten & Setzeinheit \\ 
+	\hline 
+	2x & 6 & bewegte Montageplatten & Setzeinheit \\ 
+	\hline 
+	3x & 6 & Kulissen & Verstellmechanik \\ 
+	\hline 
+	1x & 6 & Montageplatte & Vereinzelung \\ 
+	\hline 
+	2x & 6 & Leitbleche  & Vereinzelung \\ 
+	\hline 
+	1x & 6 & Deckel & Vereinzelung \\ 
+	\hline 
+	1x & 4 & Lochmaske & Vereinzelung  \\ 
+	\hline 
+\end{tabular}
+	\caption{Teile die mittels Lasertrennenverfahren hergestellt werden}
+	\label{tab:lasertrennen}
+\end{table} 
+Für das Funktionsmuster wird konsequent 6mm dickes Aluminium-Blech verwendet. Die Wahl der Dicke und des Materials wird wie folgt begründet:
 
 \begin{itemize}
-	\item Ein Teil der gelaserten Bleche wird in der Setzeinheit verwendet. Für den bewegten Teil ist es zentral, dass möglichst wenig Masse beschleunigt wird. Daher ein Werkstoff mit geringer Dichte verwendet.
+	\item Ein Teil der gelaserten Bleche wird für die Setzeinheit verwendet. Für den bewegten Teil ist es zentral, dass möglichst wenig Masse beschleunigt wird. Daher ein Werkstoff mit geringer Dichte verwendet.
 	
 	\item Durch die Verwendung von 6mm dickem Blech, können die Montageplatten direkt in der Nut der Kanya Profile montiert werden.
 \end{itemize}
 
 Einzig für die Lochmaske wird 4mm dickes Aluminium-Blech verwendet, da diese Dicke für die Abstreifung von überschüssigen NemaCaps zentral ist (vgl. Kapitel \ref{lochmaske}).
 
-\subsubsection{Rapid Prototyping}
+\subsubsection{Additive Fertigung}
+Bestimmte Teile werden mittels Additiver Fertigung (Auch Rapid Prototyping oder umgspr. 3D-Drucken genannt) hergestellt. Eines dieser Verfahren ist das Fused Deposition Modeling (FDM). Dabei werden niedrigschmelzender Kunststoffe durch eine Düse extrudiert und in Lagen geschichtet \cite{fdm}. Durch die Schichtung der Lagen entsteht das konstruierte Bauteil. Für Folgende Teile wird FDM als Fertigungsverfahren gewählt:
 
-Die Vereinigung von verschiedensten Funktionen in der Trommel (Integralbauweise) führt zu einer komplexeren Geometrie. Fertigungstechnisch sind gewisse Geometrien konventionell nicht herstellbar. Daher bietet sich Rapid Prototyping als Fertigungsverfahren an. Dadurch ergibt sich jedoch eine Einschränkung: Der Aussendurchmesser der Trommel darf maximal 200mm betragen, da der Bauraum des internen 3D-Druckers 200mm x 200mm x 300mm beträgt. 
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|l|}
+	\hline 
+	Stück & Verwendung & Einheit & Material & Kommentar \\ 
+	\hline 
+	3 & Stechdorn & Stechdorn & ABS & dreiteilige Komponente \\ 
+	\hline 
+	2 & Magnethalter & Vereinzelung & ABS & für Bajonettverschluss \\ 
+	\hline 
+	1 & Trommel & Vereinzelung & ABS & Maximal druckbarer Raum verwendet \\ 
+	\hline 
+\end{tabular} 
+	\caption{Teile die mittels Fused Depostion hergestellt werden}
+	\label{tab:fdm}
+\end{table} 
 
-Die komplexe Geometrie dieser Teile sind ausschlaggebend, dass Rapid Prototyping als Fertigungsverfahren gewählt wird. Bewusst wird die Interalbauweise für den Stechdorn genutzt, um viele Funktionen in einem Teil zu vereinen. Durch die erhöhten Anforderungen an das Gewicht wird ein Kunststoff (ABS) als Material verwendet. Dabei ist es möglich, dass ein Teil mehrmals gedruckt wird, da das optimale Spielmass der linearen Führung iterativ durch zielgerichtetes Ausprobieren gefunden werden muss. 
+Durch Additive Fertigung können verschiedenste Funktionen in einem Teil vereinigt werden (vgl. Kap.\ref{sec:Vereinzelung}, Trommel). Durch diese Integralbauweise werden Teile mit komplexer Geometrie herstellbar. Auch können kleine Teile in kurzer Zeit mit individuellen Anpassungen reproduziert werden. Dieser Vorteil wird beim Stechdorn genutzt. Für das Spielmass der linearen Führung wird durch zielgerichtetes Ausprobieren iterativ das richtige Mass gefunden. Diese Vorteile sind ausschlaggebend für die Wahl von FDM als Fertigungsverfahren für die genannten Bauteile.
+\newline
+
+Als Material wird der Thermoplast ABS verwendet. Dabei ist die geringe Dichte des Thermoplast vorteilhaft für den Stechdorn, da eine geringes Gewicht der Setzeinheit angestrebt wird.
+\newline
+
+Die einzige Einschränkung ergibt sich durch den druckbaren Raum des 3D-Druckers. Der interne 3D-Drucker der HSLU T\&A hat einen druckbaren Raum von 200mm x 200mm x 300mm. Dadurch ist der Aussendurchmesser der Trommel auf maximal 200mm beschränkt und kann nicht grösser gestaltet werden (vgl. Kap. \ref{sec:Vereinzelung}).
+
+\textbf{Schichtaufbau des Stechdorns erwähnen.}
 
 \subsubsection{Spanende Bearbeitung}
