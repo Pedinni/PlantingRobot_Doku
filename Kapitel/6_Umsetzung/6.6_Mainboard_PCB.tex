@@ -88,13 +88,22 @@ Die im vorhergehenden Kapitel beschriebenen Signale werden über Steckverbindung
 Um allfällig zusätzliche Peripherie mit dem FRDM-Board verbinden zu können, ist eine zweireihige 16P Stiftleiste mit 6 GPIO Ports, einer I$^{2}$C Schnittstelle, einem 5V und 12V Spannungspin vorgesehen. Des weiteren werden können das FRDM-Board und das nRF24L01+ Modul über Stiftleisten auf das Mainboard PCB gesteckt werden.
 
 \subsubsection{Power Supply}
-In Abb. \ref{fig:Schema_Mainboard_PowerSupply} ist der Power Supply Teil des Schemas vom Mainboard PCB abgebildet. Das Mainboard wird über das selbe 12V Netzteil mit Strom versorgt wie der ION Motion Motorcontroller. Um die Stromversorgung des Motorcontrollers schalten zu können wird diese über das Mainboard geführt. Auf dem Mainboard PCB befindet sich dann das Relais U3, welches vom uC gesteuert wird. Ebenfalls schaltbar ist die 5V Speisung des Servo Interfaces über das Relais U2. Dieses Spannungspotential wird vom ION Motion Controller abgegriffen. Dieser Verfügt über einen 5V Spannungswandler welcher bis zu 3A liefern kann. Die Speisung für den BLDC Motor kann über das DC$\_$OK Signal des 36V Netzteils geschalten werden. Das DC-OK Signal ist ein TTL Signal und wird deshalb über den Transistor Q1 vom uC geschaltet.
+In Abb. \ref{fig:Schema_Mainboard_PowerSupply_1} sowie \ref{fig:Schema_Mainboard_PowerSupply_2} ist der Power Supply Teil des Schemas vom Mainboard PCB abgebildet. Das Mainboard wird über das selbe 12V Netzteil mit Strom versorgt wie der ION Motion Motorcontroller. Um die Stromversorgung des Motorcontrollers schalten zu können wird diese über das Mainboard geführt. Auf dem Mainboard PCB befindet sich dann das Relais U3, welches vom uC gesteuert wird. Ebenfalls schaltbar ist die 5V Speisung des Servo Interfaces über das Relais U2. Dieses Spannungspotential wird vom ION Motion Controller abgegriffen. Dieser Verfügt über einen 5V Spannungswandler welcher bis zu 3A liefern kann. 
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Schema_Mainboard_PowerSupply.png}
-	\caption{Schema Mainboard PCB, Power Supply}
-	\label{fig:Schema_Mainboard_PowerSupply}
+	\includegraphics[width=0.8\textwidth]{Illustrationen/6-Umsetzung/Schema_Mainboard_PowerSupply_1.png}
+	\caption{Schema Mainboard PCB, Power Supply Relais}
+	\label{fig:Schema_Mainboard_PowerSupply_1}
 \end{figure}
+
+Die Speisung für den BLDC Motor kann über das DC$\_$OK Signal des 36V Netzteils geschalten werden. Das DC-OK Signal ist ein TTL Signal und wird deshalb über den Transistor Q1 vom uC geschaltet.
+
+\begin{figure}[H]
+	\includegraphics[width=0.8\textwidth]{Illustrationen/6-Umsetzung/Schema_Mainboard_PowerSupply_2.png}
+	\caption{Schema Mainboard PCB, Power Supply DC/DC-Wandler}
+	\label{fig:Schema_Mainboard_PowerSupply_2}
+\end{figure}
+
 
 Die Spannungsversorgung für das FRDM-Board, den LED Treiber, die Sensoren und die Vibrationsmotoren wird durch den DC/DC-Festspannungsregler LT3971 bereit gestellt. In der folgenden Tabelle sind die wichtigsten Daten des Buck Reglers ausgeführt:
 
