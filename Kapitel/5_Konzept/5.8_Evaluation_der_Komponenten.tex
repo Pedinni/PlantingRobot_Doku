@@ -15,16 +15,29 @@
 	\end{itemize}
 
 Durch den Setzprozess und die Geometrie der Töpfe sind folgende Anforderungen gegeben:
-\newline
-Einschaltdauer: 50 Prozent (gegeben durch Topfmaschine)
-\newline
-Durchschnittliche axiale Kraftaufnahme: 20N (Aus Funktionsnachweis)
-\newline
-Durchschnittliche Geschwindigkeit (überschlägig):
+\begin{table}[H]
+\begin{tabular}{|l|l|l|}
+	\hline 
+	Parameter & Wert & Kommentar \\ 
+	\hline 
+	Einschaltdauer ED & 50\% & gegeben durch Topfmaschine \\ 
+	\hline 
+	Mittlere Axialkraft F\textsubscript{axavg} & 20N & Aus Funktionnachweis (vgl. Kap. \ref{nemacaps_setzen}) \\ 
+	\hline 
+	Drehzahl für Spindel n\textsubscript{s}& 3000 U/min & überschlägige Annahme \\ 
+	\hline 
+	Beschleunigungsdrehmoment M\textsubscript{a}& 0.36 & überschlägige Annahme \\ 
+	\hline 
+	mittlere Geschwindigkeit v\textsubscript{avg}& 500mm/s & überschlägig gemäss Gleichung 1\\ 
+	\hline 
+\end{tabular} 
+\caption{Anforderungen an den Setzprozess}
+\label{tab:annahmen_setzeinheit}
+\end{table}
 \begin{equation}
 v_{avg}=\frac{2*s_{max}}{T_{min}-T_{t}}=\frac{2*100mm}{0.5s-0.1s}=500mm/s
 \end{equation}
-
+\newline
 Für die Evaluation der Translation wurden alle drei Technologien unter Berücksichtigung der genannten Anforderungen in Betracht gezogen. Obwohl die Pneumatik die einfachste Umsetzung bietet, kommt diese nicht in Frage. Diese Entscheidung wird mit den hohen Kosten un dem Fehlen von Pneumatikanschlüssen bei der Topfmaschine begründet.
 \newline
 Da zwischen dem Spindelantrieb und dem Elektrozylinder keinen funktionellen Unterschied feststellbar ist, wurde die Wahl aufgrund der Verfügbarkeit und Preis beurteilt. Im Gespräch (29.3.17) mit dem betreuenden Dozenten wurde Igus als kompetenter Hersteller von Spindeln genannt. Für Elektrozylinder wurden verschiedene Distributoren (Tecalto AG, Bachofen AG, Parkem AG, Phoenix Mecano Komponenten AG) angefragt. Nur Parkem AG konnte ein Produkt zur Offerte anbieten. Somit ergibt sich folgende Gegenüberstellung:
@@ -38,8 +51,6 @@ Da zwischen dem Spindelantrieb und dem Elektrozylinder keinen funktionellen Unte
 	Preis [CHF] & <100  & 1700    \\ 
 	\hline 
 	Lieferfrist [Wochen] &1 - 2  &6 \\ 
-	\hline 
-	Kommentar & gemäss Telefonat 5.4.17 & gemäss E-Mail 4.4.17 \\ 
 	\hline 
 \end{tabular}
 	\vspace{0.2cm}
