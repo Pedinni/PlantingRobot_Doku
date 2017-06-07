@@ -49,14 +49,13 @@ Da zwischen dem Spindelantrieb und dem Elektrozylinder keinen funktionellen Unte
 Unschwer erkennt man, dass der Preis eines Elektrozylinders um ein Vielfaches höher ist als eine Spindel. Relativieren kann man dieses Argument, wenn man bedenkt, dass für die Spindel ein Motor und die Lagerung beschafft werden muss. Entscheidend ist jedoch das zeitliche Argument. Unter Berücksichtigung des Projektplans wird rasch ersichtlich, dass eine Lieferfrist von 6 Wochen nicht mit der Umsetzung vereinbar ist. Somit wird die Translation mit einer Igus Dryspin Steilgewindespindel realisiert.\\
 
 \textbf{Antriebskomponenten}\\
-\textit{(pro)} Der Spindelantrieb stellt die grössten Anforderungen an einen leistungsfähigen Motor inklusive Ansteuerung und Speisung, innerhalb dieses Projektes. Naheliegend ist deshalb auch, dass es sich hierbei um die teuersten Komponenten des Elektronik Konzepts handelt. Die Anforderungen an den Spindelantrieb wurden gemäss den Berechnungen in Kapitel \ref{sec:Umsetzung_Spindel} wie folgt definiert: 
+\textit{(pro)} Der Spindelantrieb stellt die grössten Anforderungen an einen leistungsfähigen Motor inklusive Ansteuerung und Speisung, innerhalb dieses Projektes. Naheliegend ist deshalb auch, dass es sich hierbei um die teuersten Komponenten des Elektronik Konzepts handelt. Die Anforderungen an den Spindelantrieb wurden gemäss den Berechnungen im vorhergehenden Kapitel wie folgt definiert: 
 
 \begin{itemize}
 	\item Drehzahl = 3090 U/min
 	\item Drehmoment = 0.36Nm	
 \end{itemize}
 
-\textbf{Kommentar in TEX File beachten!!}
 %Die mittlere Drehzahl ist dabei nicht als maximale Drehzahl des Motors auszulegen. Sie definiert die Drehzahl welche der Antrieb erreichen muss um den geforderten Vorschub der Spindel von 0.6m/s zu erreichen. Dabei sind die Beschleunigungs- sowie Verzögerungsphasen der Bewegung nicht berücksichtigt. Werden diese unter der Annahme einer linearen Beschleunigung sowie Verzögerung der Spindel über den gesamten Bewegungsablauf miteinbezogen, ergibt sich die maximale Antriebsdrehzahl aus der doppelten mittlere Drehzahl. 
 
 %\textbf{Das erforderliche Drehmoment beschreibt die Übersetzung von geforderter Axialkraft = 32N in das aufzubringende Drehmoment an der Spindelwelle. Die Beschleunigung der Massenträgheit der Setzeinheit muss als zusätzliches Drehmoment addiert werden. Annahme!?!?} Die Berechnungen sowie eine Abbildung der beschriebenen Bewegungsphasen sind in Kapitel \ref{sec:Umsetzung_Spindel} nachzulesen. Die Anforderungen an den Spindelantrieb betragen nach Berücksichtigung dieser Punkte: Merf = 0.36Nm / Uerf = 3090 U/min.
@@ -112,7 +111,6 @@ Für die Spannungsversorgung kommt das 36V Netzteil von Mean Well mit der Typenb
 
 
 \subsubsection{Vereinzelung und Verstellmechanik}
-\textbf{Antriebskomponenten} \\
 \textit{(pro)} Die beiden Maschinenteile Vereinzelung und Verstellmechanik wurden in einem Kapitel zusammengefasst, weil sie ähnliche Anforderungen an den Antrieb stellen. Gemäss Abbildung \ref{fig:Motorentypen} über die verschiedenen Motorentypen kommen auch hier wieder dieselben Kriterien zur Auswahl des geeigneten Motorentypes zum Einsatz. Das erforderliche Drehmoment für die beiden Funktionen zu schätzen ist sehr schwierig, da lediglich Reibungsdrehmomente als Last vorliegen. Für beide Maschinenteile wurden deshalb DC-Getriebemotoren mit Encoder als die beste Lösung evaluiert. Sie entwickeln bei minimalen Kosten durch die Getriebeübersetzung ein hohes Drehmoment welches eine sichere Funktion garantiert. Die minimale Drehzahl für die Vereinzelung ergibt sich aus der Anzahl Töpfe pro Minute, der Anzahl Lochreihen pro Umdrehung der Lochmaske und einen Sicherheitsfaktor S für die Zeit in welcher die Lochmaske Still stehen soll um die Nemacaps fallen zu lassen:
 
 \begin{equation}
