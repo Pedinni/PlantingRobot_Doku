@@ -119,4 +119,13 @@ Folgende Erkenntnisse lieferte das Funktionsmuster:
 	
 	\item Am Rand der Kulisse nimmt der Kraftaufwand für eine Verstellung deutlich zu. Es kommt auch vor, dass die Kulisse am Rand kaum in Bewegung gerät. Dies ist damit erklärbar, dass an diesem Punkt die Wirkungslinien der Kulissen normal zueinander stehen und so kein Moment auf die äussere Kulisse wirken kann. Bei einer allfälligen Umsetzung müssen die Wirkungslinien der Kulissen möglichst parallel verlaufen. 
 \end{itemize} 
-\subsubsection{Topferkennung}
+\subsubsection{Topferkennung} \label{sec:Topferkennung_ProveOfConcept}
+\textit{(pro)} Als Sensor für die Topferkennung wurde der IR Distanzsensor von Sharp mit der Typenbezeichnung GP2Y0A41SK0F verwendet. Dabei wurde der genannten IR-Sensor mit einem ADC Port des FRDM-Boards verbunden. Es wurde eine Testmessung durchgeführt in der ein Blumentopf mit 14cm Durchmesser vor dem IR-Sensor, mit zwei verschiedenen Geschwindigkeiten, vorbeigeführt wurde. 
+
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/IR_Sensor_Messung.png}
+	\caption{Topferkennung, Testmessung}
+	\label{fig:IR_Sensor_POC}
+\end{figure}
+
+Die Messung wurde mit der Software Segger J-Scope durchgeführt und ist in Abb. \ref{fig:IR_Sensor_POC} illustriert. Die Testmessung ist rein qualitativ und diente als Entscheidungsgrundlage für die Messmethode. Die Messdaten welche der Sensor liefert sind nicht linear und zusätzlich invertiert (hoher Pegel = kurze Messdistanz). Um absolute Werte für die Messdistanz zu bekommen, muss das Messsignal gemäss den Angaben im Datenblatt umgerechnet und über eine Lookup-Tabelle aufgelöst werden. Die Form des Topfes ist gut zu erkennen. Aufgrund der gemessenen Daten kann der IR-Sensor für die Topferkennung empfohlen werden.
