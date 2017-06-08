@@ -1,1 +1,21 @@
-\subsection{Mainboard PCB}
+\subsection{Leiterplatten}
+\textit{(pro)} Bei der Inbetriebnahme einer Leiterplatte welche an der HSLU Luzern gefertigt wurde, sollte vor dem bestücken immer ein elektrischer Test aller Leitungen durchgeführt werden. Es kommt regelmässig vor, dass sich durch Kupferrückstande beim Fertigungsprozess Kurzschlüsse zwischen Leiterbahnen bilden. Beim bestücken des Mainboard PCBs ist beonders bei den ICs U1 sowie U4 darauf zu achten, dass die GND Pads, welche sich auf der Unterseite des Packages befinden richtig angelötet werden. Diese Pads dienen zur Kühlung des ICs und sind desshalb auf eine grosse Kupferfläche geführt sowie mit Durchkontaktierungen für einen besseren Wärmefluss ausgestattet. Aufgrund der guten Wärmeableitung wurde das GND Pad von U1 im Reflow Ofen nicht angelötet. Das Resultat war ein nicht funktionsfähiger Spannungswandler. Das IC konnte nach eruieren des Fehlers mit Hilfe des Lötkolbens von der Unterseite her so weit erhitzt werden, bis die Zinnpaste des GND PADs schliesslich mit dem Bauteil eine funktionsfähige Lötverbindung einging. In den folgenden Abschnitten werden Verbesserungsvorschläge für die entwickelten PCBs gegeben.
+\newline
+
+\textbf{Mainboard PCB:}
+\begin{itemize}
+	\item Der GPIO Port PTA4 welcher für das Schalten der 5V Servo Spannung verwendet wird, wird vom FRDM-Board bereits für den Reset Taster verwendet. Es ist ein anderer Port zu verwenden. Im Projekt wurden keine Servos verwendet, weswegen dieser Fehler keine Auswirkungen hatte.
+	\item Die LEDs auf sind etwas hell, es sollten nach Bedarf höhere Widerstandswerte verwendet werden. Die LEDs werden auf dem PCB momentan mit ca. 10mA betrieben.
+\end{itemize}
+
+\textbf{Baseboard PCB:}
+\begin{itemize}
+	\item Beim Schnittstellenwandler MAX232 hat sich ein Schema Fehler eingeschlichen. Die Pins 2 und 16 müssen vertauscht werden. Wurde auf dem PCB mit einem Fädeldraht gelöst.
+\end{itemize}
+
+\textbf{HMI LED PCB:}
+\begin{itemize}
+	\item Die Leiterbahnen zwischen LED und Vorwiderstand wurden im Layout nicht gezeichnet. Wurde auf dem PCB mit Fädeldraht gelöst.
+\end{itemize}
+
+Das Bestückte Mainboard PCB wurde als Testumgebung für die Teilinbetriebnahme der erstellte Softwarekomponenten verwendet.

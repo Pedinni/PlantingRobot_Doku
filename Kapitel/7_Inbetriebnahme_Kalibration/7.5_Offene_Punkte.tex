@@ -1,1 +1,17 @@
 \subsection{Offene Punkte}
+\textit{(pro)} In diesem Unterkapitel sind Punkte aufgeführt welche zur voll umfänglichen Erfüllung des Pflichtenhefts noch erledigt werden müssten (todo), sowie Punkte welche die Performance und Handhabung des Planting Robots verbessern würden (nice to have). 
+\newline
+
+\textbf{todo:}
+\begin{itemize}
+	\item Die Parameter der Verstellmechanik müssten gemäss den verschiedenen Setzradien ermittelt und in der Software geändert werden.
+	\item Die Software müsste um eine adäquate Topferkennung erweitert werden. Die Sensoranbindung für einen IR-Sensor ist dabei schon implementiert.
+	\item Entsprechend der Topferkennung müsste die FSM erweitert werden, sodass der Setzprozess bei erkanntem Topf ausgelöst wird.
+	\item Das Gesamtsystem müsste als solches getestet werden. Dabei müssten Blumentöpfe angefüllt mit Topferde vom Planting Robot mit Nemacaps besetzt werden.
+\end{itemize}
+
+\textbf{nice to have:}
+\begin{itemize}
+	\item Die verwendeten PID Positionierungsregler für die Setzeinheit, Verstellmechanik und Setzeinheit könnten optimiert werden. Dafür müssten die Sprungantworten der jeweiligen Strecken ermittelt und über ein entsprechendes mathematisches Modell approximiert werden. Auf Grundlage der Strecke könnten dann die Parameter für den Regler definiert werden.
+	\item Die Initialisierung der Setzeinheit könnte erweitert werden, indem die Setzeinheit nach erreichen des oberen Endanschlags bis an den unteren Anschlag fährt. Die dabei zurückgelegte Strecke könnte mit der tatsächlichen Länge der Spindel verglichen werden. Durch diesen Vergleich würde sichergestellt, dass die Setzeinheit nicht durch äussere Einflüsse (wie eine verschmutzte Spindel) fälschlicherweise einen Endanschlag vermutet.
+\end{itemize}
