@@ -30,7 +30,7 @@ Die Verifikation der gesetzten Ziele ist in Tab. \ref{tab:verifikation} aufgelis
 	4.4 & \textbf{Speisung:} 230V Netzspannung, max. Leistungsaufnahme 2kW & Ja &  \\ 
 	\hline 
 	4.5 & \textbf{Topferkennung:} Setzprozess soll nur ausgeführt werden, wenn sich 
-	ein Topf auf dem Topfkranz befindet.  & unklar & Verifikation hängig \\ 
+	ein Topf auf dem Topfkranz befindet.  & unklar & Verifikation offen \\ 
 	\hline 
 	4.6 & \textbf{Topfkonfiguration (Fest):} \newline Der Planting Robot muss für jeden Batch mit der 
 	Topfgrösse konfiguriert werden.  & Ja & Wunsch-anforderung umgesetzt \\ 
@@ -38,23 +38,23 @@ Die Verifikation der gesetzten Ziele ist in Tab. \ref{tab:verifikation} aufgelis
 	4.7 & \textbf{Topfkonfiguration (Wunsch):} Topfgrösse selbständig erkennen und dementsprechend konfigurieren.  & Ja & Konfiguration manuell möglich \\ 
 	\hline 
 	5.1 & \textbf{Einsetztiefe:} variabel, einstellbar. 
-	Maximale Einsetztiefe: 60\% der Topfhöhe & Ja &  \\ 
+	Maximale Einsetztiefe: 60\% der Topfhöhe & bedingt & nicht implementiert \\ 
 	\hline 
 	5.2 & \textbf{Bruchverhalten NemaCaps:} Dürfen nach Setzprozess beschädigt sein. Alle 
-	Bestandteile müssen sich in der Erde befinden.  & unklar & Verifikation hängig \\ 
+	Bestandteile müssen sich in der Erde befinden.  & unklar & Verifikation offen \\ 
 	\hline 
 	5.3 & \textbf{Einsetzlokalität:} 3 Stück um den Mittelpunkt zu 120° versetzt, mit Durchmesser von 60\% des 
 	Topfdurchmessers, NemaCaps dürfen nicht durch das Loch für die Stecklinge 
 	eingesetzt werden.  & Ja &  \\ 
 	\hline 
 	5.4 & \textbf{Eingriffszeitpunkt:} Während Stopp Phase. Verhältnis 
-	Bewegungszeit/Eingriffszeit = 1:1. & unklar & Verifikation hängig \\ 
+	Bewegungszeit/Eingriffszeit = 1:1. & unklar & Verifikation offen \\ 
 	\hline 
 	5.7 &  \textbf{Eingriffszeit 
-	bei normaler Auslastung:} \newline 0.64s (2800 Töpfe/Stunde) & unklar & Verifikation hängig \\ 
+	bei normaler Auslastung:} \newline 0.64s (2800 Töpfe/Stunde) & unklar & Verifikation offen \\ 
 	\hline 
 	5.8 &  \textbf{Eingriffszeit 
-	bei maximaler Auslastung:} \newline 0.5s (3600 Töpfe/Stunde) & unklar & Verifikation hängig \\ 
+	bei maximaler Auslastung:} \newline 0.5s (3600 Töpfe/Stunde) & unklar & Verifikation offen \\ 
 	\hline 
 	\end{tabular} 
 	\caption{Verifikation der gesetzten Ziele durch das Pflichtenheft}
@@ -66,6 +66,8 @@ Ergänzend ist hinzuzufügen:
 
 	\item Die Handhabung der NemaCaps (Punkte 2.1 und 2.2) ist mit dem umgesetzten Funktionsmuster gewährleistet. Für die erfolgreiche Handhabung ist es essentiell, dass ausschliesslich frische NemaCaps verwendet werden. 
 	
+	\item Die variable Einstellung der Einsetztiefe ist durch die Konstruktion sowie auch den Antrieb technisch möglich (Punkt 5.1). Die Implementation in der Software fehlt, wodurch dieser Punkt nur \textit{bedingt} erfüllt ist.
+	
 	\item Die Punkte 5.2, 5.4, 5.7 und 5.8 konnten nicht verfiziert werden, da für die Inbetriebnahme der Gesamtfunktion der zeitliche Rahmen fehlte. Da somit das Zusammenspiel der einzelnen Funktion nicht geprüft wurde, kann über diese Punkte keine Aussage gemacht werden.
 	
 	\item Die Topferkennung (Punkt 4.5) funktioniert prinzipiell. Durch die fehlende Zeit konnte die Implementation an der Topfmaschine (oder Testumgebung) nicht durchgeführt werden.
@@ -74,7 +76,7 @@ Ergänzend ist hinzuzufügen:
 	
 	\item die selbständige Topfkonfiguration (Punkt 4.7) funktioniert. Die Kopplung mit der automatischen Topferkennung (Punkt 4.5) ist nicht implementiert, zurzeit muss die Konfiguration von einem Benutzer ausgelöst werden.
 	
-	\item Die Funktionen \textit{NemaCaps vereinzeln}, \textit{NemaCaps transportieren} und \textit{Setzmechanismus konfigurieren} funktionieren vollumfänglich. Da die formulierten Punkte im Pflichtenheft sich auf das ultimative Endresultat beziehen, haben diese Teilerfolge nur wenig Gewicht in der Verifikation.
+	\item Die Funktionen \textit{NemaCaps vereinzeln}, \textit{NemaCaps transportieren} und \textit{Setzmechanismus konfigurieren} funktionieren grundsätzlich. Da die formulierten Punkte im Pflichtenheft sich auf das ultimative Endresultat beziehen, haben diese Teilerfolge nur wenig Gewicht in der Verifikation.
 \end{itemize}
 
 Abschliessend wird befunden, dass alle Funktionen, die im zeitlichen Rahmen gestestet wurden, ihre Funktion erfüllen. Für alle anderen (nicht getesteten) kann zum jetzigen Zeitpunkt kein abschliessendes Urteil gemacht werden.
