@@ -1,5 +1,5 @@
 \subsection{Offene Punkte}
-\textit{(pro)} In diesem Unterkapitel sind Punkte aufgeführt welche zur voll umfänglichen Erfüllung des Pflichtenhefts noch erledigt werden müssten (todo), sowie Punkte welche die Performance und Handhabung des Planting Robots verbessern würden (nice to have). 
+\textit{(ygu/pro)} In diesem Unterkapitel sind Punkte aufgeführt welche zur voll umfänglichen Erfüllung des Pflichtenhefts noch erledigt werden müssten (todo), sowie Punkte welche die Performance und Handhabung des Planting Robots verbessern würden (nice to have). 
 \newline
 
 \textbf{todo:}
@@ -14,4 +14,12 @@
 \begin{itemize}
 	\item Die verwendeten PID Positionierungsregler für die Setzeinheit, Verstellmechanik und Setzeinheit könnten optimiert werden. Dafür müssten die Sprungantworten der jeweiligen Strecken ermittelt und über ein entsprechendes mathematisches Modell approximiert werden. Auf Grundlage der Strecke könnten dann die Parameter für den Regler definiert werden.
 	\item Die Initialisierung der Setzeinheit könnte erweitert werden, indem die Setzeinheit nach erreichen des oberen Endanschlags bis an den unteren Anschlag fährt. Die dabei zurückgelegte Strecke könnte mit der tatsächlichen Länge der Spindel verglichen werden. Durch diesen Vergleich würde sichergestellt, dass die Setzeinheit nicht durch äussere Einflüsse (wie eine verschmutzte Spindel) fälschlicherweise einen Endanschlag vermutet.
+	\item Der qualitativ durchschnittliche Antrieb (Pololu XY) durch einen qualitativ besseren Motor ersetzen, welcher ein geringeres Spiel aufweist.
+	\item Die Anordnung des Antriebs neu konzipieren. Dabei kann das Spiel massiv reduziert werden, indem der Antrieb an der Aussenkontur der Lochmaske gekoppelt wird. Dabei muss an der Aussenkontur eine Verzahnung realisiert werden, sodass über ein zweites Zahnrad der Motor die Rotation umsetzen kann (siehe Abbildung \ref{fig:optimierung_lochmaske}). Die Grössenordnung dieser Übersetzung ist variabel, führt jedoch bei optimaler Auslegung dazu, dass ein Antrieb mit geringerer Übersetzung verwendet werden kann. Dadurch wird das Spiel reduziert. 
 \end{itemize}
+
+\begin{figure}[H]
+	\includegraphics[draft=false,scale=0.3]{Illustrationen/8-Fazit/optimierung_lochmaske.png}
+	\caption{verbesserte Anordnung des Antriebs für die Lochmaske}
+	\label{fig:optimierung_lochmaske}
+\end{figure}
