@@ -80,7 +80,7 @@ Beim Design des Mainboard PCBs wurde darauf geachtet, dass möglichst viele GPIO
 Die im vorhergehenden Kapitel beschriebenen Signale werden über Steckverbindungen auf das Mainboard geführt. Die Steckverbindungen sind in Abb. \ref{fig:Mainboard_3D} mit einer jeweiligen Beschriftungen illustriert. Die Anschlüsse welche nicht beschriftet sind gehören zum HMI und werden im Kapitel \ref{sec:Mainboard_HMI_Interface} behandelt. Für Signalleitungen und Speiseleitungen bis 2A werden JST Stecker der Serie PH mit 2, 3, 4 und 6 Pol verwendet. Diese haben ein schmales Rastermass von 2mm und eignen sich daher gut für kompakte PCB Anwendungen. Die 12V Speisung und das ION Motion Interface werden über 90° Phoenix Stiftleisten der Serie MSTBA geführt. Diese Stecker sind mit einem Nennstrom von 10A gemäss UL Zertifizierung zugelassen.
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Mainboard_PCB_Anschluesse.png}
+	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Mainboard_PCB_Anschluesse.jpg}
 	\caption{Mainboard PCB, Anschlüsse}
 	\label{fig:Mainboard_3D}
 \end{figure}
@@ -171,7 +171,7 @@ Um GPIO Ports am uC einzusparen und um einen höheren Diodenstrom liefern zu kö
 Links ist der LED Treiber LP3943 zu sehen. Alle LEDs für das HMI sind daran angeschlossen. Über die Adressleitungen A0... A2 können die letzten 3 Bit der I$^{2}$C Adresse des Treibers bestimmt werden. In dieser Anwendung sind diese Digital Eingänge alle mit GND potential verbunden und somit auf logisch "0" konfiguriert. Auf der rechten Seite der Abbildung ist der Stecker J6 für einen Taster mit LED-Ring abgebildet. Alle HMI Taster mit LED-Ring werden jeweils über einen eigenen 4Pin Molex MicroFit Stecker verdrahtet (siehe Abb. \ref{fig:Mainboard_HMI_Layout}). Dabei wird der LED-Ring des Taster an Pin 1 und 2, der NO Kontakt an Pin 3 und der GND Kontakt an Pin 4 des Steckers angeschlossen.
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/HMI_Layout.png}
+	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/HMI_Layout.jpg}
 	\caption{Mainboard PCB, Onboard HMI}
 	\label{fig:Mainboard_HMI_Layout}
 \end{figure}
