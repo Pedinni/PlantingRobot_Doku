@@ -104,10 +104,10 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[RO]{\normalfont \bf \flushright \normalfont Hochschule Luzern\\  \small Technik \& Architektur}
-\fancyhead[LO]{\footnotesize \normalfont {Bachelorarbeit FS 2017\\Planting Robot}}
-\fancyfoot[RO]{\normalfont \thepage}
-\fancyfoot[LO]{\small {\normalfont Yves Gubelmann \& Patrick Rossacher}}
+\fancyhead[RO,LE]{\normalfont \bf  \normalfont Hochschule Luzern\\  \small Technik \& Architektur}
+\fancyhead[RE,LO]{\footnotesize \normalfont {Bachelorarbeit FS 2017\\Planting Robot}}
+\fancyfoot[RO,LE]{\normalfont \thepage}
+\fancyfoot[RE,LO]{\small {\normalfont Yves Gubelmann \& Patrick Rossacher}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -176,7 +176,7 @@ captionpos=b
 \titlecontents{figure}[0em]{}{\figurename \vspace{0.2cm} \contentslabel{0.3em} \ \: }
  {\vspace{0.8cm}}{ \titlerule*[0.3pc]{.}\contentspage}
 
-
+\usepackage[top=2.5cm, bottom=2.75cm, outer=2.5cm, inner=2.5cm, headsep=10pt]{geometry}
  
 %%Lade das Packet tocloft auf komische weise damit es keinen Konflikt mit subfigure gibt!!!
 %\makeatletter
