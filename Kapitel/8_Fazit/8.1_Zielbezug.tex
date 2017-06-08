@@ -1,8 +1,8 @@
 \subsection{Zielbezug}
-Der Zielbezug wird anhand des verfassten Pflichtenhefts durchgeführt. Die Orientierung am Pflichtenheft gewährleistet eine objektive Beurteilung der gesetzten Ziele. Dabei stützt sich die Beurteilung der einzelnen Ziele auf den gewonnen Erkenntnisse aus Kapitel \textbf{XYInbetriebnahme}. 
+Der Zielbezug wird anhand des verfassten Pflichtenhefts durchgeführt. Die Orientierung am Pflichtenheft gewährleistet eine objektive Beurteilung der gesetzten Ziele. Dabei stützt sich die Beurteilung der einzelnen Ziele auf den gewonnen Erkenntnisse aus Kapitel \ref{inbetriebnahme}.
 \newline
 
-Die Verifikation der gesetzten Ziele ist in Tab. \ref{tab:verifikation} aufgelistet. Diese Tabelle bezieht sich auf das verfasste Pflichtenheft (vgl. Anhang: \textit{Pflichtenheft v1.6}). Dabei sind in dieser Tabelle alle relevanten Punkte de
+Die Verifikation der gesetzten Ziele ist in Tab. \ref{tab:verifikation} aufgelistet. Diese Tabelle bezieht sich auf das verfasste Pflichtenheft (vgl. Anhang: \textit{Pflichtenheft v1.6}). Dabei sind in dieser Tabelle alle relevanten Punkte für den Zielbezug zusammengefasst.
 
 \newpage
 \begin{table}[H]
@@ -35,7 +35,7 @@ Die Verifikation der gesetzten Ziele ist in Tab. \ref{tab:verifikation} aufgelis
 	4.6 & \textbf{Topfkonfiguration (Fest):} \newline Der Planting Robot muss für jeden Batch mit der 
 	Topfgrösse konfiguriert werden.  & Ja & Wunsch-anforderung umgesetzt \\ 
 	\hline 
-	4.7 & \textbf{Topfkonfiguration (Wunsch):} Topfgrösse selbständig erkennen und dementsprechend konfigurieren.  & Ja &  \\ 
+	4.7 & \textbf{Topfkonfiguration (Wunsch):} Topfgrösse selbständig erkennen und dementsprechend konfigurieren.  & Ja & Konfiguration manuell möglich \\ 
 	\hline 
 	5.1 & \textbf{Einsetztiefe:} variabel, einstellbar. 
 	Maximale Einsetztiefe: 60\% der Topfhöhe & Ja &  \\ 
@@ -44,7 +44,7 @@ Die Verifikation der gesetzten Ziele ist in Tab. \ref{tab:verifikation} aufgelis
 	Bestandteile müssen sich in der Erde befinden.  & unklar & Verifikation hängig \\ 
 	\hline 
 	5.3 & \textbf{Einsetzlokalität:} 3 Stück um den Mittelpunkt zu 120° versetzt, mit Durchmesser von 60\% des 
-	Topfdurchm., NemaCaps dürfen nicht durch das Loch für die Stecklinge 
+	Topfdurchmessers, NemaCaps dürfen nicht durch das Loch für die Stecklinge 
 	eingesetzt werden.  & Ja &  \\ 
 	\hline 
 	5.4 & \textbf{Eingriffszeitpunkt:} Während Stopp Phase. Verhältnis 
@@ -60,3 +60,21 @@ Die Verifikation der gesetzten Ziele ist in Tab. \ref{tab:verifikation} aufgelis
 	\caption{Verifikation der gesetzten Ziele durch das Pflichtenheft}
 	\label{tab:verifikation}
 \end{table}	
+\newpage
+Ergänzend ist hinzuzufügen:
+\begin{itemize}
+
+	\item Die Handhabung der NemaCaps (Punkte 2.1 und 2.2) ist mit dem umgesetzten Funktionsmuster gewährleistet. Für die erfolgreiche Handhabung ist es essentiell, dass ausschliesslich frische NemaCaps verwendet werden. 
+	
+	\item Die Punkte 5.2, 5.4, 5.7 und 5.8 konnten nicht verfiziert werden, da für die Inbetriebnahme der Gesamtfunktion der zeitliche Rahmen fehlte. Da somit das Zusammenspiel der einzelnen Funktion nicht geprüft wurde, kann über diese Punkte keine Aussage gemacht werden.
+	
+	\item Die Topferkennung (Punkt 4.5) funktioniert prinzipiell. Durch die fehlende Zeit konnte die Implementation an der Topfmaschine (oder Testumgebung) nicht durchgeführt werden.
+	
+	\item Die Erfüllung von Punkt 4.6 ist obsolet, da die Wunschanforderung realisiert wurde.
+	
+	\item die selbständige Topfkonfiguration (Punkt 4.7) funktioniert. Die Kopplung mit der automatischen Topferkennung (Punkt 4.5) ist nicht implementiert, zurzeit muss die Konfiguration von einem Benutzer ausgelöst werden.
+	
+	\item Die Funktionen \textit{NemaCaps vereinzeln}, \textit{NemaCaps transportieren} und \textit{Setzmechanismus konfigurieren} funktionieren vollumfänglich. Da die formulierten Punkte im Pflichtenheft sich auf das ultimative Endresultat beziehen, haben diese Teilerfolge nur wenig Gewicht in der Verifikation.
+\end{itemize}
+
+Abschliessend wird befunden, dass alle Funktionen, die im zeitlichen Rahmen gestestet wurden, ihre Funktion erfüllen. Für alle anderen (nicht getesteten) kann zum jetzigen Zeitpunkt kein abschliessendes Urteil gemacht werden.
