@@ -14,7 +14,7 @@ Als Betriebssystem dient das Real Time OS FreeRTOS. Vorteile von FreeRTOS gegen�
 	\item Seine geringen Ressourcenanforderungen an RAM, ROM und CPU Leistung. 
 	\item FreeRTOS ist weit verbreitet und wird an der HSLU in diversen Softwareprojekten verwendet.
 	\item Es ist absolut kostenfrei, auch für kommerzielle Anwendungen.
-	\item FreeRTOS ist einfach in der Anwendung, eignet sich jedoch auch für grössere Projekte.
+	\item FreeRTOS ist einfach in der Anwendung und eignet sich auch für grössere Projekte.
 \end{itemize}
 
 Die wichtigsten Softwarekomponenten sind in Abb. \ref{fig:Software_Uebersicht} abgebildet. Die Übergeordnete Softwarekomponente FSM implementiert eine State Machine, welche den Ablauf der Software steuert. Sie wird in einem Task realisiert. Hierarchisch untergeordnet befinden sich die Driver Komponenten. Sie bilden die Schnittstelle zur Hardware. Die Low Level Anbindung der jeweiligen Hardware Komponenten über Digital I/Os, UART, I$_{2}$C und Analog Inputs wird mit Processor Expert Komponenten realisiert. PE Komponenten erleichtern die Konfiguration von Peripherie-Registern des uC und bieten zusätzlich diverse C Methoden für die Verwendung genannter Peripherie. 

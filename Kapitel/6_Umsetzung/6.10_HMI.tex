@@ -19,7 +19,7 @@ Nebst den LEDs in den Drucktastern verfügt das HMI über 5 LEDs für die Anzeig
 \end{figure}
 
 \subsubsection{Bedienungsanleitung}
-Im folgenden Abschnitt wird die Bedienung des Planting Robots Schritt für Schritt erklärt. Achtung! Der Planting Robot ist ein Prototyp. Demnach kann es bei unsachgemässer Bedienung potentiell zu Fehlfunktionen kommen. Als grafische Hilfestellung zur Bedienungsanleitung dient eine State Übersicht der Software in Abb. \ref{fig:Bedienungsanleitung}.
+Im folgenden Abschnitt wird die Bedienung des Planting Robots Schritt für Schritt erklärt. Achtung! Der Planting Robot ist ein Prototyp. Demnach kann es bei unsachgemässer Bedienung potenziell zu Fehlfunktionen kommen. Als grafische Hilfestellung zur Bedienungsanleitung dient eine State Übersicht der Software in Abb. \ref{fig:Bedienungsanleitung}.
 
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/Bedienungsanleitung.png}
@@ -35,5 +35,5 @@ Im folgenden Abschnitt wird die Bedienung des Planting Robots Schritt für Schri
 \end{enumerate}
 
 \textbf{User Input}\\
-Im $"$User Input$"$ State kann die Topfgrösse sowie die Setztiefe der Nemacaps konfiguriert werden. Um eine andere Topfgrösse einzustellen, muss auf dem HMI die entsprechende Grösse angewählt werden. Die Verstellmechanik führt den Befahl bei Tastendruck sofort aus und konfiguriert den Setzradius neu. Die Setztiefe wird auf dem HMI über 5 LEDs angezeigt. Dabei ist Standardmässig die mittlere grüne LED aktiviert. Diese signalisiert eine mittlere Setztiefe. Durch drücken der beiden Taster rechts der LEDs kann die Setztiefe höher oder tiefer eingestellt werden. Diese Funktion ist in der Software der Setzeinheit noch nicht implementiert, die LEDs lassen sich zu Vorschauzwecken allerdings schon einstellen.\\
+Im $"$User Input$"$ State kann die Topfgrösse sowie die Setztiefe der Nemacaps konfiguriert werden. Um eine andere Topfgrösse einzustellen, muss auf dem HMI die entsprechende Grösse angewählt werden. Die Verstellmechanik führt den Befahl bei Tastendruck sofort aus und konfiguriert den Setzradius neu. Die Setztiefe wird auf dem HMI über 5 LEDs angezeigt. Dabei ist standardmässig die mittlere grüne LED aktiviert. Diese signalisiert eine mittlere Setztiefe. Durch drücken der beiden Taster rechts der LEDs kann die Setztiefe höher oder tiefer eingestellt werden. Diese Funktion ist in der Software der Setzeinheit noch nicht implementiert, die LEDs lassen sich zu Vorschauzwecken allerdings schon einstellen.\\
 Eine weitere Funktion des $"$User Input$"$ States ist die manuelle Steuerung des Planting Robots. Über die Taster $"$Spindel hoch$"$ und $"$Spindel runter$"$ kann die Setzteinheit manuell hoch und runter bewegt werden. Die Taster müssen dafür länger als 0.5s gedrückt werden. Bei loslassen der Taster hält die Spindel wieder an. Durch Druck auf den Taster $"$Vereinzelung$"$ wird die Lochmaske der Vereinzelung um eine Position gedreht.
