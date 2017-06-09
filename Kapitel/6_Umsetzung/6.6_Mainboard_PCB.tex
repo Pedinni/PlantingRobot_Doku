@@ -74,7 +74,7 @@ Das Mainboard PCB verbindet sämtliche Elektronik Komponenten miteinander. Das H
 	\label{tab:FRDM_Port_Mapping}%
 \end{table}%
 
-Beim Design des Mainboard PCBs wurde darauf geachtet, dass möglichst viele GPIO Pins des FRDM-Boards genutzt werden. Deshalb wurde zusätzlich zu den in Abbildung \ref{fig:Blockschaltbild_Komponenten} aufgeführten Peripherien, ein Servo Interface mit drei Servo Anschlüssen und eine Buchsenleiste mit zusätzlichen GPIOs vorgesehen.
+Beim Design des Mainboard PCBs wurde darauf geachtet, dass möglichst viele GPIO Pins des FRDM-Boards genutzt werden. Deshalb wurde zusätzlich zu den in Abb. \ref{fig:Blockschaltbild_Komponenten} aufgeführten Peripherien, ein Servo Interface und eine Buchsenleiste mit zusätzlichen GPIOs vorgesehen.
 
 \subsubsection{Anschlüsse}
 Die im vorhergehenden Kapitel beschriebenen Signale werden über Steckverbindungen auf das Mainboard geführt. Die Steckverbindungen sind in Abb. \ref{fig:Mainboard_3D} mit der jeweiligen Beschriftung illustriert. Die Anschlüsse, welche nicht beschriftet sind, gehören zum HMI und werden im Kapitel \ref{sec:Mainboard_HMI_Interface} behandelt. Für Signalleitungen und Speiseleitungen bis 2A werden JST Stecker der Serie PH mit 2, 3, 4 und 6 Pol verwendet. Diese haben ein schmales Rastermass von 2mm und eignen sich daher gut für kompakte PCB Anwendungen. Die 12V Speisung und das ION Motion Interface werden über 90° Phoenix Stiftleisten der Serie MSTBA geführt. Diese Stecker sind mit einem Nennstrom von 10A gemäss UL Zertifizierung zugelassen.
@@ -133,7 +133,7 @@ Die Spannungsversorgung für das FRDM-Board, den LED Treiber, die Sensoren und d
 Bei einem getakteten Spannungswandler sollte das Layout gemäss den Design Richtlinien des Herstellers erstellt werden. Dadurch wird garantiert, dass die Funktionalität und die EMV Eigenschaften der Schaltung auf einem hohen Niveau sind. Die Bauteilwerte der Schaltung wurden der typical application des Datenblatts entnommen. Der Buck Regler wird demnach mit einer Schaltfrequenz von 800kHz betrieben. In Abb. \ref{fig:LT2971_Layout} ist links der Auszug aus dem Datenblatt und rechts das Layout auf dem Mainboard PCB abgebildet. Die Bauteilbezeichnungen korrespondieren dabei nicht miteinander.
 
 \begin{figure}[H]
-	\includegraphics[width=0.8\textwidth]{Illustrationen/6-Umsetzung/LT3971_Layout.png}
+	\includegraphics[draft=false,width=1\textwidth]{Illustrationen/6-Umsetzung/LT3971_Layout.png}
 	\caption{Layout LT3971: Datenblatt \protect\cite{LT3971_Datasheet}, Mainboard PCB}
 	\label{fig:LT2971_Layout}
 \end{figure}
@@ -141,7 +141,7 @@ Bei einem getakteten Spannungswandler sollte das Layout gemäss den Design Richt
 \subsubsection{HMI Interface} \label{sec:Mainboard_HMI_Interface}
 Das HMI bildet die Schnittstelle zwischen Operator und Planting Robot. Der Planting Robot soll so einfach wie möglich zu bedienen sein. Auf ein Touchscreen Interface oder Displays mit Menüführung durch Taster wird daher bewusst verzichtet. Stattdessen werden Taster mit blau, grün und weisser LED-Ring Beleuchtung (siehe Abb. \ref{fig:Taster_LED-Ring}) verwendet. Die Funktionen des Planting Robots werden dabei durch korrespondierende Taster realisiert. Die Funktionen des HMI werden in Kapitel \ref{sec:HMI} erklärt.
 \begin{figure}[H]
-	\includegraphics[width=0.7\textwidth]{Illustrationen/6-Umsetzung/HMI_LED_Taster.png}
+	\includegraphics[draft=false,width=1\textwidth]{Illustrationen/6-Umsetzung/HMI_LED_Taster.png}
 	\caption{HMI Taster mit LED Ring \protect\cite{HMI_Taster}}
 	\label{fig:Taster_LED-Ring}
 \end{figure}
@@ -155,7 +155,7 @@ In Summe werden für das HMI 11 Taster und 14 LEDs angesteuert. Gemäss Tabelle 
 Eine Keyboard Matrix kann über ein entsprechendes IC wie z.B. den LM8330 von TI realisiert werden. Dieses IC wird an den I$^2$C Bus angeschlossen und übernimmt die Matrizenauswertung inklusive entprellen der Taster. Der LM8330 ist allerdings nur im DSBGA Package (siehe Abb. \ref{fig:DSBGA_Package}), in der Grösse 2mm x 2mm, erhältlich. Dieses Package ist im Leiterplatten Prototypenbau nicht verwendbar, da es nicht von Hand bestückt werden kann.\newline
 
 \begin{figure}[H]
-	\includegraphics[width=0.27\textwidth]{Illustrationen/6-Umsetzung/DSBGA_Package.png}
+	\includegraphics[draft=false,width=0.45\textwidth]{Illustrationen/6-Umsetzung/DSBGA_Package.png}
 	\caption{LM8330 DSBGA Package \protect\cite{DSBGA_Package}}
 	\label{fig:DSBGA_Package}
 \end{figure}
@@ -163,7 +163,7 @@ Eine Keyboard Matrix kann über ein entsprechendes IC wie z.B. den LM8330 von TI
 Um GPIO Ports am uC einzusparen und um einen höheren Diodenstrom liefern zu können, wird der LP3943 LED Treiber Baustein von TI verwendet. Er verfügt über ein I$^{2}$C Schnittstelle für die Kommunikation zum FRDM-Board. Der LP3942 ist durch seine Open-Drain Treiberstufe in der Lage bis zu 25mA pro LED Pin und 200mA pro Package zu treiben. Das IC verfügt weiterhin über zwei integrierte Timer, durch welche zwei PWM Signale zum dimmen der LEDs generiert werden können. Die Timerfrequenz kann zwischen 0.625Hz und 160Hz eingestellt werden. In Abb. \ref{fig:Mainboard_LED_Driver_LP3943} ist ein Auszug aus dem Schema des Mainboard PCBs abgebildet. 
 
 \begin{figure}[H]
-	\includegraphics[width=0.7\textwidth]{Illustrationen/6-Umsetzung/Schema_Mainboard_LP39431.png}
+	\includegraphics[draft=false,width=0.7\textwidth]{Illustrationen/6-Umsetzung/Schema_Mainboard_LP39431.png}
 	\caption{Schema Mainboard PCB, LED Treiber}
 	\label{fig:Mainboard_LED_Driver_LP3943}
 \end{figure}
@@ -171,7 +171,7 @@ Um GPIO Ports am uC einzusparen und um einen höheren Diodenstrom liefern zu kö
 Links ist der LED Treiber LP3943 zu sehen. Alle LEDs für das HMI sind daran angeschlossen. Über die Adressleitungen A0... A2 können die letzten 3 Bit der I$^{2}$C Adresse des Treibers bestimmt werden. In dieser Anwendung sind diese Digital Eingänge alle mit GND potential verbunden und somit auf logisch "0" konfiguriert. Auf der rechten Seite der Abbildung ist der Stecker J6 für einen Taster mit LED-Ring abgebildet. Alle HMI Taster mit LED-Ring werden jeweils über einen eigenen 4Pin Molex MicroFit Stecker verdrahtet (siehe Abb. \ref{fig:Mainboard_HMI_Layout}). Dabei wird der LED-Ring des Taster an Pin 1 und 2, der NO Kontakt an Pin 3 und der GND Kontakt an Pin 4 des Steckers angeschlossen.
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{Illustrationen/6-Umsetzung/HMI_Layout.jpg}
+	\includegraphics[draft=false,width=1\textwidth]{Illustrationen/6-Umsetzung/HMI_Layout.jpg}
 	\caption{Mainboard PCB, Onboard HMI}
 	\label{fig:Mainboard_HMI_Layout}
 \end{figure}
