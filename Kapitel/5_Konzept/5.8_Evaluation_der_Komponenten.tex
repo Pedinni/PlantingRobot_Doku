@@ -75,7 +75,7 @@ Die hohen Anforderung an die Dynamik des Antriebs stellen nebst den Leistungsdat
 Eine Lösung mit Schrittmotor wäre aufgrund der einfachen Ansteuerung, bei den geforderten Leistungsdaten die günstigste Variante. Da Schrittmotoren keine Feedback Sensorik zur Regelung der Drehzahl benötigen. Entscheidender Nachteil von Schrittmotoren ist deren schlechteres dynamisches Verhalten. So nimmt das Drehmoment bei steigender Drehzahl ab. Weiter kann ein Schrittmotor, durch das Risiko eines Schrittverlustes, bei gleichem Nennmoment nicht so stark beschleunigt werden wie beispielsweise ein DC oder BLDC Motor. Schrittmotoren müssen bezogen auf die Leistungsdaten demnach um ein vielfaches höher ausgelegt werden als sie effektiv im normalen Betrieb benötigen. Ein weiterer negativer Punkt von Schrittmotoren ist ihre schlechte Laufruhe. Diese kann durch die Verwendung von Microsteps verbessert werden, führt dann jedoch wieder zu einem Drehmomentverlust. 
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{Illustrationen/5-Konzept/Motorentypen.png}
+	\includegraphics[draft=false,scale=0.55]{Illustrationen/5-Konzept/Motorentypen.png}
 	\caption{Übersicht Motorentypen \protect\cite{Motorentypen}}
 	\label{fig:Motorentypen}
 \end{figure}
@@ -122,7 +122,7 @@ Für die Spannungsversorgung kommt das 36V Netzteil von Mean Well mit der Typenb
 
 
 \subsubsection{Vereinzelung und Verstellmechanik}
-\textit{(pro)} Die beiden Maschinenteile Vereinzelung und Verstellmechanik wurden in einem Kapitel zusammengefasst, weil sie ähnliche Anforderungen an den Antrieb stellen. Gemäss Abbildung \ref{fig:Motorentypen} über die verschiedenen Motorentypen kommen auch hier wieder dieselben Kriterien zur Auswahl des geeigneten Motorentypes zum Einsatz. Das erforderliche Drehmoment für die beiden Funktionen zu schätzen ist sehr schwierig, da lediglich Reibungsdrehmomente als Last vorliegen. Für beide Maschinenteile wurden deshalb DC-Getriebemotoren mit Encoder als die beste Lösung evaluiert. Sie entwickeln bei minimalen Kosten durch die Getriebeübersetzung ein hohes Drehmoment welches eine sichere Funktion garantiert. Die minimale Drehzahl für die Vereinzelung ergibt sich aus der Anzahl Töpfe pro Minute, der Anzahl Lochreihen pro Umdrehung der Lochmaske und einen Sicherheitsfaktor S für die Zeit, in welcher die Lochmaske still stehen soll um die NemaCaps fallen zu lassen:
+Die beiden Maschinenteile Vereinzelung und Verstellmechanik wurden in einem Kapitel zusammengefasst, weil sie ähnliche Anforderungen an den Antrieb stellen. Gemäss Abbildung \ref{fig:Motorentypen} über die verschiedenen Motorentypen kommen auch hier wieder dieselben Kriterien zur Auswahl des geeigneten Motorentypes zum Einsatz. Das erforderliche Drehmoment für die beiden Funktionen zu schätzen ist sehr schwierig, da lediglich Reibungsdrehmomente als Last vorliegen. Für beide Maschinenteile wurden deshalb DC-Getriebemotoren mit Encoder als die beste Lösung evaluiert. Sie entwickeln bei minimalen Kosten durch die Getriebeübersetzung ein hohes Drehmoment welches eine sichere Funktion garantiert. Die minimale Drehzahl für die Vereinzelung ergibt sich aus der Anzahl Töpfe pro Minute, der Anzahl Lochreihen pro Umdrehung der Lochmaske und einen Sicherheitsfaktor S für die Zeit, in welcher die Lochmaske still stehen soll um die NemaCaps fallen zu lassen:
 
 \begin{equation}
 	n = \frac{ N_{Toepfe pro Minute}}{ N_{Lochreihen}} \cdot S  = \frac{60\frac{1}{min}}{6} \cdot 3 = 30\frac{1}{min}

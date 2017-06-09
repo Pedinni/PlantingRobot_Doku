@@ -2,6 +2,7 @@
 \label{funktionsnachweis}
 \textit{(ygu)} Dieses Unterkapitel befasst sich mit dem praktischen Nachweis von kritischen Teilfunktionen. Kritische Teilfunktionen sind Funktionen, welche bei einem Ausfall, einen Ausfall des Gesamtsystems zur Folge hat. Daher wird die technische Machbarkeit dieser Teillösungen zusätzlich überprüft. Einfach aufgebaute aber funktionell ähnliche Versuche werden realisert. An diesen Aufbauten wird dann der praktische Nachweis erbracht, ob die techische Umsetzbarkeit realistisch erscheint. Diese Beurteilung wird für Bewertung der ausgearbeiteten Lösungskonzepte miteinbegezogen.
 \newline
+
 Bei Betrachtung der Funktionsanalysen (Abbildungen \ref{fig:FunktPflicht} und \ref{fig:FunktWunsch}) ist erkennbar, dass beide Varianten (Pflicht sowie Wunsch) eine Serieschaltung darstellen.  Bei der Umsetzung einer Maschine mit einfacher Redundanz ergibt dies implizit, dass jede Funktion als kritisch eingestuft wird. Aus zeitlichen Gründen kann ein umfassenden Nachweis von allen Teillösungskonzepten nicht abschliessend durchgeführt werden. Für den Nachweis ist eine pragmatische Auswahl notwendig. Es werden daher nur Funktionen mit erhöhtem Ausfallrisiko und einer vielversprechenden Funktionserfüllung überprüft.
 
 \subsubsection{NemaCaps vereinzeln und fördern}
@@ -119,7 +120,9 @@ Folgende Erkenntnisse lieferte das Funktionsmuster:
 	
 	\item Am Rand der Kulisse nimmt der Kraftaufwand für eine Verstellung deutlich zu. Es kommt auch vor, dass die Kulisse am Rand kaum in Bewegung gerät. Dies ist damit erklärbar, dass an diesem Punkt die Wirkungslinien der Kulissen normal zueinander stehen und so kein Moment auf die äussere Kulisse wirken kann. Bei einer allfälligen Umsetzung müssen die Wirkungslinien der Kulissen möglichst parallel verlaufen. 
 \end{itemize} 
-\subsubsection{Topferkennung} \label{sec:Topferkennung_ProveOfConcept}
+\newpage
+\subsubsection{Topferkennung} 
+\label{sec:Topferkennung_ProveOfConcept}
 \textit{(pro)} Als Sensor für die Topferkennung wurde der IR Distanzsensor von Sharp mit der Typenbezeichnung GP2Y0A41SK0F verwendet. Dabei wurde der genannte IR-Sensor mit einem ADC Port des FRDM-Boards verbunden. Es wurde eine Testmessung durchgeführt in der ein Blumentopf mit 14cm Durchmesser vor dem IR-Sensor, mit zwei verschiedenen Geschwindigkeiten, vorbeigeführt wurde. 
 
 \begin{figure}[H]
